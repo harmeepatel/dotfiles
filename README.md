@@ -1,0 +1,2 @@
+# mmc
+my Mac config.
