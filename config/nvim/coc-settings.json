@@ -1,0 +1,68 @@
+{
+    "Lua.telemetry.enable": true,
+    "suggest.completionItemKindLabels": {
+        "method": "    ",
+        "function": "    ",
+        "variable": "    ",
+        "field": "  ﰠ  ",
+        "typeParameter": " [] ",
+        "constant": "    ",
+        "class": "  ﴯ  ",
+        "interface": "  囹 ",
+        "struct": "  פּ  ",
+        "event": "    ",
+        "operator": "    ",
+        "module": "    ",
+        "property": "  ﰠ  ",
+        "value": "    ",
+        "enum": "    ",
+        "enumMember": "    ",
+        "reference": "    ",
+        "keyword": "    ",
+        "file": "    ",
+        "folder": "    ",
+        "color": "    ",
+        "unit": "  塞  ",
+        "snippet": "    ",
+        "text": "    ",
+        "default": "  ⌾  "
+    },
+    "coc.preferences.formatOnSaveFiletypes": ["*"],
+    "suggest.maxCompleteItemCount": 64,
+    "suggest.floatConfig": {
+        "border": true,
+        "highlight": "CocFloating",
+        "borderhighlight": "CocFloating",
+        "winblend": 16
+    },
+    "diagnostic.floatConfig": {
+        "border": true,
+        "highlight": "CocFloating",
+        "borderhighlight": "CocFloating",
+        "winblend": 16
+    },
+    "signature.floatConfig": {
+        "border": true,
+        "highlight": "CocFloating",
+        "borderhighlight": "CocFloating",
+        "winblend": 16
+    },
+    "hover.floatConfig": {
+        "border": true,
+        "highlight": "CocFloating",
+        "borderhighlight": "CocFloating",
+        "winblend": 16
+    },
+    "tsserver.enableJavascript": true,
+    "tsserver.enable": true,
+    "javascript.suggest.paths": true,
+    "prettier.tabWidth": 4,
+    "prettier.jsxBracketSameLine": true,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "all",
+    "Lua.format.enable": true,
+    "Lua.workspace.maxPreload": 20000,
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "/usr/local/lib/python3.9/site-packages",
+    "eslint.autoFixOnSave": true
+}
