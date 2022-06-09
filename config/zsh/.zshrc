@@ -38,6 +38,8 @@ export PATH
 # export PS1
 
 export PATH="$PATH:/Users/harmy_patel/Developer/flutter/bin"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -45,7 +47,7 @@ alias ....="cd ../../.."
 alias ls="exa -ll --icons"
 alias cat="bat"
 alias rg="rg --hidden --ignore .git -g"
-alias fd="fd -H"
+alias fd="fd -u"
 alias echo="echo -e"
 
 alias zrc="nvim ~/.zshrc"
@@ -63,72 +65,13 @@ alias htdocs="cd /Users/harmy_patel/.bitnami/stackman/machines/xampp/volumes/roo
 alias dp="cd ~/Developer/projects"
 alias dpr="cd ~/Developer/projects/rust"
 alias dpw="cd ~/Developer/projects/websites"
-
-cocYarnInstall() {
-    cwd=$(pwd)
-    echo "exiting $green$bold$italic$cwd\n$normal" &&
-    cd .local/share/nvim/site/pack/packer/start/coc.nvim &&
-    yarn install &&
-    cd $cwdForCoc &&
-    echo "\nentering $green$bold$italic$cwd$normal" &&
-}
+alias conf="cd ~/Developer/mmc/config"
 
 
-acp(){
-	if [[ "$1" == "" ]]
-	then
-		echo "enter a message..."
-	else
-		git add .
-		git commit -m "$1"
-		git push
-	fi
-}
+source ~/.config/zsh/zshrc_functions.zsh
+source ~/.config/zsh/vim_mode.zsh
 
-cn(){
-	if [[ $1 == "cf" ]]
-	then
-		if [ -f ~/Developer/CP/codeforces/$2.cpp ];then
-			subl ~/Develope/CP/codeforces/$2.cpp
-		else
-			touch ~/Developer/CP/codeforces/$2.cpp
-			cp ~/Developer/CP/template.cpp ~/Developer/CP/codeforces/$2.cpp
-			cd codeforces
-			nvim $2.cpp
-		fi
-	fi
+plugins=(
+    zsh-vim-mode
+)
 
-	if [[ $1 == "lc" ]]
-	then
-		if [ -f ~/Developer/CP/leetcode/$2.cpp ];then
-			subl ~/Developer/CP/leetcode/$2.cpp
-		else
-			touch ~/Developer/CP/leetcode/$2.cpp
-			cp ~/Developer/CP/template.cpp ~/Developer/CP/leetcode/$2.cpp
-			cd leetcode
-			nvim $2.cpp
-		fi
-	fi
-	if [[ $1 == "at" ]]
-	then
-		if [ -f ~/Developer/CP/atcoder/$2.cpp ];then
-			subl ~/Developer/CP/atcoder/$2.cpp
-		else
-			touch ~/Developer/CP/atcoder/$2.cpp
-			cp ~/Developer/CP/template.cpp ~/Developer/CP/atcoder/$2.cpp
-			cd atcoder
-			nvim $2.cpp
-		fi
-	fi
-}
-
-g++(){
-	g++-10 -std=c++17 -O2 -Wall $1 && ./a.out && rm -rf a.out
-}
-
-mkcd(){
-	mkdir $1 && cd $1
-}
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

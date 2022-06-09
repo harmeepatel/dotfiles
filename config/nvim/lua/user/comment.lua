@@ -21,9 +21,9 @@ comment.setup({
     ---@type table
     opleader = {
         ---Line-comment keymap
-        line = 'gc',
+        line = 'ccl',
         ---Block-comment keymap
-        block = 'gb',
+        block = 'ccb',
     },
 
     ---LHS of extra mappings

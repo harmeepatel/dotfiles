@@ -18,7 +18,7 @@ o.number = true
 o.relativenumber = true
 o.expandtab = true
 o.smartindent = true
-o.cursorline = true
+o.cursorline = false
 o.ignorecase = true
 o.smartcase = true
 o.errorbells = false
@@ -44,10 +44,5 @@ o.writebackup = false
 o.wrap = false
 
 
--- airline_theme
-g.airline_theme = 'base16'
-g.airline_powerline_fonts = 1
--- g.airline_section_c = '%:L'
 -- autocmd
-
 require 'user.autocmd'

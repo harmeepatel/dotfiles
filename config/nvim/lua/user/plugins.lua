@@ -37,9 +37,10 @@ return require('packer').startup(function()
     -- dufferline
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
 
-    -- vim airline
-    use 'vim-airline/vim-airline'
-    use 'vim-airline/vim-airline-themes'
+    -- statusline
+    -- use 'vim-airline/vim-airline'
+    -- use 'vim-airline/vim-airline-themes'
+    use { 'ojroques/nvim-hardline' }
 
     -- nvim-tree
     use 'kyazdani42/nvim-tree.lua'

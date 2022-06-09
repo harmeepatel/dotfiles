@@ -1,70 +1,57 @@
 #Spell:words alacritty lfcd
 live_config_reload: true
-
 env:
     TERM: xterm-256color
-
-import:
-    - ~/.config/alacritty/aw/current.yml
-
+    # TERM: tmux-256color
+# import:
+#     - ~/.config/alacritty/aw/current.yml
 selection:
     semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
     save_to_clipboard: true
-
 window:
     dimensions:
         columns: 156
         lines: 62
-    opacity: 0.94
+    opacity: 0.98
     padding:
         x: 12
         y: 12
     dynamic_padding: false
     decorations: buttonless
-
 mouse:
     hide_when_typing: true
-
 scrolling:
     history: 10000
-
 font:
     normal:
-        family:
-            FiraCode Nerd Font Mono
-            #style: Regular
-
+        family: CaskaydiaCove NF
+        #style: Regular
     bold:
-        family: FiraCode Nerd Font Mono
+        family: CaskaydiaCove NF
         #style: Bold
-
     italic:
-        family: FiraCode Nerd Font Mono
+        family: CaskaydiaCove NF
         #style: Italic
-
     #bold_italic:
     #family: monospace
     #style: Bold Italic
-
-    size: 13
-
+    size: 14
     offset:
         x: 2
-        y: 4
-
+        y: 16
     use_thin_strokes: true
 
+# Base16 Monokai 256 - alacritty color config
+# Wimer Hazenberg (http://www.monokai.nl)
 colors:
     # Default colors
     primary:
         background: '0x272822'
         foreground: '0xf8f8f2'
-
     # Colors the cursor will use if `custom_cursor_colors` is true
     cursor:
         text: '0x272822'
         cursor: '0xf8f8f2'
-
     # Normal colors
     normal:
         black: '0x272822'
@@ -75,7 +62,6 @@ colors:
         magenta: '0xae81ff'
         cyan: '0xa1efe4'
         white: '0xf8f8f2'
-
     # Bright colors
     bright:
         black: '0x75715e'
@@ -86,7 +72,6 @@ colors:
         magenta: '0xae81ff'
         cyan: '0xa1efe4'
         white: '0xf9f8f5'
-
     indexed_colors:
         - { index: 16, color: '0xfd971f' }
         - { index: 17, color: '0xcc6633' }
@@ -94,7 +79,45 @@ colors:
         - { index: 19, color: '0x49483e' }
         - { index: 20, color: '0xa59f85' }
         - { index: 21, color: '0xf5f4f1' }
-
+key_bindings:
+  # Rename the current tmux window
+  - { key: Comma, mods: Command, chars: "\x02\x2c" }
+  # Select a new tmux session for the attached client interactively
+  # - { key: K, mods: Command, chars: "\x02\x73" }
+  - { key: K, mods: Command, chars: "clear\x0a" }
+  # Select window 1-9
+  - { key: Key1, mods: Command, chars: "\x02\x31" }
+  - { key: Key2, mods: Command, chars: "\x02\x32" }
+  - { key: Key3, mods: Command, chars: "\x02\x33" }
+  - { key: Key4, mods: Command, chars: "\x02\x34" }
+  - { key: Key5, mods: Command, chars: "\x02\x35" }
+  - { key: Key6, mods: Command, chars: "\x02\x36" }
+  - { key: Key7, mods: Command, chars: "\x02\x37" }
+  - { key: Key8, mods: Command, chars: "\x02\x38" }
+  - { key: Key9, mods: Command, chars: "\x02\x39" }
+  # Switch to last tmux session
+  - { key: L, mods: Command, chars: "\x02\x4c" }
+  - { key: LBracket, mods: Command, chars: "\x02\x5b" }
+  # Change to the previous tmux window
+  - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
+  # Split the current pane into two, left and right
+  - { key: N, mods: Command|Shift, chars: "\x02\x25" }
+  # Split the current pane into two, top and bottom.
+  - { key: N, mods: Command, chars: "\x02\x22" }
+  # Detach the current tmux client
+  - { key: Q, mods: Command, chars: "\x02\x64" }
+  # Change to the next tmux window
+  - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
+  # Type <escape>:w<enter> to save neovim
+  - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
+  # Create a new tmux window
+  - { key: T, mods: Command, chars: "\x02\x63" }
+  # Break the current tmux pane out of the tmux window
+  - { key: T, mods: Command|Shift, chars: "\x02\x21" }
+  # Kill the current tmux pane (and window if last pane)
+  - { key: W, mods: Command, chars: "\x02\x78" }
+  # Toggle the zoom state of the current tmux pane
+  - { key: Z, mods: Command, chars: "\x02\x7a" }
 key_bindings:
     - { key: Comma, mods: Command, chars: "\x02," }
     - { key: D, mods: Command, chars: "\x02K" }
@@ -112,7 +135,6 @@ key_bindings:
     - { key: W, mods: Command, chars: "\x02x" }
     - { key: Z, mods: Command, chars: "\x02z" }
     - { key: K, mods: Command, chars: "clear\x0a" }
-    - { key: D, mods: Option, chars: "cd ~/Developer/projects/\x0a" }
     - { key: Key1, mods: Command, chars: "\x021" }
     - { key: Key2, mods: Command, chars: "\x022" }
     - { key: Key3, mods: Command, chars: "\x023" }

@@ -14,7 +14,7 @@ vim.g.coc_global_extensions = {
     'coc-markdownlint',
     'coc-pyright',
     'coc-lua',
-    'coc-rust-analyzer',
+    'coc-rls',
     'coc-pairs',
     'coc-db',
     'coc-highlight',
@@ -22,4 +22,5 @@ vim.g.coc_global_extensions = {
     'coc-ultisnips',
     'coc-emoji',
     'coc-yank',
+    'coc-sh',
 }
