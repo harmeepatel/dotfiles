@@ -15,7 +15,7 @@ vim.g.coc_global_extensions = {
     'coc-pyright',
     'coc-lua',
     'coc-rls',
-    'coc-pairs',
+    -- 'coc-pairs',
     'coc-db',
     'coc-highlight',
     'coc-snippets',
