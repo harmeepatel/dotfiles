@@ -13,7 +13,6 @@ cocYarnInstall() {
     echo "\nentering $green$bold$italic$cwd$normal" &&
 }
 
-
 acp(){
 	if [[ "$1" == "" ]]
 	then
@@ -70,7 +69,7 @@ mkcd(){
 }
 
 remove_ds(){
-    find . -name .DS_Store -print0 | xargs -0 . rm -f --ignore-unmatch
+    find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
 }
 
 opnssl_enc(){

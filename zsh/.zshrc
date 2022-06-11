@@ -44,11 +44,18 @@ export PATH="$PATH:/Users/harmy_patel/Developer/flutter/bin"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias ls="exa -ll --icons"
+alias ls="exa -ll -a --icons"
 alias cat="bat"
 alias rg="rg --hidden --ignore .git -g"
 alias fd="fd -u"
 alias echo="echo -e"
+alias cargo\ new="cargo new --vcs=none" # no git init
+
+alias htdocs="cd /Users/harmy_patel/.bitnami/stackman/machines/xampp/volumes/root/htdocs"
+alias dp="cd ~/Developer/projects"
+alias dpr="cd ~/Developer/projects/rust"
+alias dpw="cd ~/Developer/projects/websites"
+alias conf="cd ~/Developer/mmc/config"
 
 alias zrc="nvim ~/.zshrc"
 alias zprofile="nvim ~/.zprofile"
@@ -60,12 +67,6 @@ alias pip="pip3"
 
 alias v="nvim"
 alias btm='btm --color gruvbox'
-
-alias htdocs="cd /Users/harmy_patel/.bitnami/stackman/machines/xampp/volumes/root/htdocs"
-alias dp="cd ~/Developer/projects"
-alias dpr="cd ~/Developer/projects/rust"
-alias dpw="cd ~/Developer/projects/websites"
-alias conf="cd ~/Developer/mmc/config"
 
 
 source ~/.config/zsh/zshrc_functions.zsh
