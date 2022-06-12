@@ -24,13 +24,13 @@ scrolling:
     history: 10000
 font:
     normal:
-        family: CaskaydiaCove NF
+        family: FiraCode Nerd Font
         #style: Regular
     bold:
-        family: CaskaydiaCove NF
+        family: FiraCode Nerd Font
         #style: Bold
     italic:
-        family: CaskaydiaCove NF
+        family: FiraCode Nerd Font
         #style: Italic
     #bold_italic:
     #family: monospace
@@ -38,7 +38,7 @@ font:
     size: 14
     offset:
         x: 2
-        y: 16
+        y: 14
     use_thin_strokes: true
 
 # Base16 Monokai 256 - alacritty color config
