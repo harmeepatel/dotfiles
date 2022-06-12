@@ -64,5 +64,6 @@
     "Lua.workspace.maxPreload": 20000,
     "python.formatting.provider": "black",
     "python.formatting.blackPath": "/usr/local/lib/python3.9/site-packages",
-    "eslint.autoFixOnSave": true
+    "eslint.autoFixOnSave": true,
+    "rust-analyzer.inlayHints.typeHintsSeparator": "‣"
 }
