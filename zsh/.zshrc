@@ -49,7 +49,6 @@ alias cat="bat"
 alias rg="rg --hidden --ignore .git -g"
 alias fd="fd -u"
 alias echo="echo -e"
-alias cargo\ new="cargo new --vcs=none" # no git init
 
 alias htdocs="cd /Users/harmy_patel/.bitnami/stackman/machines/xampp/volumes/root/htdocs"
 alias dp="cd ~/Developer/projects"
