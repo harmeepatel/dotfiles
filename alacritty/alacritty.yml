@@ -35,10 +35,10 @@ font:
     #bold_italic:
     #family: monospace
     #style: Bold Italic
-    size: 14
+    size: 12
     offset:
         x: 2
-        y: 14
+        y: 10
     use_thin_strokes: true
 
 # Base16 Monokai 256 - alacritty color config
