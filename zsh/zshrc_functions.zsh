@@ -17,6 +17,7 @@ acp(){
 	if [[ "$1" == "" ]]
 	then
 		echo "enter a message..."
+        return
 	else
 		git add .
 		git commit -m "$1"
