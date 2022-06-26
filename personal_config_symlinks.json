@@ -32,6 +32,10 @@
         "to": "/Users/harmeepatel/.warp"
     },
     {
+        "from": "/Users/harmeepatel/Developer/mmc/.gitconfig",
+        "to": "/Users/harmeepatel/.gitconfig"
+    },
+    {
         "from": "/Users/harmeepatel/Developer/mmc/zsh/.p10k.zsh",
         "to": "/Users/harmeepatel/.p10k.zsh"
     },
