@@ -6,7 +6,7 @@
 
 [delta]
     line-numbers = true
-    features = unobtrusive-line-numbers decorations
+    features = unobtrusive-line-numbers decorations tangara-chilensis
     ; side-by-side = true
 
 [delta "unobtrusive-line-numbers"]
