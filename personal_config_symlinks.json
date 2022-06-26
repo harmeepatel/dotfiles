@@ -36,6 +36,10 @@
         "to": "/Users/harmeepatel/.gitconfig"
     },
     {
+        "from": "/Users/harmeepatel/Developer/mmc/themes.gitconfig",
+        "to": "/Users/harmeepatel/themes.gitconfig"
+    },
+    {
         "from": "/Users/harmeepatel/Developer/mmc/zsh/.p10k.zsh",
         "to": "/Users/harmeepatel/.p10k.zsh"
     },
