@@ -10,6 +10,7 @@ vim.g.coc_global_extensions = {
     'coc-eslint',
     'coc-json',
     'coc-prettier',
+    'coc-deno',
     'coc-sumneko-lua',
     'coc-markdownlint',
     'coc-pyright',

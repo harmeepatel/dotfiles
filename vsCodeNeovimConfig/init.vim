@@ -1,15 +1,11 @@
-" ----- Source ----- 
-source ~/.vim/plug-config/coc.vim 
-
-" ---- General ----- 
-syntax enable
+" ---- General -----
 set relativenumber
 set smartindent
 
-" ----- Key remaps ----- 
-let mapleader = " " 
-inoremap kj <Esc> 
-inoremap jk <Esc> 
+" ----- Key remaps -----
+let mapleader = " "
+inoremap kj <Esc>
+inoremap jk <Esc>
 
 nnoremap ; :
 vnoremap ; :
