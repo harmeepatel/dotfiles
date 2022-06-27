@@ -1,50 +1,50 @@
 [
     {
-        "from": "/Users/harmeepatel/Developer/mmc/alacritty",
-        "to": "/Users/harmeepatel/.config/alacritty"
+        "from": "$HOME/Developer/mmc/alacritty",
+        "to": "$HOME/.config/alacritty"
     },
     {
-        "from": "/Users/harmeepatel/Developer/mmc/btop",
-        "to": "/Users/harmeepatel/.config/btop"
+        "from": "$HOME/Developer/mmc/btop",
+        "to": "$HOME/.config/btop"
     },
     {
-        "from": "/Users/harmeepatel/Developer/mmc/kitty",
-        "to": "/Users/harmeepatel/.config/kitty"
+        "from": "$HOME/Developer/mmc/kitty",
+        "to": "$HOME/.config/kitty"
     },
     {
-        "from": "/Users/harmeepatel/Developer/mmc/nvim",
-        "to": "/Users/harmeepatel/.config/nvim"
+        "from": "$HOME/Developer/mmc/nvim",
+        "to": "$HOME/.config/nvim"
     },
     {
-        "from": "/Users/harmeepatel/Developer/mmc/zsh",
-        "to": "/Users/harmeepatel/.config/zsh"
+        "from": "$HOME/Developer/mmc/zsh",
+        "to": "$HOME/.config/zsh"
     },
     {
-        "from": "/Users/harmeepatel/Developer/mmc/zunk",
-        "to": "/Users/harmeepatel/.config/zunk"
+        "from": "$HOME/Developer/mmc/zunk",
+        "to": "$HOME/.config/zunk"
     },
     {
-        "from": "/Users/harmeepatel/Developer/mmc/tmux/tmux.conf",
-        "to": "/Users/harmeepatel/.config/tmux/tmux.conf"
+        "from": "$HOME/Developer/mmc/tmux/tmux.conf",
+        "to": "$HOME/.config/tmux/tmux.conf"
     },
     {
-        "from": "/Users/harmeepatel/Developer/mmc/.warp",
-        "to": "/Users/harmeepatel/.warp"
+        "from": "$HOME/Developer/mmc/.warp",
+        "to": "$HOME/.warp"
     },
     {
-        "from": "/Users/harmeepatel/Developer/mmc/.gitconfig",
-        "to": "/Users/harmeepatel/.gitconfig"
+        "from": "$HOME/Developer/mmc/.gitconfig",
+        "to": "$HOME/.gitconfig"
     },
     {
-        "from": "/Users/harmeepatel/Developer/mmc/themes.gitconfig",
-        "to": "/Users/harmeepatel/themes.gitconfig"
+        "from": "$HOME/Developer/mmc/themes.gitconfig",
+        "to": "$HOME/themes.gitconfig"
     },
     {
-        "from": "/Users/harmeepatel/Developer/mmc/zsh/.p10k.zsh",
-        "to": "/Users/harmeepatel/.p10k.zsh"
+        "from": "$HOME/Developer/mmc/zsh/.p10k.zsh",
+        "to": "$HOME/.p10k.zsh"
     },
     {
-        "from": "/Users/harmeepatel/Developer/mmc/zsh/.zshrc",
-        "to": "/Users/harmeepatel/.zshrc"
+        "from": "$HOME/Developer/mmc/zsh/.zshrc",
+        "to": "$HOME/.zshrc"
     }
 ]
