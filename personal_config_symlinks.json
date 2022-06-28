@@ -1,50 +1,50 @@
 [
     {
-        "from": "$HOME/Developer/mmc/alacritty",
-        "to": "$HOME/.config/alacritty"
+        "from": "~/Developer/mmc/alacritty",
+        "to": "~/.config/alacritty"
     },
     {
-        "from": "$HOME/Developer/mmc/btop",
-        "to": "$HOME/.config/btop"
+        "from": "~/Developer/mmc/btop",
+        "to": "~/.config/btop"
     },
     {
-        "from": "$HOME/Developer/mmc/kitty",
-        "to": "$HOME/.config/kitty"
+        "from": "~/Developer/mmc/kitty",
+        "to": "~/.config/kitty"
     },
     {
-        "from": "$HOME/Developer/mmc/nvim",
-        "to": "$HOME/.config/nvim"
+        "from": "~/Developer/mmc/nvim",
+        "to": "~/.config/nvim"
     },
     {
-        "from": "$HOME/Developer/mmc/zsh",
-        "to": "$HOME/.config/zsh"
+        "from": "~/Developer/mmc/zsh",
+        "to": "~/.config/zsh"
     },
     {
-        "from": "$HOME/Developer/mmc/zunk",
-        "to": "$HOME/.config/zunk"
+        "from": "~/Developer/mmc/zunk",
+        "to": "~/.config/zunk"
     },
     {
-        "from": "$HOME/Developer/mmc/tmux/tmux.conf",
-        "to": "$HOME/.config/tmux/tmux.conf"
+        "from": "~/Developer/mmc/tmux/tmux.conf",
+        "to": "~/.config/tmux/tmux.conf"
     },
     {
-        "from": "$HOME/Developer/mmc/.warp",
-        "to": "$HOME/.warp"
+        "from": "~/Developer/mmc/.warp",
+        "to": "~/.warp"
     },
     {
-        "from": "$HOME/Developer/mmc/.gitconfig",
-        "to": "$HOME/.gitconfig"
+        "from": "~/Developer/mmc/.gitconfig",
+        "to": "~/.gitconfig"
     },
     {
-        "from": "$HOME/Developer/mmc/themes.gitconfig",
-        "to": "$HOME/themes.gitconfig"
+        "from": "~/Developer/mmc/themes.gitconfig",
+        "to": "~/themes.gitconfig"
     },
     {
-        "from": "$HOME/Developer/mmc/zsh/.p10k.zsh",
-        "to": "$HOME/.p10k.zsh"
+        "from": "~/Developer/mmc/zsh/.p10k.zsh",
+        "to": "~/.p10k.zsh"
     },
     {
-        "from": "$HOME/Developer/mmc/zsh/.zshrc",
-        "to": "$HOME/.zshrc"
+        "from": "~/Developer/mmc/zsh/.zshrc",
+        "to": "~/.zshrc"
     }
 ]

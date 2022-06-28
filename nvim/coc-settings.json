@@ -53,6 +53,7 @@
         "borderhighlight": "CocFloating",
         "winblend": 16
     },
+    "tailwindCSS.emmetCompletions": true,
     "tsserver.enableJavascript": true,
     "tsserver.enable": true,
     "javascript.suggest.paths": true,

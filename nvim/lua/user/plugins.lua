@@ -63,6 +63,11 @@ return require('packer').startup(function()
         run = 'yarn install --frozen-lockfile'
     }
 
+    use {
+        'rodrigore/coc-tailwind-intellisense',
+        run = 'npm install'
+    }
+
     -- toggleterm
     use { "akinsho/toggleterm.nvim", tag = 'v1.*' }
 
