@@ -36,15 +36,19 @@
         "to": "~/.gitconfig"
     },
     {
-        "from": "~/Developer/mmc/themes.gitconfig",
-        "to": "~/themes.gitconfig"
-    },
-    {
         "from": "~/Developer/mmc/zsh/.p10k.zsh",
         "to": "~/.p10k.zsh"
     },
     {
         "from": "~/Developer/mmc/zsh/.zshrc",
         "to": "~/.zshrc"
+    },
+    {
+        "from": "~/Developer/mmc/hahaha.gitconfig",
+        "to": "~/hahaha.gitconfig"
+    },
+    {
+        "from": "~/Developer/mmc/haha.gitconfig",
+        "to": "~/haha.gitconfig"
     }
 ]
