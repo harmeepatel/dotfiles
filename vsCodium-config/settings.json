@@ -1,5 +1,5 @@
 {
-    "vim.vimrc.path": "$HOME/Developer/mmc/vsCodeNeovimConfig/init.vim",
+    "vim.vimrc.path": "$HOME/Developer/mmc/vsCodium-config/init.vim",
     "vim.vimrc.enable": true,
     "vim.smartRelativeLine": true,
     "gruvboxMaterial.darkContrast": "hard",
@@ -16,4 +16,11 @@
     "prettier.tabWidth": 4,
     "debug.console.fontSize": 14,
     "terminal.integrated.fontSize": 14,
+    "workbench.colorTheme": "Gruvbox Material Dark",
+    "editor.quickSuggestionsDelay": 12,
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "inline",
+        "strings": "off"
+    },
 }
