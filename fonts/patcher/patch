@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for font in `ls $search_dir | grep otf`; do
+    fontforge -script ./nerd-fonts-patcher/font-patcher $font -s -l --quiet --fontawesome --fontawesomeextension --octicons --powersymbols --powerline --mdi --weather --careful -out output
+    echo ------------- $font -------------
+done
