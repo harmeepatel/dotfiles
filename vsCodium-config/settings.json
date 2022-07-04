@@ -2,7 +2,6 @@
     "vim.vimrc.path": "$HOME/Developer/mmc/vsCodium-config/init.vim",
     "vim.vimrc.enable": true,
     "vim.smartRelativeLine": true,
-    "gruvboxMaterial.darkContrast": "hard",
     "gruvboxMaterial.italicComments": true,
     "gruvboxMaterial.italicKeywords": true,
     "gruvboxMaterial.colorfulSyntax": true,
@@ -16,11 +15,21 @@
     "prettier.tabWidth": 4,
     "debug.console.fontSize": 14,
     "terminal.integrated.fontSize": 14,
-    "workbench.colorTheme": "Gruvbox Material Dark",
     "editor.quickSuggestionsDelay": 12,
     "editor.quickSuggestions": {
         "other": "on",
         "comments": "inline",
         "strings": "off"
     },
+    "workbench.colorTheme": "Gruvbox Material Dark",
+    "gruvboxMaterial.darkContrast": "hard",
+    "gruvboxMaterial.darkWorkbench": "high-contrast",
+    "gruvboxMaterial.diagnosticTextBackgroundOpacity": "25%",
+    "workbench.colorCustomizations": {
+        "[Gruvbox Material Dark]": {
+            "editor.background": "#101010",
+            "terminal.background": "#161616"
+        }
+    }
+
 }
