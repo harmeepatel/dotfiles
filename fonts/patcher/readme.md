@@ -1,11 +1,7 @@
-#Font Patcher
+# Font Patcher
 Place all the file in ```patcher/``` first, then run 
 ```bash
-#if cloned:
-cd ./fonts/patcher
-
-#if downloaded:
-#cd $HOME/Downloads/fonts/patcher
-
+# cd $HOME/Downloads/mmc/fonts/patcher
+cd PATH_TO_MMC/mmc/fonts/patcher
 ./patch
 ```
