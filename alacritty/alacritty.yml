@@ -24,13 +24,13 @@ scrolling:
     history: 10000
 font:
     normal:
-        family: FiraCode Nerd Font
+        family: CascadiaMonoPL Nerd Font Mono
         #style: Regular
     bold:
-        family: FiraCode Nerd Font
+        family: CascadiaMonoPL Nerd Font Mono
         #style: Bold
     italic:
-        family: FiraCode Nerd Font
+        family: CascadiaMonoPL Nerd Font Mono
         #style: Italic
     #bold_italic:
     #family: monospace
@@ -38,7 +38,7 @@ font:
     size: 12
     offset:
         x: 2
-        y: 10
+        y: 12
     use_thin_strokes: true
 
 # Base16 Monokai 256 - alacritty color config
