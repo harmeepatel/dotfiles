@@ -66,6 +66,7 @@ alias pip="pip3"
 
 alias v="nvim"
 alias btm='btm --color gruvbox'
+alias c='codium'
 
 
 source ~/.config/zsh/zshrc_functions.zsh
