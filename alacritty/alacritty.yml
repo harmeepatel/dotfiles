@@ -24,13 +24,13 @@ scrolling:
     history: 10000
 font:
     normal:
-        family: CascadiaMonoPL Nerd Font Mono
+        family: CaskaydiaCovePL Nerd Font Mono
         #style: Regular
     bold:
-        family: CascadiaMonoPL Nerd Font Mono
+        family: CaskaydiaCovePL Nerd Font Mono
         #style: Bold
     italic:
-        family: CascadiaMonoPL Nerd Font Mono
+        family: CaskaydiaCovePL Nerd Font Mono
         #style: Italic
     #bold_italic:
     #family: monospace

@@ -5,9 +5,9 @@
     "gruvboxMaterial.italicComments": true,
     "gruvboxMaterial.italicKeywords": true,
     "gruvboxMaterial.colorfulSyntax": true,
-    "editor.fontFamily": "'CascadiaMonoPL Nerd Font Mono' ",
+    "editor.fontFamily": "'CaskaydiaCovePL Nerd Font Mono' ",
     "editor.fontSize": 14,
-    "editor.fontLigatures": "'calt', 'ss01'",
+    "editor.fontLigatures": "'calt', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'zero', 'onum'",
     "editor.minimap.enabled": false,
     "notebook.breadcrumbs.showCodeCells": false,
     "breadcrumbs.enabled": false,
@@ -29,7 +29,18 @@
         "[Gruvbox Material Dark]": {
             "editor.background": "#101010",
             "terminal.background": "#161616"
+        },
+        "[Monokai]": {
+            "editor.background": "#18201b",
+            "terminal.background": "#161616"
         }
-    }
-
+    },
+    "workbench.sideBar.location": "right",
+    "editor.wordWrapColumn": 128,
+    "files.trimFinalNewlines": true,
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
+    "vscode-neovim.neovimInitVimPaths.darwin": "/Users/harmeepatel/Developer/mmc/vsCodium-config/init.vim",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/Cellar/neovim/0.7.0/bin/nvim",
+    "workbench.startupEditor": "none"
 }
