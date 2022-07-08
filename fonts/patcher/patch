@@ -2,7 +2,8 @@
 
 flag=0
 for font in `ls $search_dir | grep otf`; do
-    if [ flag == 0 ] then
+    if [ $flag == 0 ]
+    then
         flag = 1
         mkdir output
     fi
