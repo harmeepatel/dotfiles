@@ -14,8 +14,8 @@ window:
         lines: 62
     opacity: 0.98
     padding:
-        x: 12
-        y: 12
+        x: 0
+        y: 0
     dynamic_padding: false
     decorations: buttonless
 mouse:

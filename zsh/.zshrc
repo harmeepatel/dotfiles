@@ -76,3 +76,10 @@ plugins=(
     zsh-vim-mode
 )
 
+
+# bun completions
+[ -s "/Users/harmeepatel/.bun/_bun" ] && source "/Users/harmeepatel/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/Users/harmeepatel/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

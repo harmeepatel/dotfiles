@@ -1,0 +1,22 @@
+(function() {
+    'use strict';
+    const retry = setInterval(() => {
+        if (window._debug_editors === undefined) return
+        clearInterval(retry)
+
+        const editor = window._debug_editors[window._debug_editors.length -1]
+        const vimKeyboard = window.ace.require("ace/keyboard/vim")
+
+        vimKeyboard.Vim.map("kj", "<Esc>", "insert")
+	vimKeyboard.Vim.map(";", ":", "normal")
+
+	vimKeyboard.Vim.map("j", "gj", "normal")
+	vimKeyboard.Vim.map("k", "gk", "normal")
+	vimKeyboard.Vim.map("j", "gj", "visual")
+	vimKeyboard.Vim.map("k", "gk", "visual")
+
+        editor.setKeyboardHandler(vimKeyboard.handler)
+        console.log("Custom key bindings applied")
+
+    }, 100)
+})();
