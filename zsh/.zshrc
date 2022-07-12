@@ -54,7 +54,7 @@ alias htdocs="cd /Users/harmy_patel/.bitnami/stackman/machines/xampp/volumes/roo
 alias dp="cd ~/Developer/projects"
 alias dpr="cd ~/Developer/projects/rust"
 alias dpw="cd ~/Developer/projects/websites"
-alias conf="cd ~/Developer/mmc/config"
+alias mmc="cd ~/Developer/mmc"
 
 alias zrc="nvim ~/.zshrc"
 alias zprofile="nvim ~/.zprofile"
