@@ -39,7 +39,7 @@ font:
     offset:
         x: 2
         y: 12
-    use_thin_strokes: true
+    use_thin_strokes: false
 
 # Base16 Monokai 256 - alacritty color config
 # Wimer Hazenberg (http://www.monokai.nl)
