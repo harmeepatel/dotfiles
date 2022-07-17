@@ -2,19 +2,32 @@
 set relativenumber
 set smartindent
 
-" ----- Key remaps -----
+" ----- Classic -----
 let mapleader = " "
 inoremap kj <Esc>
 inoremap jk <Esc>
 
+nnoremap j gj
+nnoremap k gk
+nnoremap J gj
+nnoremap K gk
+vnoremap j gj
+vnoremap k gk
+vnoremap J gj
+vnoremap K gk
+
 nnoremap ; :
 vnoremap ; :
 
-" tab changing
-nnoremap <leader>k gt
-nnoremap <leader>j gT
-vnoremap <leader>k gt
-vnoremap <leader>j gT
+" ----- tab to indent -----
+nnoremap <TAB> V>
+nnoremap <S-TAB> V<
+vnoremap <TAB> >
+vnoremap <S-TAB> <
+
+
+" ----- pasting in new line -----
+nnoremap <leader>p :pu<CR>
 
 " remove trailing white spaces
 augroup RemoveWhiteSpaces
