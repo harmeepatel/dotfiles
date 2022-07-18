@@ -83,3 +83,6 @@ plugins=(
 # Bun
 export BUN_INSTALL="/Users/harmeepatel/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# fnm
+eval "$(fnm env --use-on-cd)"
