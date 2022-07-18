@@ -51,12 +51,6 @@ return require('packer').startup(function()
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    -- git signs
-    use {
-        'lewis6991/gitsigns.nvim',
-        -- tag = 'release' -- To use the latest release
-    }
-
     -- coc
     use {
         'neoclide/coc.nvim',
