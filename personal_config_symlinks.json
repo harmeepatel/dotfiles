@@ -24,6 +24,10 @@
         "to": "~/.config/zunk"
     },
     {
+        "from": "~/Developer/mmc/hahaha.gitconfig",
+        "to": "~/hahaha.gitconfig"
+    },
+    {
         "from": "~/Developer/mmc/tmux/tmux.conf",
         "to": "~/.config/tmux/tmux.conf"
     },
@@ -42,10 +46,6 @@
     {
         "from": "~/Developer/mmc/zsh/.zshrc",
         "to": "~/.zshrc"
-    },
-    {
-        "from": "~/Developer/mmc/hahaha.gitconfig",
-        "to": "~/hahaha.gitconfig"
     },
     {
         "from": "~/Developer/mmc/haha.gitconfig",
