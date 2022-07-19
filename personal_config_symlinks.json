@@ -36,6 +36,10 @@
         "to": "~/.warp"
     },
     {
+        "from": "~/Developer/mmc/hahahaha.gitconfig",
+        "to": "~/hahahaha.gitconfig"
+    },
+    {
         "from": "~/Developer/mmc/.gitconfig",
         "to": "~/.gitconfig"
     },
