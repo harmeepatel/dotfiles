@@ -1,3 +1,8 @@
+# run tmux on start-up
+if [ ! "$TMUX" ]; then
+        tmux a || tmux
+fi
+
 normal='\033[0m'
 bold='\033[1m'
 dim='\033[2m'
