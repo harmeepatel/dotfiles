@@ -32,6 +32,10 @@
         "to": "~/.config/tmux/tmux.conf"
     },
     {
+        "from": "~/Developer/mmc/starship.toml",
+        "to": "~/.config/starship.toml"
+    },
+    {
         "from": "~/Developer/mmc/.warp",
         "to": "~/.warp"
     },

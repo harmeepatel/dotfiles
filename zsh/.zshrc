@@ -1,6 +1,8 @@
-# run tmux on start-up
+#                            ╭──────────────────────╮
+#                            │ run tmux on start-up │
+#                            ╰──────────────────────╯
 if [ ! "$TMUX" ]; then
-        tmux a || tmux
+        tmux a || tmux &> /dev/null
 fi
 
 normal='\033[0m'
@@ -13,19 +15,12 @@ reverse='\033[7m'
 invisible='\033[8m'
 
 green='\033[1;32m'
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL10K_MODE="nerdfont-complete"
 
 export UPDATE_ZSH_DAYS=30
 source $ZSH/oh-my-zsh.sh
@@ -42,10 +37,9 @@ export PATH
 # $bg[cyan] %~ %B%B→ %b%b "
 # export PS1
 
-export PATH="$PATH:/Users/harmy_patel/Developer/flutter/bin"
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+#                                    ╭───────╮
+#                                    │ alias │
+#                                    ╰───────╯
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -82,12 +76,23 @@ plugins=(
 )
 
 
-# bun completions
+#                               ╭─────────────────╮
+#                               │ bun completions │
+#                               ╰─────────────────╯
 [ -s "/Users/harmeepatel/.bun/_bun" ] && source "/Users/harmeepatel/.bun/_bun"
 
-# Bun
+#                                     ╭─────╮
+#                                     │ Bun │
+#                                     ╰─────╯
 export BUN_INSTALL="/Users/harmeepatel/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# fnm
+#                                     ╭─────╮
+#                                     │ fnm │
+#                                     ╰─────╯
 eval "$(fnm env --use-on-cd)"
+
+#                                  ╭──────────╮
+#                                  │ starship │
+#                                  ╰──────────╯
+eval "$(starship init zsh)"
