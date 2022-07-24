@@ -37,7 +37,7 @@ disabled = false
 
 [directory]
 truncation_length = 64
-format = "[$path]($style)[$read_only]($read_only_style) | "
+format = "[$path](blue)[$read_only]($read_only_style) | "
 truncate_to_repo = false
 disabled = false
 
