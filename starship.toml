@@ -13,7 +13,6 @@ format = """\
   $rust\
   $nodejs\
   $deno\
-  $nix_shell\
   $env_var\
   $line_break\
   $battery\
@@ -34,15 +33,16 @@ error_symbol = "✗"
 min_time = 500
 format = "took [$duration]($style) "
 
-[directory]
-truncation_length = 6
-truncate_to_repo = true
-disabled = false
-
 [hostname]
 ssh_only = false
 format = "[$hostname]($style) || "
 trim_at = "."
+disabled = false
+
+[directory]
+truncation_length = 64
+format = "[$path]($style)[$read_only]($read_only_style) | "
+truncate_to_repo = false
 disabled = false
 
 [username]
@@ -50,6 +50,9 @@ style_root = "bold red"
 style_user = "bold yellow"
 show_always = false
 disabled = false
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
 
 [git_status]
 conflicted = " ⚔ "
