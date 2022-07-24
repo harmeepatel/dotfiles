@@ -9,13 +9,8 @@ format = """\
   $git_commit\
   $git_state\
   $git_status\
-  $package\
-  $rust\
-  $nodejs\
-  $deno\
   $env_var\
   $line_break\
-  $battery\
   $cmd_duration\
   $jobs\
   $time\
