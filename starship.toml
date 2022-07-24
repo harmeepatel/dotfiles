@@ -25,10 +25,6 @@ format = """\
 [line_break]
 disabled = true
 
-[character]
-# symbol = "➜"
-error_symbol = "✗"
-
 [cmd_duration]
 min_time = 500
 format = "took [$duration]($style) "
