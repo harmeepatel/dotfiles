@@ -1,0 +1,50 @@
+[
+    {
+        "from": "/Users/harmeepatel/Developer/mmc/alacritty",
+        "to": "/Users/harmeepatel/.config/alacritty"
+    },
+    {
+        "from": "/Users/harmeepatel/Developer/mmc/btop",
+        "to": "/Users/harmeepatel/.config/btop"
+    },
+    {
+        "from": "/Users/harmeepatel/Developer/mmc/kitty",
+        "to": "/Users/harmeepatel/.config/kitty"
+    },
+    {
+        "from": "/Users/harmeepatel/Developer/mmc/nvim",
+        "to": "/Users/harmeepatel/.config/nvim"
+    },
+    {
+        "from": "/Users/harmeepatel/Developer/mmc/zsh",
+        "to": "/Users/harmeepatel/.config/zsh"
+    },
+    {
+        "from": "/Users/harmeepatel/Developer/mmc/zunk",
+        "to": "/Users/harmeepatel/.config/zunk"
+    },
+    {
+        "from": "/Users/harmeepatel/Developer/mmc/tmux/tmux.conf",
+        "to": "/Users/harmeepatel/.config/tmux/tmux.conf"
+    },
+    {
+        "from": "/Users/harmeepatel/Developer/mmc/starship.toml",
+        "to": "/Users/harmeepatel/.config/starship.toml"
+    },
+    {
+        "from": "/Users/harmeepatel/Developer/mmc/.warp",
+        "to": "/Users/harmeepatel/.warp"
+    },
+    {
+        "from": "/Users/harmeepatel/Developer/mmc/.gitconfig",
+        "to": "/Users/harmeepatel/.gitconfig"
+    },
+    {
+        "from": "/Users/harmeepatel/Developer/mmc/zsh/.p10k.zsh",
+        "to": "/Users/harmeepatel/.p10k.zsh"
+    },
+    {
+        "from": "/Users/harmeepatel/Developer/mmc/zsh/.zshrc",
+        "to": "/Users/harmeepatel/.zshrc"
+    }
+]
