@@ -1,4 +1,4 @@
-local setColorScheme = 'vscode'
+local setColorScheme = 'base16-monokai'
 -- 'base16-gruvbox-dark-hard'
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. setColorScheme)
