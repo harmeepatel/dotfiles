@@ -66,9 +66,6 @@ return require('packer').startup(function()
     -- toggleterm
     use { "akinsho/toggleterm.nvim", tag = 'v1.*' }
 
-    -- zen mode
-    use "Pocco81/true-zen.nvim"
-
     -- lsp
     -- use {
     --     "williamboman/nvim-lsp-installer",
