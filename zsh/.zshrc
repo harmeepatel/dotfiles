@@ -33,6 +33,7 @@ export PATH="/usr/local/sbin:$PATH"
 PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
 export PATH
 
+export PATH="~/Developer/mmc/setup_config/:${PATH}"
 # PS1="
 # $bg[cyan] %~ %B%B→ %b%b "
 # export PS1
