@@ -30,10 +30,9 @@ export PATH="/usr/local/sbin:$PATH"
 
 # Setting PATH for Python 3.9
 # The original version is saved in .zprofile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
-export PATH
+export PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:$PATH"
 
-export PATH="~/Developer/mmc/setup_config/:${PATH}"
+export PATH="$HOME/Developer/mmc:$PATH"
 # PS1="
 # $bg[cyan] %~ %B%B→ %b%b "
 # export PS1
