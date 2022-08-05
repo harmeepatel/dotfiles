@@ -20,20 +20,21 @@ green='\033[1;32m'
 #                                   │ plugins │
 #                                   ╰─────────╯
 source ~/.config/zsh/zshrc_functions.zsh
-source ~/.config/zsh/vim_mode.zsh
 
-plugins+=(
-    zsh-vim-mode
-)
+#                                     ╭─────╮
+#                                     │ vim │
+#                                     ╰─────╯
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+ZVM_VI_ESCAPE_BINDKEY=kj
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 
 export UPDATE_ZSH_DAYS=30
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # homebrew
 export PATH="/usr/local/sbin:$PATH"
