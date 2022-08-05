@@ -16,6 +16,16 @@ invisible='\033[8m'
 
 green='\033[1;32m'
 
+#                                   ╭─────────╮
+#                                   │ plugins │
+#                                   ╰─────────╯
+source ~/.config/zsh/zshrc_functions.zsh
+source ~/.config/zsh/vim_mode.zsh
+
+plugins+=(
+    zsh-vim-mode
+)
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -66,15 +76,6 @@ alias pip="pip3"
 alias v="nvim"
 alias btm='btm --color gruvbox'
 alias c='codium'
-
-
-source ~/.config/zsh/zshrc_functions.zsh
-source ~/.config/zsh/vim_mode.zsh
-
-plugins=(
-    zsh-vim-mode
-)
-
 
 #                               ╭─────────────────╮
 #                               │ bun completions │
