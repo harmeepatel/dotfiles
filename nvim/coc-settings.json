@@ -33,25 +33,25 @@
         "border": true,
         "highlight": "CocFloating",
         "borderhighlight": "CocFloating",
-        "winblend": 16
+        "winblend": 4
     },
     "diagnostic.floatConfig": {
         "border": true,
         "highlight": "CocFloating",
         "borderhighlight": "CocFloating",
-        "winblend": 16
+        "winblend": 4
     },
     "signature.floatConfig": {
         "border": true,
         "highlight": "CocFloating",
         "borderhighlight": "CocFloating",
-        "winblend": 16
+        "winblend": 4
     },
     "hover.floatConfig": {
         "border": true,
         "highlight": "CocFloating",
         "borderhighlight": "CocFloating",
-        "winblend": 16
+        "winblend": 4
     },
     "tailwindCSS.emmetCompletions": true,
     "tsserver.enableJavascript": true,

@@ -9,6 +9,7 @@
 -- ]]
 
 -- Remove trailing white spaces
+
 vim.cmd [[
     augroup RemoveWhiteSpaces
         autocmd!
