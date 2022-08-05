@@ -1,20 +1,24 @@
-require 'user.general'
-require 'user.colorscheme'
-require 'user.keymaps'
-require 'user.comment'
-require 'user.plugins'
-require 'user.colorizer'
-require 'user.bufferline'
-require 'user.windline'
-require 'user.web_devicons'
-require 'user.toggleterm'
-require 'user.nvim_tree'
-require 'user.treesitter'
--- require 'user.hardline'
-require 'user.telescope'
-require 'user.coc'
--- require 'user.indent-blankline'
---
+require 'whatadrag.general'
+require 'whatadrag.colorscheme'
+require 'whatadrag.keymaps'
+require 'whatadrag.comment'
+require 'whatadrag.plugins'
+require 'whatadrag.colorizer'
+require 'whatadrag.bufferline'
+require 'whatadrag.windline'
+require 'whatadrag.web_devicons'
+require 'whatadrag.toggleterm'
+require 'whatadrag.nvim_tree'
+require 'whatadrag.treesitter'
+-- require 'whatadrag.hardline'
+require 'whatadrag.telescope'
+require 'whatadrag.coc'
+-- require 'whatadrag.indent-blankline'
+
+-- ╭─────────╮
+-- │ autocmd │
+-- ╰─────────╯
+require 'whatadrag.autocmd'
 
 vim.cmd [[
     source ~/.config/nvim/lua/coc.vim
