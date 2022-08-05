@@ -1,9 +1,3 @@
-#                            ╭──────────────────────╮
-#                            │ run tmux on start-up │
-#                            ╰──────────────────────╯
-if [ ! "$TMUX" ]; then
-        tmux a || tmux &> /dev/null
-fi
 
 normal='\033[0m'
 bold='\033[1m'
@@ -30,6 +24,9 @@ source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.zsh
 ZVM_VI_INSERT_ESCAPE_BINDKEY=kj
 ZVM_VI_VISUAL_ESCAPE_BINDKEY=kj
 
+#                                     ╭─────╮
+#                                     │ gen │
+#                                     ╰─────╯
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -50,6 +47,15 @@ export PATH="$HOME/Developer/mmc:$PATH"
 # PS1="
 # $bg[cyan] %~ %B%B→ %b%b "
 # export PS1
+
+if [[ -n $KITTY_PID ]] then
+    #                            ╭──────────────────────╮
+    #                            │ run tmux on start-up │
+    #                            ╰──────────────────────╯
+    if [ ! "$TMUX" ]; then
+            tmux a || tmux &> /dev/null
+    fi
+fi
 
 #                                    ╭───────╮
 #                                    │ alias │

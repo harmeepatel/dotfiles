@@ -104,11 +104,6 @@ _G.packer_plugins = {
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
-  ["nvim-hardline"] = {
-    loaded = true,
-    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-hardline",
-    url = "https://github.com/ojroques/nvim-hardline"
-  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -158,6 +153,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/vscode.nvim",
     url = "https://github.com/Mofiqul/vscode.nvim"
+  },
+  ["windline.nvim"] = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/windline.nvim",
+    url = "https://github.com/windwp/windline.nvim"
   }
 }
 

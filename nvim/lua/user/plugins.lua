@@ -41,7 +41,7 @@ return require('packer').startup(function()
     -- statusline
     -- use 'vim-airline/vim-airline'
     -- use 'vim-airline/vim-airline-themes'
-    use { 'ojroques/nvim-hardline' }
+    use 'windwp/windline.nvim'
 
     -- nvim-tree
     use 'kyazdani42/nvim-tree.lua'
