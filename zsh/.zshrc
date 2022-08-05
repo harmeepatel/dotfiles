@@ -24,8 +24,11 @@ source ~/.config/zsh/zshrc_functions.zsh
 #                                     ╭─────╮
 #                                     │ vim │
 #                                     ╰─────╯
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-ZVM_VI_ESCAPE_BINDKEY=kj
+
+
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.zsh
+ZVM_VI_INSERT_ESCAPE_BINDKEY=kj
+ZVM_VI_VISUAL_ESCAPE_BINDKEY=kj
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
