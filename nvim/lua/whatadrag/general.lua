@@ -9,7 +9,7 @@ G.syntax_on = true
 
 O.mouse = "a"
 O.clipboard = "unnamedplus"
-O.colorcolumn = "128"
+O.colorcolumn = "80"
 O.fileencoding = "utf-8"
 O.encoding = "UTF-8"
 O.syntax = "on"
