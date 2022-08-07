@@ -21,5 +21,6 @@ require 'whatadrag.coc'
 require 'whatadrag.autocmd'
 
 vim.cmd [[
+    let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
     source ~/.config/nvim/lua/coc.vim
 ]]

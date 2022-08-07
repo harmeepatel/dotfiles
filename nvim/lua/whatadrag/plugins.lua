@@ -88,5 +88,7 @@ return require('packer').startup(function()
     -- use 'onsails/lspkind.nvim'
     --
     -- use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+    -- vimwiki
+    use 'vimwiki/vimwiki'
 
 end)

@@ -23,7 +23,7 @@ keymap("v", ":", ";")
 keymap("n", "<leader>p", ":pu<CR>")
 
 --close buffer
-keymap("n", "<leader>w", ":bd<CR>")
+keymap("n", "<leader>wc", ":bd<CR>")
 
 -- tabing
 keymap("n", "<TAB>", "V>")
@@ -57,9 +57,6 @@ keymap("v", "<A-k>", ":m '<-2<CR>gv=gv")
 -- keymap("n", "<C-j>", ":vertical resize -3<CR>", opts)
 -- keymap("n", "<C-h>", ":resize +3<CR>", opts)
 -- keymap("n", "<C-l>", ":resize +3<CR>", opts)
-
--- terminal
-keymap("n", "<leader>t", ":24 split | terminal<CR>", opts)
 
 
 -- remove highlight

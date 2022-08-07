@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
     url = "https://github.com/mg979/vim-visual-multi"
   },
+  vimwiki = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/vimwiki",
+    url = "https://github.com/vimwiki/vimwiki"
+  },
   ["vscode.nvim"] = {
     loaded = true,
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/vscode.nvim",
