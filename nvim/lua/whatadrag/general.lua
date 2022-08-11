@@ -42,6 +42,3 @@ O.swapfile = false
 O.undofile = true
 O.writebackup = false
 O.wrap = false
-
-
-vim.g.vimwiki_list = [{'path': '~/Developer/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]

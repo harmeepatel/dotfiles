@@ -53,10 +53,10 @@ return require('packer').startup(function()
     }
 
     -- coc
-    use {
-        'neoclide/coc.nvim',
-        run = 'yarn install --frozen-lockfile'
-    }
+    -- use {
+    --     'neoclide/coc.nvim',
+    --     run = 'yarn install --frozen-lockfile'
+    -- }
 
     use {
         'rodrigore/coc-tailwind-intellisense',
@@ -67,27 +67,15 @@ return require('packer').startup(function()
     use { "akinsho/toggleterm.nvim", tag = 'v1.*' }
 
     -- lsp
-    -- use {
-    --     "williamboman/nvim-lsp-installer",
-    --     "neovim/nvim-lspconfig",
-    -- }
-    -- use 'hrsh7th/nvim-cmp'
-    -- use 'hrsh7th/cmp-path'
-    -- use 'hrsh7th/cmp-buffer'
-    -- use 'hrsh7th/cmp-nvim-lsp'
-    -- use 'hrsh7th/cmp-cmdline'
-    --
-    -- -- " For vsnip users.
-    -- use 'hrsh7th/cmp-vsnip'
-    -- use 'hrsh7th/vim-vsnip'
-    --
-    -- -- For luasnip users.
-    -- use 'L3MON4D3/LuaSnip'
-    -- use 'saadparwaiz1/cmp_luasnip'
-    --
-    -- use 'onsails/lspkind.nvim'
-    --
-    -- use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-nvim-lua'
+
+
+
     -- vimwiki
     use 'vimwiki/vimwiki'
 
