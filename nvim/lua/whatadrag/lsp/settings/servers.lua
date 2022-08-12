@@ -2,7 +2,8 @@ local M = {}
 
 M.servers = {
     "tsserver",
-    "rust_analyzer"
+    "rust_analyzer",
+    "sumneko_lua",
 }
 
 return M
