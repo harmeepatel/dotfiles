@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/comment-box.nvim",
     url = "https://github.com/LudoPinelli/comment-box.nvim"
   },
+  ["express_line.nvim"] = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/express_line.nvim",
+    url = "https://github.com/tjdevries/express_line.nvim"
+  },
   ["nvim-base16"] = {
     loaded = true,
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-base16",
@@ -158,11 +163,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/vscode.nvim",
     url = "https://github.com/Mofiqul/vscode.nvim"
-  },
-  ["windline.nvim"] = {
-    loaded = true,
-    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/windline.nvim",
-    url = "https://github.com/windwp/windline.nvim"
   }
 }
 

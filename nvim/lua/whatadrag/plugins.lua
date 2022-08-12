@@ -43,7 +43,8 @@ return require('packer').startup(function()
     -- statusline
     -- use 'vim-airline/vim-airline'
     -- use 'vim-airline/vim-airline-themes'
-    use 'windwp/windline.nvim'
+    -- use 'windwp/windline.nvim'
+    use 'tjdevries/express_line.nvim'
 
     -- nvim-tree
     use 'kyazdani42/nvim-tree.lua'

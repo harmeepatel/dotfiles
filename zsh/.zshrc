@@ -48,11 +48,10 @@ export PATH="$HOME/Developer/mmc:$PATH"
 # $bg[cyan] %~ %B%B→ %b%b "
 # export PS1
 
-ALACRITTY_PID=ps -A | grep [a]lacritty | awk '{print $4}' | grep alacritty
-if [[ -n ALACRITTY_PID ]] then
-    #                            ╭──────────────────────╮
-    #                            │ run tmux on start-up │
-    #                            ╰──────────────────────╯
+#                            ╭──────────────────────╮
+#                            │ run tmux on start-up │
+#                            ╰──────────────────────╯
+if [[ -n $KITTY_PID ]] then
     if [ ! "$TMUX" ]; then
             tmux a || tmux &> /dev/null
     fi
