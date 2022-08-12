@@ -24,9 +24,9 @@ vim.cmd [[
 ]]
 
 -- PackerSync on save
-vim.cmd [[
-    autocmd BufWritePost plugins.lua :PackerSync
-]]
+-- vim.cmd [[
+--     autocmd BufWritePost plugins.lua :PackerSync
+-- ]]
 
 -- let g:airline#extensions#tabline#enabled = 1
 -- vim.cmd [[

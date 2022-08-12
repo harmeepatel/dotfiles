@@ -1,11 +1,9 @@
 local status_ok, lspconfig = pcall(require, "lspconfig")
 
 if not status_ok then
-    vim.notify("lspconfig not found!")
+    vim.notify("lspconfig not found! (from lsp_config)")
     return
 end
-
-local M = {}
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -55,4 +53,4 @@ for _, server in ipairs(servers) do
     }
 end
 
-return M
+require 'whatadrag.lsp.settings.sumneko'

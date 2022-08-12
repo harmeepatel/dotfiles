@@ -1,12 +1,12 @@
-local status_ok, cmp = pcall(require, "cmp")
-local status_ok, lspconfig = pcall(require, "lspconfig")
+local cmp_ok, cmp = pcall(require, "cmp")
+local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
 
-if not status_ok then
+if not cmp_ok then
     vim.notify("nvim-cmp not found!")
     return
 end
-if not status_ok then
-    vim.notify("lspconfig not found!")
+if not lspconfig_ok then
+    vim.notify("lspconfig not found! (from nvim-cmp)")
     return
 end
 
@@ -80,4 +80,3 @@ for _, server in ipairs(servers) do
         capabilities = capabilities
     }
 end
-
