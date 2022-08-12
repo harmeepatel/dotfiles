@@ -5,6 +5,8 @@ if not status_ok then
     return
 end
 
+local M = {}
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -44,10 +46,7 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
-local servers = {
-    "tsserver",
-    "rust_analyzer"
-}
+local servers = require('whatadrag.lsp.settings.servers').servers
 
 for _, server in ipairs(servers) do
     lspconfig[server].setup{
@@ -55,3 +54,5 @@ for _, server in ipairs(servers) do
         flags = lsp_flags,
     }
 end
+
+return M
