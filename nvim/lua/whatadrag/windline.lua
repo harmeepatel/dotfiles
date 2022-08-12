@@ -1,7 +1,7 @@
-local status_ok, windline = pcall(require, "windline")
+local status_ok, windline = pcall(require, 'windline')
 
 if not status_ok then
-    vim.notify("windline not found!")
+    vim.notify('404: windline')
     return
 end
 
@@ -77,10 +77,10 @@ basic.file = {
         if width > breakpoint_width then
             return {
                 { b_components.cache_file_size(), 'default' },
-                { ' ', '' },
+                { ' | ', '' },
                 { b_components.cache_file_name('[No Name]', 'unique'), 'magenta' },
-                { b_components.line_col_lua, 'white' },
-                { b_components.progress_lua, '' },
+                -- { b_components.line_col_lua, 'white' },
+                -- { b_components.progress_lua, '' },
                 { ' ', '' },
                 { b_components.file_modified(' '), 'magenta' },
             }
@@ -189,6 +189,7 @@ local default = {
         basic.square_mode,
         basic.vi_mode,
         basic.file,
+        basic.divider,
         basic.lsp_diagnos,
         basic.divider,
         basic.file_right,

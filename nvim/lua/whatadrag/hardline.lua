@@ -1,7 +1,7 @@
 local status_ok, hardline = pcall(require, "hardline")
 
 if not status_ok then
-    vim.notify("hardline not installed.")
+    vim.notify("404: hardline")
     return
 end
 

@@ -15,10 +15,10 @@ vim.g.WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
 vim.g.DevIconsDefaultFolderOpenSymbol = ''
 
 
-local status_ok, web_dev_icnos = pcall(require, "nvim-web-devicons")
+local status_ok, web_dev_icnos = pcall(require, 'nvim-web-devicons')
 
 if not status_ok then
-    vim.notify("web-dev-icons not found!")
+    vim.notify('404: web-dev-icons')
     return
 end
 
