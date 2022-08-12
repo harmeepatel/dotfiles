@@ -36,7 +36,8 @@ return require('packer').startup(function()
     use 'kyazdani42/nvim-web-devicons'
 
     -- dufferline
-    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+    -- use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+    use 'crispgm/nvim-tabline'
 
     -- statusline
     -- use 'vim-airline/vim-airline'
