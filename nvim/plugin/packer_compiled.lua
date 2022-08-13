@@ -74,25 +74,45 @@ _G.packer_plugins = {
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  LuaSnip = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
   ["coc-tailwind-intellisense"] = {
     loaded = true,
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/coc-tailwind-intellisense",
     url = "https://github.com/rodrigore/coc-tailwind-intellisense"
-  },
-  ["coc.nvim"] = {
-    loaded = true,
-    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/coc.nvim",
-    url = "https://github.com/neoclide/coc.nvim"
   },
   ["comment-box.nvim"] = {
     loaded = true,
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/comment-box.nvim",
     url = "https://github.com/LudoPinelli/comment-box.nvim"
   },
-  ["express_line.nvim"] = {
+  ["lspkind.nvim"] = {
     loaded = true,
-    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/express_line.nvim",
-    url = "https://github.com/tjdevries/express_line.nvim"
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
   },
   ["nvim-base16"] = {
     loaded = true,
@@ -104,10 +124,20 @@ _G.packer_plugins = {
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-bufbar",
     url = "https://github.com/ojroques/nvim-bufbar"
   },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
+  },
   ["nvim-colorizer.lua"] = {
     loaded = true,
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -163,6 +193,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/vscode.nvim",
     url = "https://github.com/Mofiqul/vscode.nvim"
+  },
+  ["windline.nvim"] = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/windline.nvim",
+    url = "https://github.com/windwp/windline.nvim"
   }
 }
 

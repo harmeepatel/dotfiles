@@ -1,197 +1,222 @@
-local status_ok, el = pcall(require, 'express_line')
+local status_ok, windline = pcall(require, 'windline')
 
 if not status_ok then
-    vim.notify('404: express_line')
+    vim.notify('404: windline')
     return
 end
 
-el.reset_windows()
+local helper = require('windline.helpers')
+local b_components = require('windline.components.basic')
+local state = _G.WindLine.state
 
-vim.opt.laststatus = 3
+local lsp_comps = require('windline.components.lsp')
+local git_comps = require('windline.components.git')
 
-local builtin = require "el.builtin"
-local extensions = require "el.extensions"
-local sections = require "el.sections"
-local subscribe = require "el.subscribe"
-local lsp_statusline = require "el.plugins.lsp_status"
-local helper = require "el.helper"
-local diagnostic = require "el.diagnostic"
+local hl_list = {
+    Black = { 'white', 'black' },
+    White = { 'black', 'white' },
+    Inactive = { 'InactiveFg', 'InactiveBg' },
+    Active = { 'ActiveFg', 'ActiveBg' },
+}
+local basic = {}
 
-local has_lsp_extensions, ws_diagnostics = pcall(require, "lsp_extensions.workspace.diagnostic")
+local breakpoint_width = 128
+basic.divider = { b_components.divider, '' }
+basic.bg = { ' ', 'StatusLine' }
 
--- TODO: Spinning planet extension. Integrated w/ telescope.
--- ◐ ◓ ◑ ◒
--- 🌛︎🌝︎🌜︎🌚︎
--- Show telescope icon / emoji when you open it as well
+local colors_mode = {
+    Normal = { 'black', 'red' },
+    Insert = { 'black', 'green' },
+    Visual = { 'black', 'yellow' },
+    Replace = { 'black', 'blue_light' },
+    Command = { 'black', 'magenta' },
+}
 
-local git_icon = subscribe.buf_autocmd("el_file_icon", "BufRead", function(_, bufnr)
-    local icon = extensions.file_icon(_, bufnr)
-    if icon then
-        return icon .. " "
-    end
-
-    return ""
-end)
-
-local git_branch = subscribe.buf_autocmd("el_git_branch", "BufEnter", function(window, buffer)
-    local branch = extensions.git_branch(window, buffer)
-    if branch then
-        return " " .. extensions.git_icon() .. " " .. branch
-    end
-end)
-
-local git_changes = subscribe.buf_autocmd("el_git_changes", "BufWritePost", function(window, buffer)
-    return extensions.git_changes(window, buffer)
-end)
-
-local ws_diagnostic_counts = function(_, buffer)
-    if not has_lsp_extensions then
-        return ""
-    end
-
-    local messages = {}
-
-    local error_count = ws_diagnostics.get_count(buffer.bufnr, "Error")
-
-    local x = "⬤"
-    if error_count == 0 then
-        -- pass
-    elseif error_count < 5 then
-        table.insert(messages, string.format("%s#%s#%s%%*", "%", "StatuslineError" .. error_count, x))
-    else
-        table.insert(messages, string.format("%s#%s#%s%%*", "%", "StatuslineError5", x))
-    end
-
-    return table.concat(messages, "")
-end
-
-local show_current_func = function(window, buffer)
-    if buffer.filetype == "lua" then
-        return ""
-    end
-
-    return lsp_statusline.current_function(window, buffer)
-end
-
-local minimal_status_line = function(_, buffer)
-    if string.find(buffer.name, "sourcegraph/sourcegraph") then
-        return true
-    end
-end
-
-local is_sourcegraph = function(_, buffer)
-    if string.find(buffer.name, "sg://") then
-        return true
-    end
-end
-
-local diagnostic_display = diagnostic.make_buffer()
-
-require("el").setup {
-    generator = function(window, buffer)
-        local is_minimal = minimal_status_line(window, buffer)
-        local is_sourcegraph = is_sourcegraph(window, buffer)
-
-        local mode = extensions.gen_mode { format_string = " %s " }
-        if is_sourcegraph then
-            return {
-                { mode },
-                { sections.split, required = true },
-                { builtin.file },
-                { sections.split, required = true },
-                { builtin.filetype },
-            }
-        end
-
-        local items = {
-            { mode, required = true },
-            { git_branch },
-            { " " },
-            { sections.split, required = true },
-            { git_icon },
-            { sections.maximum_width(builtin.file_relative, 0.60), required = true },
-            { sections.collapse_builtin { { " " }, { builtin.modified_flag } } },
-            { sections.split, required = true },
-            { diagnostic_display },
-            { show_current_func },
-            -- { lsp_statusline.server_progress },
-            -- { ws_diagnostic_counts },
-            { git_changes },
-            { "[" },
-            { builtin.line_with_width(3) },
-            { ":" },
-            { builtin.column_with_width(2) },
-            { "]" },
-            {
-                sections.collapse_builtin {
-                    "[",
-                    builtin.help_list,
-                    builtin.readonly_list,
-                    "]",
-                },
-            },
-            { builtin.filetype },
-        }
-
-        local add_item = function(result, item)
-            if is_minimal and not item.required then
-                return
-            end
-
-            table.insert(result, item)
-        end
-
-        local result = {}
-        for _, item in ipairs(items) do
-            add_item(result, item)
-        end
-
-        return result
+basic.vi_mode = {
+    name = 'vi_mode',
+    hl_colors = colors_mode,
+    text = function()
+        return { { ' ' .. state.mode[2] .. ' ', state.mode[2] } }
+    end,
+}
+basic.square_mode = {
+    hl_colors = colors_mode,
+    text = function()
+        return { { '▊', state.mode[2] } }
     end,
 }
 
-require("fidget").setup {
-    text = {
-        spinner = "moon",
+basic.lsp_diagnos = {
+    name = 'diagnostic',
+    hl_colors = {
+        red = { 'red', 'black' },
+        yellow = { 'yellow', 'black' },
+        blue = { 'blue', 'black' },
     },
-    align = {
-        bottom = true,
+    width = breakpoint_width,
+    text = function(bufnr)
+        if lsp_comps.check_lsp(bufnr) then
+            return {
+                { lsp_comps.lsp_error({ format = '  %s', show_zero = true }), 'red' },
+                { lsp_comps.lsp_warning({ format = '  %s', show_zero = true }), 'yellow' },
+                { lsp_comps.lsp_hint({ format = '  %s', show_zero = true }), 'blue' },
+            }
+        end
+        return ''
+    end,
+}
+basic.file = {
+    name = 'file',
+    hl_colors = {
+        default = hl_list.Black,
+        white = { 'white', 'black' },
+        magenta = { 'magenta', 'black' },
     },
-    window = {
-        relative = "editor",
+    text = function(_, _, width)
+        if width > breakpoint_width then
+            return {
+                { b_components.cache_file_size(), 'default' },
+                { ' | ', '' },
+                { b_components.cache_file_name('[No Name]', 'unique'), 'magenta' },
+                -- { b_components.line_col_lua, 'white' },
+                -- { b_components.progress_lua, '' },
+                { ' ', '' },
+                { b_components.file_modified(' '), 'magenta' },
+            }
+        else
+            return {
+                { b_components.cache_file_size(), 'default' },
+                { ' ', '' },
+                { b_components.cache_file_name('[No Name]', 'unique'), 'magenta' },
+                { ' ', '' },
+                { b_components.file_modified(' '), 'magenta' },
+            }
+        end
+    end,
+}
+basic.file_right = {
+    hl_colors = {
+        default = hl_list.Black,
+        white = { 'white', 'black' },
+        magenta = { 'magenta', 'black' },
+    },
+    text = function(_, _, width)
+        if width < breakpoint_width then
+            return {
+                { b_components.line_col_lua, 'white' },
+                { b_components.progress_lua, '' },
+            }
+        end
+    end,
+}
+basic.git = {
+    name = 'git',
+    hl_colors = {
+        green = { 'green', 'black' },
+        red = { 'red', 'black' },
+        blue = { 'blue', 'black' },
+    },
+    width = breakpoint_width,
+    text = function(bufnr)
+        if git_comps.is_git(bufnr) then
+            return {
+                { git_comps.diff_added({ format = '  %s', show_zero = true }), 'green' },
+                { git_comps.diff_removed({ format = '  %s', show_zero = true }), 'red' },
+                { git_comps.diff_changed({ format = ' 柳%s', show_zero = true }), 'blue' },
+            }
+        end
+        return ''
+    end,
+}
+
+local quickfix = {
+    filetypes = { 'qf', 'Trouble' },
+    active = {
+        { '🚦 Quickfix ', { 'white', 'black' } },
+        { helper.separators.slant_right, { 'black', 'black_light' } },
+        {
+            function()
+                return vim.fn.getqflist({ title = 0 }).title
+            end,
+            { 'cyan', 'black_light' },
+        },
+        { ' Total : %L ', { 'cyan', 'black_light' } },
+        { helper.separators.slant_right, { 'black_light', 'InactiveBg' } },
+        { ' ', { 'InactiveFg', 'InactiveBg' } },
+        basic.divider,
+        { helper.separators.slant_right, { 'InactiveBg', 'black' } },
+        { '🧛 ', { 'white', 'black' } },
+    },
+
+    always_active = true,
+    show_last_status = true,
+}
+
+local explorer = {
+    filetypes = { 'fern', 'NvimTree', 'lir' },
+    active = {
+        { '  ', { 'black', 'red' } },
+        { helper.separators.slant_right, { 'red', 'NormalBg' } },
+        { b_components.divider, '' },
+        { b_components.file_name(''), { 'white', 'NormalBg' } },
+    },
+    always_active = true,
+    show_last_status = true,
+}
+
+basic.lsp_name = {
+    width = breakpoint_width,
+    name = 'lsp_name',
+    hl_colors = {
+        magenta = { 'magenta', 'black' },
+    },
+    text = function(bufnr)
+        if lsp_comps.check_lsp(bufnr) then
+            return {
+                { lsp_comps.lsp_name(), 'magenta' },
+            }
+        end
+        return {
+            { b_components.cache_file_type({ icon = true }), 'magenta' },
+        }
+    end,
+}
+
+local default = {
+    filetypes = { 'default' },
+    active = {
+        basic.square_mode,
+        basic.vi_mode,
+        basic.file,
+        { ' ' },
+        basic.lsp_diagnos,
+        basic.divider,
+        basic.file_right,
+        basic.lsp_name,
+        basic.git,
+        { git_comps.git_branch(), { 'magenta', 'black' }, breakpoint_width },
+        { ' ', hl_list.Black },
+        basic.square_mode,
+    },
+    inactive = {
+        { b_components.full_file_name, hl_list.Inactive },
+        basic.file_name_inactive,
+        basic.divider,
+        basic.divider,
+        { b_components.line_col, hl_list.Inactive },
+        { b_components.progress, hl_list.Inactive },
     },
 }
 
---[[
-let s:left_sep = ' ❯❯ '
-let s:right_sep = ' ❮❮ '
-
-        let s:seperator.filenameright = ''
-        let s:seperator.filesizeright = ''
-        let s:seperator.gitleft = ''
-        let s:seperator.gitright = ''
-        let s:seperator.lineinfoleft = ''
-        let s:seperator.lineformatright = ''
-        let s:seperator.EndSeperate = ' '
-        let s:seperator.emptySeperate1 = ''
-    elseif a:style == 'slant-cons'
-        let s:seperator.homemoderight = ''
-        let s:seperator.filenameright = ''
-        let s:seperator.filesizeright = '' let s:seperator.gitleft = ''
-        let s:seperator.gitright = ''
-        let s:seperator.lineinfoleft = ''
-        let s:seperator.lineformatright = ''
-        let s:seperator.EndSeperate = ' '
-        let s:seperator.emptySeperate1 = ''
-    elseif a:style == 'slant-fade'
-        let s:seperator.homemoderight = ''
-        let s:seperator.filenameright = ''
-        let s:seperator.filesizeright = ''
-        let s:seperator.gitleft = ''
-        let s:seperator.gitright = ''
-        " let s:seperator.gitright = ''
-        let s:seperator.lineinfoleft = ''
-        let s:seperator.lineformatright = ''
-        let s:seperator.EndSeperate = ' '
-        let s:seperator.emptySeperate1 = ''
---]]
+windline.setup({
+    colors_name = function(colors)
+        -- print(vim.inspect(colors))
+        -- ADD MORE COLOR HERE ----
+        return colors
+    end,
+    statuslines = {
+        default,
+        quickfix,
+        explorer,
+    },
+})
