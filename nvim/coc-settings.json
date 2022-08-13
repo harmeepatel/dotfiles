@@ -30,25 +30,25 @@
     "coc.preferences.formatOnSaveFiletypes": ["*"],
     "suggest.maxCompleteItemCount": 64,
     "suggest.floatConfig": {
-        "border": false,
+        "border": true,
         "highlight": "CocFloating",
         "borderhighlight": "CocFloating",
         "winblend": 4
     },
     "diagnostic.floatConfig": {
-        "border": false,
+        "border": true,
         "highlight": "CocFloating",
         "borderhighlight": "CocFloating",
         "winblend": 4
     },
     "signature.floatConfig": {
-        "border": false,
+        "border": true,
         "highlight": "CocFloating",
         "borderhighlight": "CocFloating",
         "winblend": 4
     },
     "hover.floatConfig": {
-        "border": false,
+        "border": true,
         "highlight": "CocFloating",
         "borderhighlight": "CocFloating",
         "winblend": 4

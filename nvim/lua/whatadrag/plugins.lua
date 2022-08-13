@@ -37,8 +37,7 @@ return require('packer').startup(function()
 
     -- dufferline
     -- use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
-    -- use 'crispgm/nvim-tabline'
-    use { 'ojroques/nvim-bufbar' }
+    use 'crispgm/nvim-tabline'
 
     -- statusline
     -- use 'vim-airline/vim-airline'
@@ -55,10 +54,10 @@ return require('packer').startup(function()
     }
 
     -- coc
-    -- use {
-    --     'neoclide/coc.nvim',
-    --     run = 'yarn install --frozen-lockfile'
-    -- }
+    use {
+        'neoclide/coc.nvim',
+        run = 'yarn install --frozen-lockfile'
+    }
 
     use {
         'rodrigore/coc-tailwind-intellisense',
@@ -69,14 +68,14 @@ return require('packer').startup(function()
     use { "akinsho/toggleterm.nvim", tag = 'v1.*' }
 
     -- lsp
-    use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-nvim-lua'
-    use 'L3MON4D3/LuaSnip'
-    use 'onsails/lspkind.nvim'
+    -- use 'neovim/nvim-lspconfig'
+    -- use 'hrsh7th/nvim-cmp'
+    -- use 'hrsh7th/cmp-path'
+    -- use 'hrsh7th/cmp-buffer'
+    -- use 'hrsh7th/cmp-nvim-lsp'
+    -- use 'hrsh7th/cmp-nvim-lua'
+    -- use 'L3MON4D3/LuaSnip'
+    -- use 'onsails/lspkind.nvim'
 
 
 

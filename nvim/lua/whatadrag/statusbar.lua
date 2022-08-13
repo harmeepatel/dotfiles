@@ -25,24 +25,24 @@ basic.divider = { b_components.divider, '' }
 basic.bg = { ' ', 'StatusLine' }
 
 local colors_mode = {
-    Normal = { 'black', 'red' },
-    Insert = { 'black', 'green' },
-    Visual = { 'black', 'yellow' },
-    Replace = { 'black', 'blue_light' },
-    Command = { 'black', 'magenta' },
+    Normal = { 'red', 'black' },
+    Insert = { 'green', 'black'},
+    Visual = { 'yellow', 'black'},
+    Replace = { 'blue_light', 'black'},
+    Command = { 'magenta', 'black'},
 }
 
+basic.square_mode = {
+    hl_colors = colors_mode,
+    text = function()
+        return { { '▊', state.mode[2] } }
+    end,
+}
 basic.vi_mode = {
     name = 'vi_mode',
     hl_colors = colors_mode,
     text = function()
         return { { ' ' .. state.mode[2] .. ' ', state.mode[2] } }
-    end,
-}
-basic.square_mode = {
-    hl_colors = colors_mode,
-    text = function()
-        return { { '▊', state.mode[2] } }
     end,
 }
 

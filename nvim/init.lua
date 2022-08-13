@@ -4,23 +4,23 @@ require 'whatadrag.keymaps'
 require 'whatadrag.comment'
 require 'whatadrag.plugins'
 require 'whatadrag.colorizer'
-require 'whatadrag.bufbar'
-require 'whatadrag.el'
+require 'whatadrag.tabbar'
+require 'whatadrag.statusbar'
 require 'whatadrag.web_devicons'
 require 'whatadrag.toggleterm'
 require 'whatadrag.nvim_tree'
 require 'whatadrag.treesitter'
 require 'whatadrag.telescope'
--- require 'whatadrag.coc'
+require 'whatadrag.coc'
 -- require 'whatadrag.indent-blankline'
-require 'whatadrag.lsp'
+-- require 'whatadrag.lsp'
 
 -- ╭─────────╮
 -- │ autocmd │
 -- ╰─────────╯
 require 'whatadrag.autocmd'
 
--- source ~/.config/nvim/lua/coc.vim
 vim.cmd [[
+    source ~/.config/nvim/lua/coc.vim
     let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 ]]
