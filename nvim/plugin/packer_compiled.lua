@@ -99,10 +99,10 @@ _G.packer_plugins = {
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
-  ["nvim-tabline"] = {
+  ["nvim-hardline"] = {
     loaded = true,
-    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-tabline",
-    url = "https://github.com/crispgm/nvim-tabline"
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-hardline",
+    url = "https://github.com/ojroques/nvim-hardline"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
