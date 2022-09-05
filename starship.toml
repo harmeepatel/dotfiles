@@ -33,7 +33,7 @@ ssh_only = true
 
 [directory]
 truncation_length = 64
-format = "[$path](blue)[$read_only]($read_only_style) "
+format = "[$path](blue)[$read_only](fg:208) "
 truncate_to_repo = false
 
 [username]
@@ -43,10 +43,10 @@ show_always = false
 disabled = false
 
 [git_branch]
-symbol = ""
-format = "[{ $symbol$branch(:$remote_branch) }]($style) "
+format = '[ $symbol$branch(:$remote_branch) ](fg:70) '
 
 [git_status]
+format = '[\[ $all_status$ahead_behind \]](fg:250) '
 conflicted = " ⚔ "
 ahead = "⇡{$count}"
 behind = "⇣{$count}"
