@@ -47,15 +47,14 @@ format = '[ $symbol$branch(:$remote_branch) ](fg:70) '
 
 [git_status]
 format = '[\[ $all_status$ahead_behind \]](fg:250) '
-conflicted = " ⚔ "
-ahead = "⇡{$count}"
-behind = "⇣{$count}"
-diverged = "⇕"
-up_to_date = ""
-untracked = "?{$count}"
-stashed = "$"
-modified = "!{$count}"
-staged = "+{$count}"
-renamed = "»{$count}"
-deleted = "✘{$count}"
-style = "bold red"
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+up_to_date = "✓"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
