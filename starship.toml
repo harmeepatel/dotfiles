@@ -2,7 +2,6 @@ add_newline = false
 
 format = """\
   $username\
-  $memory_usage\
   $hostname\
   $directory\
   $git_branch\
@@ -14,12 +13,13 @@ format = """\
   $cmd_duration\
   $jobs\
   $time\
+  $memory_usage\
   $character\
   """
 
 [character]
-success_symbol = "[---](bold green)"
-error_symbol = "[---](bold red)"
+success_symbol = "[❯❯](bold green)"
+error_symbol = "[❯❯](bold red)"
 
 [line_break]
 disabled = true
@@ -29,16 +29,12 @@ min_time = 500
 format = "took [$duration]($style) "
 
 [hostname]
-ssh_only = false
-format = "[$hostname]($style) || "
-trim_at = "."
-disabled = false
+ssh_only = true
 
 [directory]
 truncation_length = 64
-format = "[$path](blue)[$read_only]($read_only_style) | "
+format = "[$path](blue)[$read_only]($read_only_style) "
 truncate_to_repo = false
-disabled = false
 
 [username]
 style_root = "bold red"
@@ -47,7 +43,8 @@ show_always = false
 disabled = false
 
 [git_branch]
-format = "[$symbol$branch(:$remote_branch)]($style) "
+symbol = ""
+format = "[{ $symbol$branch(:$remote_branch) }]($style) "
 
 [git_status]
 conflicted = " ⚔ "
