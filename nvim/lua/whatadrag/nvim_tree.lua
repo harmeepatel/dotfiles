@@ -23,11 +23,10 @@ nvim_tree.setup { -- BEGIN_DEFAULT_OPTS
         height = 30,
         side = "right",
         preserve_window_proportions = true,
-        number = true,
+        number = false,
         relativenumber = false,
         signcolumn = "yes",
         mappings = {
-            custom_only = false,
             list = {
                 -- user mappings go here
             },
@@ -72,12 +71,13 @@ nvim_tree.setup { -- BEGIN_DEFAULT_OPTS
     },
     filters = {
         dotfiles = false,
-        custom = {},
+        custom = {
+        },
         exclude = {},
     },
     git = {
         enable = true,
-        ignore = true,
+        ignore = false,
         timeout = 400,
     },
     actions = {
@@ -87,7 +87,7 @@ nvim_tree.setup { -- BEGIN_DEFAULT_OPTS
             global = false,
         },
         open_file = {
-            quit_on_open = false,
+            quit_on_open = true,
             resize_window = true,
             window_picker = {
                 enable = true,
