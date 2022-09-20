@@ -26,3 +26,6 @@
     hunk-header-decoration-style = yellow box
 [init]
 	defaultBranch = main
+[user]
+	name = Harmy1410
+	email = harmy1410@gmail.com
