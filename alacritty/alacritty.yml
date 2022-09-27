@@ -10,8 +10,8 @@ selection:
     save_to_clipboard: true
 window:
     dimensions:
-        columns: 200
-        lines: 62
+        columns: 248
+        lines: 64
     opacity: 0.98
     padding:
         x: 0

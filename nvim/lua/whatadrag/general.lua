@@ -8,7 +8,7 @@ G.maplocalleader = " "
 G.syntax_on = true
 
 O.mouse = "a"
-O.clipboard = "unnamedplus"
+O.clipboard = ""
 O.colorcolumn = "80"
 O.fileencoding = "utf-8"
 O.encoding = "UTF-8"
