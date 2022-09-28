@@ -1,4 +1,4 @@
-#Spell:words alacritty lfcd
+#pell:words alacritty lfcd
 live_config_reload: true
 env:
     TERM: xterm-256color

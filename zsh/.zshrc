@@ -51,8 +51,9 @@ export PATH="$HOME/Developer/mmc:$PATH"
 #                            ╭──────────────────────╮
 #                            │ run tmux on start-up │
 #                            ╰──────────────────────╯
-if [[ -n $KITTY_PID ]] then
-    if [ ! "$TMUX" ]; then
+ala=`ps -ax | grep Alacritty | head -n 1 | awk '{print $4}'`
+if [[ -n $KITTY_PID || $ala == "/Applications/Alacritty.app/Contents/MacOS/alacritty" ]] then
+    if [ ! "$MUX" ]; then
             tmux a || tmux &> /dev/null
     fi
 fi
