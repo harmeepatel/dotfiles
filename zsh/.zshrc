@@ -53,7 +53,7 @@ export PATH="$HOME/Developer/mmc:$PATH"
 #                            ╰──────────────────────╯
 ala=`ps -ax | grep Alacritty | head -n 1 | awk '{print $4}'`
 if [[ -n $KITTY_PID || $ala == "/Applications/Alacritty.app/Contents/MacOS/alacritty" ]] then
-    if [ ! "$MUX" ]; then
+    if [ ! "$TMUX" ]; then
             tmux a || tmux &> /dev/null
     fi
 fi

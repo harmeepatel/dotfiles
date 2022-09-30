@@ -21,7 +21,7 @@ window:
 mouse:
     hide_when_typing: true
 scrolling:
-    history: 10000
+    history: 5120
 font:
     normal:
         family: CaskaydiaCovePL Nerd Font Mono
