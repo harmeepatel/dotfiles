@@ -42,6 +42,14 @@ vim.cmd [[
 --     let g:airline#extensions#tabline#show_tab_type = 0
 -- ]]
 
+--                              ╭────────────────╮
+--                              │ gruvbox config │
+--                              ╰────────────────╯
+
+vim.cmd [[
+    let g:gruvbox_contrast_dark = 'hard'
+]]
+
 -- -- Nice menu when typing `:find *.py`
 vim.cmd [[set wildmode=longest,list,full]]
 vim.cmd [[set wildmenu]]

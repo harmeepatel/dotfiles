@@ -21,6 +21,7 @@ require 'whatadrag.coc'
 require 'whatadrag.autocmd'
 
 vim.cmd [[
+    colorscheme gruvbox
     source ~/.config/nvim/lua/coc.vim
     let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 ]]

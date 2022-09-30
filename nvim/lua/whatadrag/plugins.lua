@@ -9,7 +9,7 @@ return require('packer').startup(function()
 
     -- theme
     use 'RRethy/nvim-base16'
-    use { "ellisonleao/gruvbox.nvim" }
+    use 'morhetz/gruvbox'
 
     -- show hex colors
     use 'norcalli/nvim-colorizer.lua'
@@ -18,7 +18,7 @@ return require('packer').startup(function()
     use 'numToStr/Comment.nvim'
 
     -- box outline for comments
-    use("LudoPinelli/comment-box.nvim")
+    use "LudoPinelli/comment-box.nvim"
 
     -- multiple cursors
     use 'mg979/vim-visual-multi'
