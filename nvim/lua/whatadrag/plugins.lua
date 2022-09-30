@@ -9,7 +9,7 @@ return require('packer').startup(function()
 
     -- theme
     use 'RRethy/nvim-base16'
-    use 'Mofiqul/vscode.nvim'
+    use { "ellisonleao/gruvbox.nvim" }
 
     -- show hex colors
     use 'norcalli/nvim-colorizer.lua'
