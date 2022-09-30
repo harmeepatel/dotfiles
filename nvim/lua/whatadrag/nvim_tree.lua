@@ -20,11 +20,8 @@ nvim_tree.setup { -- BEGIN_DEFAULT_OPTS
     update_cwd = false,
     view = {
         width = 50,
-        height = 30,
         side = "right",
         preserve_window_proportions = true,
-        number = false,
-        relativenumber = false,
         signcolumn = "yes",
         mappings = {
             list = {
