@@ -11,7 +11,7 @@ selection:
 window:
     dimensions:
         columns: 248
-        lines: 64
+        lines: 70
     opacity: 0.98
     padding:
         x: 0
@@ -38,7 +38,7 @@ font:
     size: 12
     offset:
         x: 2
-        y: 6
+        y: 2
     use_thin_strokes: false
 
 # Base16 Monokai - alacritty color config

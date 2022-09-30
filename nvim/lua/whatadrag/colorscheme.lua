@@ -1,4 +1,4 @@
-local setColorScheme = 'base16-monokai'
+local setColorScheme = 'base16-gruvbox-dark-hard'
 -- 'base16-gruvbox-dark-hard'
 
 local status_ok, _ = pcall(vim.cmd, 'colorscheme ' .. setColorScheme)
@@ -8,4 +8,4 @@ if not status_ok then
 end
 
 -- transparent background
-vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
+-- vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
