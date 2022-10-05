@@ -7,5 +7,5 @@ if not status_ok then
     return
 end
 
--- transparent background
--- vim.cmd [[ hi Normal guibg=NONE ctermbg=NONE ]]
+vim.notify(setColorScheme)
+vim.g.gruvbox_contrast_dark = 'hard'

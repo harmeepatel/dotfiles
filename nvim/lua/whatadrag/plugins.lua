@@ -64,9 +64,6 @@ return require('packer').startup(function()
         run = 'npm install'
     }
 
-    -- toggleterm
-    use { "akinsho/toggleterm.nvim", tag = 'v1.*' }
-
     -- lsp
     -- use 'neovim/nvim-lspconfig'
     -- use 'hrsh7th/nvim-cmp'

@@ -42,13 +42,8 @@ vim.cmd [[
 --     let g:airline#extensions#tabline#show_tab_type = 0
 -- ]]
 
---                              ╭────────────────╮
---                              │ gruvbox config │
---                              ╰────────────────╯
 
-vim.cmd [[
-    let g:gruvbox_contrast_dark = 'hard'
-]]
+
 
 -- -- Nice menu when typing `:find *.py`
 vim.cmd [[set wildmode=longest,list,full]]
@@ -64,8 +59,3 @@ vim.cmd [[set wildignore+=*.jpg,*.png,*.jpeg,*.bmp,*.gif,*.tiff,*.svg,*.ico]]
 vim.cmd [[set wildignore+=*.pyc,*.pkl]]
 vim.cmd [[set wildignore+=*.DS_Store]]
 vim.cmd [[set wildignore+=*.aux,*.bbl,*.blg,*.brf,*.fls,*.fdb_latexmk,*.synctex.gz,*.xdv]]
-
--- toggleterm
-vim.cmd [[autocmd TermEnter term://*toggleterm#*
-        \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-]]
