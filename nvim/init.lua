@@ -18,7 +18,6 @@ require 'whatadrag.coc'
 -- ╰─────────╯
 require 'whatadrag.autocmd'
 require 'whatadrag.colorscheme'
-require 'whatadrag.catppuccin'
 
 vim.cmd [[
     source ~/.config/nvim/lua/coc.vim
