@@ -17,7 +17,6 @@ require 'whatadrag.coc'
 -- │ autocmd │
 -- ╰─────────╯
 require 'whatadrag.autocmd'
-vim.notify('colorscheme')
 require 'whatadrag.colorscheme'
 
 vim.cmd [[

@@ -6,6 +6,3 @@ if not status_ok then
     vim.notify('404: colorscheme - ' .. setColorScheme)
     return
 end
-
-vim.notify(setColorScheme)
-vim.g.gruvbox_contrast_dark = 'hard'

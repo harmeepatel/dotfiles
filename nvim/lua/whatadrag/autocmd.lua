@@ -1,12 +1,11 @@
 -- Transperant background in neovim
 
--- vim.cmd [[
---     augroup Transperant
---         autocmd!
---         au ColorScheme * hi Normal ctermbg=none guibg=none
---         au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
---     augroup END
--- ]]
+vim.cmd [[
+    augroup Transperant
+        autocmd!
+        au ColorScheme * hi Normal ctermbg=none guibg=none
+    augroup END
+]]
 
 -- Remove trailing white spaces
 
