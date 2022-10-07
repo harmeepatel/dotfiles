@@ -19,9 +19,6 @@ return require('packer').startup(function()
     -- box outline for comments
     use "LudoPinelli/comment-box.nvim"
 
-    -- multiple cursors
-    use 'mg979/vim-visual-multi'
-
     -- indent guides
     -- use 'lukas-reineke/indent-blankline.nvim'
 
@@ -30,6 +27,9 @@ return require('packer').startup(function()
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
+
+    -- git
+    use 'lewis6991/gitsigns.nvim'
 
     -- devicons
     use 'kyazdani42/nvim-web-devicons'

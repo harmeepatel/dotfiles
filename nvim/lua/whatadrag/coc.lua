@@ -1,7 +1,6 @@
 vim.g.coc_global_extensions = {
     'coc-clangd',
     'coc-css',
-    'coc-git',
     'coc-go',
     'coc-html',
     'coc-emmet',

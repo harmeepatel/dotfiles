@@ -4,6 +4,7 @@ vim.cmd [[
     augroup Transperant
         autocmd!
         au ColorScheme * hi Normal ctermbg=none guibg=none
+        au BufRead,BufNewFile * hi clear SignColumn
     augroup END
 ]]
 
