@@ -10,6 +10,9 @@ invisible='\033[8m'
 
 green='\033[1;32m'
 
+
+PWD=`basename \`pwd\``
+
 #                                   ╭─────────╮
 #                                   │ plugins │
 #                                   ╰─────────╯
@@ -53,8 +56,8 @@ export PATH="$HOME/Developer/mmc:$PATH"
 #                            ╰──────────────────────╯
 ala=`ps -ax | grep Alacritty | head -n 1 | awk '{print $4}'`
 if [[ -n $KITTY_PID || $ala == "/Applications/Alacritty.app/Contents/MacOS/alacritty" ]] then
-    if [ ! "$TMUX" ]; then
-            tmux a || tmux &> /dev/null
+    if [[ -z "$TMUX" ]]; then
+            tmux a || tmux new-session -s $PWD
     fi
 fi
 

@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
   },
+  nvim = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["nvim-colorizer.lua"] = {
     loaded = true,
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",

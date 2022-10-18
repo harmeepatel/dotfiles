@@ -1,4 +1,4 @@
-local setColorScheme = 'gruvbox'
+local setColorScheme = 'catppuccin'
 -- 'base16-gruvbox-dark-hard'
 
 local status_ok, _ = pcall(vim.cmd, 'colorscheme ' .. setColorScheme)

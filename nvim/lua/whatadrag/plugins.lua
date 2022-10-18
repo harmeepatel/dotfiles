@@ -9,6 +9,7 @@ return require('packer').startup(function()
 
     -- theme
     use 'morhetz/gruvbox'
+    use 'catppuccin/nvim'
 
     -- show hex colors
     use 'norcalli/nvim-colorizer.lua'

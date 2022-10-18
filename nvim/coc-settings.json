@@ -67,6 +67,5 @@
     "python.formatting.blackPath": "/usr/local/lib/python3.9/site-packages",
     "eslint.autoFixOnSave": true,
     "rust-analyzer.inlayHints.typeHintsSeparator": "‣",
-    "git.addedSign.text": "︱",
-    "git.removedSign.text": "︱"
+    "rust-analyzer.imports.merge.glob": true
 }
