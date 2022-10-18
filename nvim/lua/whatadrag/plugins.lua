@@ -11,8 +11,8 @@ return require('packer').startup(function()
     use 'morhetz/gruvbox'
     use 'catppuccin/nvim'
 
-    -- show hex colors
-    use 'norcalli/nvim-colorizer.lua'
+    -- hex colors
+    use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
 
     -- commenting
     use 'numToStr/Comment.nvim'

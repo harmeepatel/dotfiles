@@ -109,11 +109,6 @@ _G.packer_plugins = {
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim",
     url = "https://github.com/catppuccin/nvim"
   },
-  ["nvim-colorizer.lua"] = {
-    loaded = true,
-    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
-    url = "https://github.com/norcalli/nvim-colorizer.lua"
-  },
   ["nvim-hardline"] = {
     loaded = true,
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/nvim-hardline",
@@ -148,6 +143,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-hexokinase"] = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/vim-hexokinase",
+    url = "https://github.com/rrethy/vim-hexokinase"
   },
   ["vim-startuptime"] = {
     loaded = true,

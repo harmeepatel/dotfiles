@@ -16,7 +16,6 @@ vim.g.coc_global_extensions = {
     'coc-rust-analyzer',
     'coc-pairs',
     'coc-db',
-    'coc-highlight',
     'coc-snippets',
     'coc-ultisnips',
     'coc-emoji',

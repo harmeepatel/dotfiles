@@ -1,7 +1,7 @@
 #pell:words alacritty lfcd
 live_config_reload: true
 env:
-    TERM: tmux-256color
+    TERM: xterm-256color
 selection:
     semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
     save_to_clipboard: true
@@ -39,7 +39,7 @@ font:
     use_thin_strokes: false
 
 import:
-    - ~/Developer/mmc/alacritty/colors/catppuccin-macchiato.yml
+    - ~/Developer/mmc/alacritty/colors/catppuccin-latte.yml
 
 key_bindings:
     # rename
