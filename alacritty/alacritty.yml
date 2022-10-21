@@ -47,7 +47,7 @@ key_bindings:
     - { key: Comma, mods: Command|Shift, chars: "\x02\x24" }
 
     # clear
-    - { key: K, mods: Command, chars: "clear\x0a" }
+    - { key: K, mods: Command, chars: "kjddAclear\x0a" }
 
     # Switch to last tmux session
     - { key: L, mods: Command, chars: "\x02\x73" }
