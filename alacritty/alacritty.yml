@@ -9,7 +9,7 @@ window:
     dimensions:
         columns: 248
         lines: 70
-    opacity: 0.82
+    opacity: 0.52
     padding:
         x: 2
         y: 2
@@ -39,7 +39,7 @@ font:
     use_thin_strokes: false
 
 import:
-    - ~/Developer/mmc/alacritty/colors/catppuccin-macchiato.yml
+    - ~/Developer/mmc/alacritty/colors/base16-gruvbox-dark-hard.yml
 
 key_bindings:
     # rename
