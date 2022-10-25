@@ -1,4 +1,4 @@
-require 'whatadrag.general'
+require 'whatadrag.options'
 require 'whatadrag.keymaps'
 require 'whatadrag.comment'
 require 'whatadrag.plugins'
