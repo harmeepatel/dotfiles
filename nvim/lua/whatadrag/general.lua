@@ -43,5 +43,5 @@ O.undofile = true
 O.writebackup = false
 O.wrap = false
 
-vim.g.Hexokinase_optInPatterns = 'full_hex,rgb,rgba,hsl,hsla'
+-- vim.g.Hexokinase_optInPatterns = 'full_hex,rgb,rgba,hsl,hsla'
 vim.g.Hexokinase_highlighters = { 'foregroundfull' }
