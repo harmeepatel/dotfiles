@@ -5,6 +5,7 @@ vim.g.coc_global_extensions = {
     'coc-html',
     'coc-emmet',
     'coc-tsserver',
+    'coc-tslint-plugin',
     'coc-eslint',
     'coc-json',
     'coc-toml',
