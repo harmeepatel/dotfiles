@@ -79,3 +79,7 @@ opnssl_enc(){
 opnssl_dec(){
         openssl enc -aes-256-cbc -d -in $1 -out $2
 }
+
+ytdl_best_mp3(){
+    youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1
+}
