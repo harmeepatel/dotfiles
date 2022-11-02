@@ -64,7 +64,7 @@
     "Lua.format.enable": true,
     "Lua.workspace.maxPreload": 20000,
     "python.formatting.provider": "black",
-    "python.formatting.blackPath": "/usr/local/lib/python3.9/site-packages",
+    "python.formatting.blackPath": "/usr/local/Cellar/black/22.10.0/libexec/bin/black",
     "eslint.autoFixOnSave": true,
     "rust-analyzer.inlayHints.typeHintsSeparator": "‣",
     "rust-analyzer.imports.merge.glob": true
