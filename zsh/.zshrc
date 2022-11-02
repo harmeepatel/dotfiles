@@ -42,10 +42,6 @@ export UPDATE_ZSH_DAYS=30
 # homebrew
 export PATH="/usr/local/sbin:$PATH"
 
-# Setting PATH for Python 3.9
-# The original version is saved in .zprofile.pysave
-export PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:$PATH"
-
 export PATH="$HOME/Developer/mmc:$PATH"
 # PS1="
 # $bg[cyan] %~ %B%B→ %b%b "
@@ -84,8 +80,8 @@ alias zprofile="nvim ~/.zprofile"
 alias szrc="source ~/.zshrc"
 alias szprofile="source ~/.zprofile"
 
-alias python="python3"
-alias pip="pip3"
+alias python="python3.11"
+alias pip="pip3.11"
 
 alias v="nvim"
 alias btm='btm --color gruvbox'
