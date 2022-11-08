@@ -63,7 +63,7 @@ fi
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias ls="exa -l -a --icons"
+alias ls="exa -l -a --icons -s Ext"
 alias cat="bat"
 alias rg="rg --hidden --ignore .git -g"
 alias fd="fd -u"
