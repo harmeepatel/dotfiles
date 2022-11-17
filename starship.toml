@@ -32,8 +32,9 @@ format = "took [$duration]($style) "
 ssh_only = true
 
 [directory]
-format = "[$path](blue)[$read_only](fg:208) "
+truncation_length = 128
 truncate_to_repo = false
+format = "[$path](blue)[$read_only](fg:208) "
 
 [username]
 style_root = "bold red"

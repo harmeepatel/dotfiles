@@ -70,10 +70,6 @@ alias fd="fd -u"
 alias echo="echo -e"
 
 alias htdocs="cd /Users/harmy_patel/.bitnami/stackman/machines/xampp/volumes/root/htdocs"
-alias dp="cd ~/Developer/projects"
-alias dpr="cd ~/Developer/projects/rust"
-alias dpw="cd ~/Developer/projects/websites"
-alias mmc="cd ~/Developer/mmc"
 
 alias zrc="nvim ~/.zshrc"
 alias zprofile="nvim ~/.zprofile"
@@ -84,7 +80,6 @@ alias python="python3.11"
 alias pip="pip3.11"
 
 alias v="nvim"
-alias btm='btm --color gruvbox'
 alias c='codium'
 
 #                               ╭─────────────────╮
