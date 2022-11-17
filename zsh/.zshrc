@@ -103,7 +103,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 #                                     ╰─────╯
 eval "$(fnm env --use-on-cd)"
 
-#                                  ╭──────────╮
-#                                  │ starship │
-#                                  ╰──────────╯
+#                                    ╭───────╮
+#                                    │ juice │
+#                                    ╰───────╯
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"

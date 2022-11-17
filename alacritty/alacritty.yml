@@ -36,7 +36,6 @@ font:
     offset:
         x: 2
         y: 2
-    use_thin_strokes: false
 
 import:
     - ~/Developer/mmc/alacritty/colors/base16-gruvbox-dark-hard.yml
