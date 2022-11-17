@@ -32,7 +32,6 @@ format = "took [$duration]($style) "
 ssh_only = true
 
 [directory]
-truncation_length = 64
 format = "[$path](blue)[$read_only](fg:208) "
 truncate_to_repo = false
 
