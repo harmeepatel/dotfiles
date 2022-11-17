@@ -21,13 +21,16 @@ return require('packer').startup(function()
     use "LudoPinelli/comment-box.nvim"
 
     -- indent guides
-    -- use 'lukas-reineke/indent-blankline.nvim'
+    -- use 'lukas-reineke/indent-blanklOine.nvim'
 
     -- treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
+
+    -- undotree
+    use 'mbbill/undotree'
 
     -- git
     use 'lewis6991/gitsigns.nvim'
