@@ -13,7 +13,7 @@ cocYarnInstall() {
     echo "\nentering $green$bold$italic$cwd$normal" &&
 }
 
-gitacp(){
+gacp(){
 	if [[ "$1" == "" ]]
 	then
 		echo "enter a message..."
