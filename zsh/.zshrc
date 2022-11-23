@@ -63,6 +63,7 @@ fi
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias ls="ls -lah"
 alias ls="exa -l -a --icons -s Ext"
 alias cat="bat"
 alias rg="rg --hidden --ignore .git -g"
@@ -81,6 +82,7 @@ alias pip="pip3.11"
 
 alias v="nvim"
 alias c='codium'
+alias rm='trash'
 
 #                               ╭─────────────────╮
 #                               │ bun completions │
