@@ -34,7 +34,7 @@ ssh_only = true
 [directory]
 truncation_length = 128
 truncate_to_repo = false
-format = "[$path](blue)[$read_only](fg:208) "
+format = "[$path](blue bold)[$read_only](fg:208) "
 
 [username]
 style_root = "bold red"
@@ -46,15 +46,15 @@ disabled = false
 format = '[ $symbol$branch(:$remote_branch) ](fg:70) '
 
 [git_status]
-format = '[\[ $all_status$ahead_behind \]](fg:250) '
+format = '$all_status$ahead_behind'
 conflicted = "🏳"
-ahead = "🏎💨{$count}"
-behind = "😰{$count}"
-diverged = "😵"
+ahead = "🏎💨$count "
+behind = "😰$count "
+diverged = " "
 up_to_date = ""
-untracked = "🤷{$count}"
-stashed = "📦"
-modified = "!{$count}"
-staged = "+{$count}"
-renamed = "»{$count}"
-deleted = "✘{$count}"
+untracked = "👀$count "
+stashed = "📦 "
+modified = "[!$count ](yellow bold)"
+staged = "[$count ](green bold)"
+renamed = "»$count "
+deleted = "[$count ](red bold)"
