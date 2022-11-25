@@ -14,9 +14,11 @@ green='\033[1;32m'
 PWD=`basename \`pwd\``
 
 #                                   ╭─────────╮
-#                                   │ plugins │
+#                                   │ imports │
 #                                   ╰─────────╯
 source ~/.config/zsh/zshrc_functions.zsh
+source /usr/local/Cellar/fzf/0.35.1/shell/key-bindings.zsh
+source /usr/local/Cellar/fzf/0.35.1/shell/completion.zsh
 
 #                                     ╭─────╮
 #                                     │ vim │

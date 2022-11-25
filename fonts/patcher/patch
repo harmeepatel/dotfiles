@@ -1,13 +1,10 @@
 #!/bin/bash
+echo ------------- Running Script -------------
+echo
+rm ./o/*
 
-flag=0
-for font in `ls $search_dir | grep otf`; do
-    if [ $flag == 0 ]
-    then
-        flag = 1
-        mkdir output
-    fi
-
-    fontforge -script ./nerd-fonts-patcher/font-patcher $font -s -l --quiet --fontawesome --fontawesomeextension --octicons --powersymbols --powerline --mdi --weather --careful -out output
-    echo ------------- $font -------------
+for font in `ls ./i | grep 'otf\|ttf'`; do
+    fontforge -script ./nerd-fonts-patcher/font-patcher $font -s -l -c --quiet --careful -out o
+    echo 'Patched: ${font}'
+    echo
 done
