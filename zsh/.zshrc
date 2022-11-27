@@ -62,29 +62,7 @@ fi
 #                                    ╭───────╮
 #                                    │ alias │
 #                                    ╰───────╯
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias ls="ls -lah"
-alias ls="exa -l -a --icons -s Ext"
-alias cat="bat"
-alias rg="rg --hidden --ignore .git -g"
-alias fd="fd -u"
-alias echo="echo -e"
-
-alias htdocs="cd /Users/harmy_patel/.bitnami/stackman/machines/xampp/volumes/root/htdocs"
-
-alias zrc="nvim ~/.zshrc"
-alias zprofile="nvim ~/.zprofile"
-alias szrc="source ~/.zshrc"
-alias szprofile="source ~/.zprofile"
-
-alias python="python3.11"
-alias pip="pip3.11"
-
-alias v="nvim"
-alias c='codium'
-alias rm='trash'
+source ~/.config/zsh/alias.zsh
 
 #                               ╭─────────────────╮
 #                               │ bun completions │
