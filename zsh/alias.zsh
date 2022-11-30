@@ -30,3 +30,4 @@ alias rm='trash'
 # git
 alias ga="git add"
 alias gc="git commit -m"
+alias gl="git log --graph --pretty=oneline --abbrev-commit"
