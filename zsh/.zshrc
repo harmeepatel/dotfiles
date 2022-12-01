@@ -17,6 +17,8 @@ PWD=`basename \`pwd\``
 #                                   │ imports │
 #                                   ╰─────────╯
 source ~/.config/zsh/zshrc_functions.zsh
+source ~/.config/zsh/alias.zsh
+# fzf stuff
 source /usr/local/Cellar/fzf/0.35.1/shell/key-bindings.zsh
 source /usr/local/Cellar/fzf/0.35.1/shell/completion.zsh
 
@@ -45,9 +47,8 @@ export UPDATE_ZSH_DAYS=30
 export PATH="/usr/local/sbin:$PATH"
 
 export PATH="$HOME/Developer/mmc:$PATH"
-# PS1="
-# $bg[cyan] %~ %B%B→ %b%b "
-# export PS1
+PS1="$bg[cyan] %~ %B%B "
+export PS1
 
 #                            ╭──────────────────────╮
 #                            │ run tmux on start-up │
@@ -58,11 +59,6 @@ if [[ -n $KITTY_PID || $ala == "/Applications/Alacritty.app/Contents/MacOS/alacr
             tmux a || tmux new-session -s $PWD
     fi
 fi
-
-#                                    ╭───────╮
-#                                    │ alias │
-#                                    ╰───────╯
-source ~/.config/zsh/alias.zsh
 
 #                               ╭─────────────────╮
 #                               │ bun completions │
@@ -83,5 +79,5 @@ eval "$(fnm env --use-on-cd)"
 #                                    ╭───────╮
 #                                    │ juice │
 #                                    ╰───────╯
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
