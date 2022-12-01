@@ -1,4 +1,3 @@
-
 normal='\033[0m'
 bold='\033[1m'
 dim='\033[2m'
@@ -7,8 +6,6 @@ underline='\033[4m'
 blinking='\033[5m'
 reverse='\033[7m'
 invisible='\033[8m'
-
-green='\033[1;32m'
 
 
 PWD=`basename \`pwd\``
