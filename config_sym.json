@@ -1,20 +1,10 @@
 [
-    { "from": "~/Developer/mmc/alacritty", "to": "~/.config/alacritty" },
-    { "from": "~/Developer/mmc/btop", "to": "~/.config/btop" },
-    { "from": "~/Developer/mmc/kitty", "to": "~/.config/kitty" },
-    { "from": "~/Developer/mmc/nvim", "to": "~/.config/nvim" },
-    { "from": "~/Developer/mmc/zsh", "to": "~/.config/zsh" },
+    { "from": "~/Developer/mmc/.config/*", "to": "~/.config/" },
     {
         "from": "~/Developer/mmc/tmux/tmux.conf",
         "to": "~/.config/tmux/tmux.conf"
     },
-    {
-        "from": "~/Developer/mmc/starship.toml",
-        "to": "~/.config/starship.toml"
-    },
-    { "from": "~/Developer/mmc/.warp", "to": "~/.warp" },
     { "from": "~/Developer/mmc/.gitconfig", "to": "~/.gitconfig" },
-    { "from": "~/Developer/mmc/zsh/.p10k.zsh", "to": "~/.p10k.zsh" },
-    { "from": "~/Developer/mmc/zsh/.zshrc", "to": "~/.zshrc" }
+    { "from": "~/Developer/mmc/.profile", "to": "~/.profile" },
+    { "from": "~/Developer/mmc/.config/zsh/.zprofile", "to": "~/.zprofile" }
 ]
-

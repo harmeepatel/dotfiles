@@ -16,8 +16,9 @@ PWD=`basename \`pwd\``
 #                                   ╭─────────╮
 #                                   │ imports │
 #                                   ╰─────────╯
-source ~/.config/zsh/zshrc_functions.zsh
-source ~/.config/zsh/alias.zsh
+source $ZDOTDIR/func
+source $ZDOTDIR/alias
+source $ZDOTDIR/prompt
 # fzf stuff
 source /usr/local/Cellar/fzf/0.35.1/shell/key-bindings.zsh
 source /usr/local/Cellar/fzf/0.35.1/shell/completion.zsh
@@ -47,8 +48,6 @@ export UPDATE_ZSH_DAYS=30
 export PATH="/usr/local/sbin:$PATH"
 
 export PATH="$HOME/Developer/mmc:$PATH"
-PS1="$bg[cyan] %~ %B%B "
-export PS1
 
 #                            ╭──────────────────────╮
 #                            │ run tmux on start-up │

@@ -8,15 +8,18 @@ alias cat="bat --theme='gruvbox-dark'"
 alias rg="rg --hidden --ignore .git -g"
 alias fd="fd -u"
 alias echo="echo -e"
+alias grep='grep --color=auto'
+# reading disks
+alias df='df -h'
 
 # gt htdocs
 alias htdocs="cd /Users/harmeepatel/.bitnami/stackman/machines/xampp/volumes/root/htdocs"
 
 # zshrc
-alias zrc="nvim ~/.zshrc"
-alias zprofile="nvim ~/.zprofile"
-alias szrc="source ~/.zshrc"
-alias szprofile="source ~/.zprofile"
+alias zrc="nvim $ZDOTDIR/.zshrc"
+alias szrc="source $ZDOTDIR/.zshrc"
+alias zprofile="nvim $ZDOTDIR/.zprofile"
+alias szprofile="source $ZDOTDIR/.zprofile"
 
 # python
 alias python="python3.11"
