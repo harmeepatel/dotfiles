@@ -1,11 +1,14 @@
-normal='\033[0m'
-bold='\033[1m'
-dim='\033[2m'
-italic='\033[3m'
-underline='\033[4m'
-blinking='\033[5m'
-reverse='\033[7m'
-invisible='\033[8m'
+# profiling
+# zmodload zsh/zprof
+
+# normal='\033[0m'
+# bold='\033[1m'
+# dim='\033[2m'
+# italic='\033[3m'
+# underline='\033[4m'
+# blinking='\033[5m'
+# reverse='\033[7m'
+# invisible='\033[8m'
 
 
 PWD=`basename \`pwd\``
@@ -16,18 +19,15 @@ PWD=`basename \`pwd\``
 source $ZDOTDIR/func
 source $ZDOTDIR/alias
 source $ZDOTDIR/prompt
+
 # fzf stuff
-source /usr/local/Cellar/fzf/0.35.1/shell/key-bindings.zsh
 source /usr/local/Cellar/fzf/0.35.1/shell/completion.zsh
+source /usr/local/Cellar/fzf/0.35.1/shell/key-bindings.zsh
 
-#                                     ╭─────╮
-#                                     │ vim │
-#                                     ╰─────╯
-
-
+#                                  ╭──────────╮
+#                                  │ vim mode │
+#                                  ╰──────────╯
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.zsh
-ZVM_VI_INSERT_ESCAPE_BINDKEY=kj
-ZVM_VI_VISUAL_ESCAPE_BINDKEY=kj
 
 #                                     ╭─────╮
 #                                     │ gen │
@@ -37,14 +37,6 @@ ZVM_VI_VISUAL_ESCAPE_BINDKEY=kj
 
 # Path to your oh-my-zsh installation.
 # export ZSH="$HOME/.oh-my-zsh"
-
-export UPDATE_ZSH_DAYS=30
-# source $ZSH/oh-my-zsh.sh
-
-# homebrew
-export PATH="/usr/local/sbin:$PATH"
-
-export PATH="$HOME/Developer/mmc:$PATH"
 
 #                            ╭──────────────────────╮
 #                            │ run tmux on start-up │
@@ -62,18 +54,15 @@ fi
 [ -s "/Users/harmeepatel/.bun/_bun" ] && source "/Users/harmeepatel/.bun/_bun"
 
 #                                     ╭─────╮
-#                                     │ Bun │
-#                                     ╰─────╯
-export BUN_INSTALL="/Users/harmeepatel/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-#                                     ╭─────╮
 #                                     │ fnm │
 #                                     ╰─────╯
 eval "$(fnm env --use-on-cd)"
 
-#                                    ╭───────╮
-#                                    │ juice │
-#                                    ╰───────╯
-# eval "$(starship init zsh)"
+
+#                                   ╭────────╮
+#                                   │ zoxide │
+#                                   ╰────────╯
 eval "$(zoxide init zsh)"
+
+# profiling
+# zprof
