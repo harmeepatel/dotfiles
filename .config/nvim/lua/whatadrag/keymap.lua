@@ -19,6 +19,10 @@ map("n", ":", ";")
 map("v", ";", ":")
 map("v", ":", ";")
 
+-- search
+map("n", "n", "nzz")
+map("n", "N", "Nzz")
+
 -- pasting in new line
 map("n", "<leader>p", ":pu<cr>")
 
