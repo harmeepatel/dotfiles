@@ -1,5 +1,5 @@
 require 'whatadrag.options'
-require 'whatadrag.keymaps'
+require 'whatadrag.keymap'
 require 'whatadrag.comment'
 require 'whatadrag.plugins'
 -- require 'whatadrag.colorizer'
