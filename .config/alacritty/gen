@@ -1,0 +1,1 @@
+envsubst < config > "$(pwd | awk -F '/' '{print $NF}')".conf

@@ -14,3 +14,6 @@ export PATH="/usr/local/sbin:$PATH"
 # bun
 export BUN_INSTALL="/Users/harmeepatel/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# custom
+export FONT="CaskaydiaCovePL Nerd Font Mono"
