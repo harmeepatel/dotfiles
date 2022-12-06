@@ -1,5 +1,4 @@
 -- Transperant background in neovim
-
 vim.cmd [[
     augroup Transperant
         autocmd!
@@ -9,13 +8,12 @@ vim.cmd [[
 ]]
 
 -- Remove trailing white spaces
-
-vim.cmd [[
-    augroup RemoveWhiteSpaces
-        autocmd!
-        autocmd BufWritePre * :%s/\s\+$//e
-    augroup END
-]]
+-- vim.cmd [[
+--     augroup RemoveWhiteSpaces
+--         autocmd!
+--         autocmd BufWritePre * :%s/\s\+$//e
+--     augroup END
+-- ]]
 
 -- colorscheme for huge js files
 vim.cmd [[
