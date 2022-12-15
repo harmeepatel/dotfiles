@@ -59,12 +59,9 @@
     "javascript.suggest.paths": true,
     "prettier.tabWidth": 4,
     "prettier.jsxBracketSameLine": true,
-    "prettier.singleQuote": true,
     "prettier.trailingComma": "all",
     "Lua.format.enable": true,
     "Lua.workspace.maxPreload": 20000,
-    "python.formatting.provider": "black",
-    "python.formatting.blackPath": "/usr/local/Cellar/black/22.10.0/libexec/bin/black",
     "eslint.autoFixOnSave": true,
     "rust-analyzer.inlayHints.typeHintsSeparator": "‣",
     "rust-analyzer.imports.merge.glob": true

@@ -57,6 +57,8 @@ return require('packer').startup(function()
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
+    -- astro support
+    use 'wuelnerdotexe/vim-astro'
     -- coc
     use {
         'neoclide/coc.nvim',
