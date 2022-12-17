@@ -18,11 +18,13 @@ PWD=`basename \`pwd\``
 #                                   ╰─────────╯
 source $ZDOTDIR/func
 source $ZDOTDIR/alias
-source $ZDOTDIR/prompt
+# source $ZDOTDIR/prompt
 
 # fzf stuff
 source /usr/local/Cellar/fzf/0.35.1/shell/completion.zsh
 source /usr/local/Cellar/fzf/0.35.1/shell/key-bindings.zsh
+
+source ~/.config/zsh/themes/catppuccin.zsh
 
 #                                  ╭──────────╮
 #                                  │ vim mode │
@@ -63,6 +65,9 @@ eval "$(fnm env --use-on-cd)"
 #                                   │ zoxide │
 #                                   ╰────────╯
 eval "$(zoxide init zsh)"
+
+# starship
+eval "$(starship init zsh)"
 
 
 # profiling
