@@ -1,4 +1,10 @@
 local ok, treesitter = pcall(require, "nvim-treesitter.configs")
+
+if not ok then
+    vim.notify("404: treesitter")
+    return
+end
+
 treesitter.setup {
   -- A list of parser names, or "all"
   ensure_installed = { "help", "javascript", "typescript", "tsx", "lua", "rust", "python", "bash", "astro", "css", "scss", "dockerfile", "json", "json5", "markdown", "markdown_inline", "sql", "toml" },
@@ -21,3 +27,4 @@ treesitter.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
