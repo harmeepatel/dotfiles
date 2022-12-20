@@ -10,6 +10,7 @@ lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
     'eslint',
+    'emmet-ls',
     'sumneko_lua',
     'rust_analyzer',
 })
@@ -24,6 +25,25 @@ lsp.configure('sumneko_lua', {
         }
     }
 })
+
+--[[ -- emmet setup
+local lspconfig = require('lspconfig')
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lspconfig.emmet_ls.setup({
+    -- on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
+}) ]]
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -72,6 +92,8 @@ end)
 
 lsp.setup()
 
+
+-- enable inline diagnostics through lsp
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
 vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics,
