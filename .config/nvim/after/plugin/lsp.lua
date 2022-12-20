@@ -10,7 +10,8 @@ lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
     'eslint',
-    'emmet-ls',
+    'pyright',
+    -- 'emmet-ls',
     'sumneko_lua',
     'rust_analyzer',
 })
@@ -61,10 +62,14 @@ lsp.setup_nvim_cmp({
 lsp.set_preferences({
     suggest_lsp_servers = false,
     sign_icons = {
-        error = '',
-        warn = '',
-        hint = '',
-        info = ''
+        error = '✘',
+        warn = '▲',
+        hint = '⚑',
+        info = ''
+        -- error = '',
+        -- warn = '',
+        -- hint = '',
+        -- info = ''
     }
 })
 
@@ -91,7 +96,6 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
-
 
 -- enable inline diagnostics through lsp
 vim.lsp.handlers["textDocument/publishDiagnostics"] =

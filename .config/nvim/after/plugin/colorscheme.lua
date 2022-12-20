@@ -1,4 +1,4 @@
-local colorscheme = 'catppuccin'
+local colorscheme = 'monokaipro'
 
 local ok, _ = pcall(vim.cmd.colorscheme, colorscheme)
 if not ok then
@@ -6,7 +6,7 @@ if not ok then
     return
 end
 
-require("catppuccin").setup({
+--[[ require("catppuccin").setup({
     flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = { -- :h background
         light = "latte",
@@ -46,7 +46,7 @@ require("catppuccin").setup({
         mini = false,
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
     },
-})
+}) ]]
 
 -- transparent that shit
 vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
