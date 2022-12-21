@@ -40,15 +40,16 @@ for w in $WALLPAPERS/*; do
         continue
     fi
 
-    # w=$(echo $w |sed "s/\ /\-/g")
-
     filename=$(basename -- "$w" | sed 's/ /\-/g')
     extension="${filename##*.}"
     filename="${filename%.*}"
-
-    if [ $extension == "webp" ] || [ $filename == ".DS_STORE" ]; then
+    
+    webp_exists=$(echo $w |sed "s/.$extension/.webp/g")
+    if [ -f $webp_exists ] || [ -f ".DS_STORE" ]; then
+        echo "skipping:     $w"
         continue
     fi
+
     ((update_count++))
     echo
     echo "converting:   $w"
@@ -61,9 +62,9 @@ for w in $WALLPAPERS/*; do
             trash $w 
         fi
     fi
-    echo
 done
 
+echo
 if [ $update_count -eq 0 ]; then
     echo "Nothing to do..."
     echo
