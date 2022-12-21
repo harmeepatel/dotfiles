@@ -1,16 +1,24 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-if ! command -v asdf &> /dev/null
-then
+if ! command -v cwebp &> /dev/null; then
     echo
     echo "Install webp!"
     read -p "Want me to do it for you? [y/n]: " ans
     if [ $ans = "n" ] || [ $ans = "N" ] || [ $ans = "no" ] || [ $ans = "No" ] || [ $ans = "NO" ]; then
-        echo "Alright.🙌"
+        echo "Alright 🙌"
+    else
+        if ! command brew &> /dev/null; then
+            echo "I use MacOS. (for now 😉)"
+            echo "Start here: https://developers.google.com/speed/webp/download"
+            exit
+        else
+            brew install webp
+        fi
     fi
 fi
 
 
+# ------ change this!! ------
 WALLPAPERS=~/Pictures/Wallpapers/
 
 if [ ! -d $WALLPAPERS ]; then
@@ -21,11 +29,12 @@ fi
 
 ans=""
 echo
-read -p "Do you want to remove original files? [y/n]: " ans
+read -p "Do you want to remove original files?(it will try to delete the non-webp files) [y/n]: " ans
 if [ $ans = "n" ] || [ $ans = "N" ] || [ $ans = "no" ] || [ $ans = "No" ] || [ $ans = "NO" ]; then
     echo "---- Not removing originals ----"
 fi
 
+update_count=0
 for w in $WALLPAPERS/*; do
     if [ ! -f "$w" ]; then
         continue
@@ -35,14 +44,25 @@ for w in $WALLPAPERS/*; do
     extension="${filename##*.}"
     filename="${filename%.*}"
 
-    if [ $extension != "webp" ] && [ $filename != ".DS_STORE" ]; then
-        echo
-        echo "converting:   $w"
-        cwebp -near_lossless 16 -mt -quiet $w -o $WALLPAPERS/$filename.webp
-        if [ $ans = "y" ] || [ $ans = "Y" ] || [ $ans = "yes" ] || [ $ans = "Yes" ] || [ $ans = "YES" ]; then
-            echo "removing:     $w"
-            trash $w
-        fi
-        echo
+    if [ $extension == "webp" ] || [ $filename == ".DS_STORE" ]; then
+        continue
     fi
+    ((update_count++))
+    echo
+    echo "converting:   $w"
+    cwebp -near_lossless 16 -mt -quiet $w -o $WALLPAPERS/$filename.webp
+    if [ $ans = "y" ] || [ $ans = "Y" ] || [ $ans = "yes" ] || [ $ans = "Yes" ] || [ $ans = "YES" ]; then
+        echo "removing:     $w"
+        if ! command trash &> /dev/null; then
+            rm -rf $w # --- might have to change this
+        else
+            trash $w 
+        fi
+    fi
+    echo
 done
+
+if [ $update_count -eq 0 ]; then
+    echo "Nothing to do..."
+    echo
+fi
