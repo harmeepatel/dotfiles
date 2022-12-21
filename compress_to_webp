@@ -1,5 +1,22 @@
 #!/usr/bin/env bash
 
+# ---------- FIX THIS: not working!?
+# remove_og () {
+#     ans=$1
+#     w=$2
+#
+#     echo $1
+#     echo $2
+#     if [ $ans = "y" ] || [ $ans = "Y" ] || [ $ans = "yes" ] || [ $ans = "Yes" ] || [ $ans = "YES" ]; then
+#         echo "removing:     $w"
+#         if ! command trash &> /dev/null; then
+#             rm -rf "$w" # --- might have to change this
+#         else
+#             trash "$w"
+#         fi
+#     fi
+# }
+
 if ! command -v cwebp &> /dev/null; then
     echo
     echo "Install webp!"
@@ -19,7 +36,7 @@ fi
 
 
 # ------ change this!! ------
-WALLPAPERS=~/Pictures/Wallpapers/test
+WALLPAPERS=~/Pictures/Wallpapers
 
 if [ ! -d $WALLPAPERS ]; then
     echo "$WALLPAPERS does not exist!!!"
@@ -29,43 +46,60 @@ fi
 
 ans=""
 echo
-read -p "Do you want to remove original files?(it will try to delete the non-webp files) [y/n]: " ans
+read -p "Do you want to delete original files? [y/n]: " ans
 if [ $ans = "n" ] || [ $ans = "N" ] || [ $ans = "no" ] || [ $ans = "No" ] || [ $ans = "NO" ]; then
     echo "---- Not removing originals ----"
+    echo
 fi
+
+echo "---- converting ' ' -> '-' ----"
+echo
+for w in $WALLPAPERS/*; do
+    nw=$(echo $w | sed "s/\ /\-/g")
+    mv "$w" "$nw"
+done
 
 update_count=0
 for w in $WALLPAPERS/*; do
-    if [ ! -f "$w" ]; then
+    if [ ! -f "$w" ] || [ $w == ".DS_Store" ]; then
         continue
     fi
 
     filename=$(basename -- "$w" | sed 's/ /\-/g')
     extension="${filename##*.}"
-    filename="${filename%.*}"
+    filename="${filename%.*}" # remove extension at the end | abc.png -> abc
+
+    if [ $extension == "webp" ]; then
+        continue
+    fi
     
     webp_exists=$(echo $w |sed "s/.$extension/.webp/g")
-    if [ -f $webp_exists ] || [ -f ".DS_STORE" ]; then
-        echo "skipping:     $w"
+    if [ -f $webp_exists ]; then
+        if [ $ans = "y" ] || [ $ans = "y" ] || [ $ans = "yes" ] || [ $ans = "yes" ] || [ $ans = "yes" ]; then
+            echo "removing:     $w"
+            if ! command trash &> /dev/null; then
+                rm -rf "$w" # --- might have to change this
+            else
+                trash "$w"
+            fi
+        fi
         continue
     fi
 
     ((update_count++))
-    echo
     echo "converting:   $w"
     cwebp -near_lossless 16 -mt -quiet "$w" -o $WALLPAPERS/$filename.webp
-    if [ $ans = "y" ] || [ $ans = "Y" ] || [ $ans = "yes" ] || [ $ans = "Yes" ] || [ $ans = "YES" ]; then
+    if [ $ans = "y" ] || [ $ans = "y" ] || [ $ans = "yes" ] || [ $ans = "yes" ] || [ $ans = "yes" ]; then
         echo "removing:     $w"
         if ! command trash &> /dev/null; then
-            rm -rf $w # --- might have to change this
+            rm -rf "$w" # --- might have to change this
         else
-            trash $w 
+            trash "$w"
         fi
     fi
 done
 
-echo
 if [ $update_count -eq 0 ]; then
     echo "Nothing to do..."
-    echo
 fi
+echo
