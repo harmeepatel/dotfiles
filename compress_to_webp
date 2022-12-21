@@ -1,6 +1,17 @@
 #!/bin/bash
 
-WALLPAPERS=~/Pictures/Wallpapers
+if ! command -v asdf &> /dev/null
+then
+    echo
+    echo "Install webp!"
+    read -p "Want me to do it for you? [y/n]: " ans
+    if [ $ans = "n" ] || [ $ans = "N" ] || [ $ans = "no" ] || [ $ans = "No" ] || [ $ans = "NO" ]; then
+        echo "Alright.🙌"
+    fi
+fi
+
+
+WALLPAPERS=~/Pictures/Wallpapers/
 
 if [ ! -d $WALLPAPERS ]; then
     echo "$WALLPAPERS does not exist!!!"
@@ -8,15 +19,18 @@ if [ ! -d $WALLPAPERS ]; then
     exit
 fi
 
-ans="n"
-if [ "$1" = "-r" ]; then
-    echo
-    read -p 'Are you sure you want to remove original files? [y/n]: ' ans
-    if [ $ans = "n" ] || [ $ans = "N" ] || [ $ans = "no" ] || [ $ans = "No" ] || [ $ans = "NO" ]; then
-        echo "Not removing originals."
-    fi
+ans=""
+echo
+read -p "Do you want to remove original files? [y/n]: " ans
+if [ $ans = "n" ] || [ $ans = "N" ] || [ $ans = "no" ] || [ $ans = "No" ] || [ $ans = "NO" ]; then
+    echo "---- Not removing originals ----"
 fi
+
 for w in $WALLPAPERS/*; do
+    if [ ! -f "$w" ]; then
+        continue
+    fi
+
     filename=$(basename -- "$w")
     extension="${filename##*.}"
     filename="${filename%.*}"
@@ -25,7 +39,7 @@ for w in $WALLPAPERS/*; do
         echo
         echo "converting:   $w"
         cwebp -near_lossless 16 -mt -quiet $w -o $WALLPAPERS/$filename.webp
-        if [ $ans = "y" ] || [ $ans = "Y" ] || [ $ans = "yes" ] || [ $ans = "Yes" ] || [ $ans = "Yes" ]; then
+        if [ $ans = "y" ] || [ $ans = "Y" ] || [ $ans = "yes" ] || [ $ans = "Yes" ] || [ $ans = "YES" ]; then
             echo "removing:     $w"
             trash $w
         fi
