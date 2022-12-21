@@ -19,7 +19,7 @@ fi
 
 
 # ------ change this!! ------
-WALLPAPERS=~/Pictures/Wallpapers/
+WALLPAPERS=~/Pictures/Wallpapers/test
 
 if [ ! -d $WALLPAPERS ]; then
     echo "$WALLPAPERS does not exist!!!"
@@ -40,7 +40,9 @@ for w in $WALLPAPERS/*; do
         continue
     fi
 
-    filename=$(basename -- "$w")
+    # w=$(echo $w |sed "s/\ /\-/g")
+
+    filename=$(basename -- "$w" | sed 's/ /\-/g')
     extension="${filename##*.}"
     filename="${filename%.*}"
 
@@ -50,7 +52,7 @@ for w in $WALLPAPERS/*; do
     ((update_count++))
     echo
     echo "converting:   $w"
-    cwebp -near_lossless 16 -mt -quiet $w -o $WALLPAPERS/$filename.webp
+    cwebp -near_lossless 16 -mt -quiet "$w" -o $WALLPAPERS/$filename.webp
     if [ $ans = "y" ] || [ $ans = "Y" ] || [ $ans = "yes" ] || [ $ans = "Yes" ] || [ $ans = "YES" ]; then
         echo "removing:     $w"
         if ! command trash &> /dev/null; then
