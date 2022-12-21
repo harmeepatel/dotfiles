@@ -55,13 +55,16 @@ fi
 echo "---- converting ' ' -> '-' ----"
 echo
 for w in $WALLPAPERS/*; do
+    if [ -d $w ]; then
+        continue
+    fi
     nw=$(echo $w | sed "s/\ /\-/g")
     mv "$w" "$nw"
 done
 
 update_count=0
 for w in $WALLPAPERS/*; do
-    if [ ! -f "$w" ] || [ $w == ".DS_Store" ]; then
+    if [ ! -f "$w" ] || [ -d $w ] || [ $w == ".DS_Store" ]; then
         continue
     fi
 
