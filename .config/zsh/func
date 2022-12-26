@@ -4,6 +4,15 @@ ffc(){
     cd $(dirname $(fzf))
 }
 
+comwebp(){
+
+    filename=$(basename -- $1 | sed 's/ /\-/g')
+    filename="${filename%.*}" # remove extension at the end | abc.png -> abc
+
+    echo "$1   ->   $filename.webp"
+    cwebp -near_lossless 16 -mt -quiet $1 -o $filename.webp
+}
+
 cocYarnInstall() {
     cwd=$(pwd)
     echo "exiting $green$bold$italic$cwd\n$normal" &&
