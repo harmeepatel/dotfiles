@@ -11,7 +11,9 @@ lsp.ensure_installed({
     'tsserver',
     'eslint',
     'pyright',
-    -- 'emmet-ls',
+    'emmet_ls',
+    'astro',
+    'jsonls',
     'sumneko_lua',
     'rust_analyzer',
 })
