@@ -6,7 +6,7 @@ SPACESHIP_DIR_TRUNC=5
 
 export UPDATE_ZSH_DAYS=30
 
-export EDITOR=neovim
+export EDITOR=nvim
 
 # zsh home dir
 export ZDOTDIR=$HOME/.config/zsh

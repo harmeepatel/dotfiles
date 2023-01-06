@@ -1,11 +1,25 @@
 #!/usr/bin/sh
 
-ffc(){
-    cd $(dirname $(fzf))
+# render blender animations from $2 frame to $3 frame
+brend(){
+    if [[ ! -f $1 ]]; then
+        echo "FILE NOT FOUND!"
+        return
+    fi
+    
+    # if [[ -z $2 ]]; then
+    #     blender -b $1 -f 1
+    # fi
+
+    for frame in {$2..$3}
+    do
+        echo $frame
+        blender -b $1 -f $frame
+    done
 }
 
+# compress image $1 (after replacing " " with "-")
 comwebp(){
-
     filename=$(basename -- $1 | sed 's/ /\-/g')
     filename="${filename%.*}" # remove extension at the end | abc.png -> abc
 
