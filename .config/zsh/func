@@ -1,26 +1,38 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
-# render blender animations from $2 frame to $3 frame
+# render blender animations from $2 frame to $3 frame, taking a break for $4 seconds every 50 frames.
 brend(){
     if [[ ! -f $1 ]]; then
         echo "FILE NOT FOUND!"
         return
     fi
     
-    # if [[ -z $2 ]]; then
-    #     blender -b $1 -f 1
-    # fi
+    if [[ -z $2 ]]; then
+        blender -b $1 -f 1
+        return
+    fi
+
+    if [[ -z $3 ]]; then
+        echo "----- Provide an end frame -----"
+        return
+    fi
+
+    if [[ -z $4 ]]; then
+        echo "----- Provide break time in seconds -----"
+        return
+    fi
 
     brk=0
     for frame in {$2..$3}
     do
         ((brk++))
-        echo $frame
+        echo "----- $frame -----"
         blender -b $1 -f $frame
 
 
         if  ((brk%50 == 0)); then
-            sleep 900
+            echo "----- Taking a break -----"
+            sleep $4
         fi
     done
 }
