@@ -11,10 +11,17 @@ brend(){
     #     blender -b $1 -f 1
     # fi
 
+    brk=0
     for frame in {$2..$3}
     do
+        ((brk++))
         echo $frame
         blender -b $1 -f $frame
+
+
+        if  ((brk%50 == 0)); then
+            sleep 900
+        fi
     done
 }
 
