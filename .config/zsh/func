@@ -22,6 +22,11 @@ brend(){
         return
     fi
 
+    if [[ -z $5 ]]; then
+        echo "----- Provide number of frames the break should be taken after -----"
+        return
+    fi
+
     brk=0
     for frame in {$2..$3}
     do
@@ -30,7 +35,7 @@ brend(){
         blender -b $1 -f $frame
 
 
-        if  ((brk%50 == 0)); then
+        if  ((brk%$5 == 0)); then
             echo "----- Taking a break -----"
             sleep $4
         fi
