@@ -197,7 +197,6 @@ local left = {
     c.gitDiffRemoved,
     c.gitDiffChanged,
     c.separator,
-    c.fileinfo,
     c.diagnostic_errors,
     c.diagnostic_warnings,
     c.diagnostic_info,
@@ -205,6 +204,7 @@ local left = {
 }
 
 local middle = {
+    c.fileinfo,
 }
 
 
