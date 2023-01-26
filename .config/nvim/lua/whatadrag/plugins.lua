@@ -20,11 +20,11 @@ return require("packer").startup(function(use)
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
 
-    -- use("ellisonleao/gruvbox.nvim" )
+    use("ellisonleao/gruvbox.nvim" )
     use({ "catppuccin/nvim", as = "catppuccin" })
     use("https://gitlab.com/__tpb/monokai-pro.nvim")
-    use("folke/tokyonight.nvim")
-    -- use("folke/tokyonight.nvim")
+    use('Mofiqul/vscode.nvim')
+    -- use("folke/toyonight.nvim")
 
     use({
         requires = { { "nvim-lua/plenary.nvim" } },
