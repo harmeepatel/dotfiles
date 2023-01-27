@@ -21,8 +21,8 @@ source $ZDOTDIR/alias
 # source $ZDOTDIR/prompt
 
 # fzf stuff
-source /usr/local/Cellar/fzf/0.35.1/shell/completion.zsh
-source /usr/local/Cellar/fzf/0.35.1/shell/key-bindings.zsh
+source /usr/local/Cellar/fzf/0.37.0/shell/completion.zsh
+source /usr/local/Cellar/fzf/0.37.0/shell/key-bindings.zsh
 
 source ~/.config/zsh/themes/catppuccin.zsh
 
