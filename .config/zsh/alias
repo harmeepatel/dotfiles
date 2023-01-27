@@ -19,8 +19,8 @@ alias htdocs="cd /Users/harmeepatel/.bitnami/stackman/machines/xampp/volumes/roo
 # zshrc
 alias zrc="nvim $ZDOTDIR/.zshrc"
 alias szrc="source $ZDOTDIR/.zshrc"
-alias zprofile="nvim $ZDOTDIR/.zprofile"
-alias szprofile="source $ZDOTDIR/.zprofile"
+alias zpro="nvim $ZDOTDIR/.zprofile"
+alias szpro="source $ZDOTDIR/.zprofile"
 
 # python
 alias python="python3.10"
