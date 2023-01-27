@@ -19,6 +19,7 @@ local packer_bootstrap = ensure_packer()
 return require("packer").startup(function(use)
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
+    use("dstein64/vim-startuptime")
 
     use("ellisonleao/gruvbox.nvim" )
     use({ "catppuccin/nvim", as = "catppuccin" })
@@ -66,12 +67,12 @@ return require("packer").startup(function(use)
     use({ "feline-nvim/feline.nvim", branch = "0.5-compat" })
 
     -- commenting
-    use {
+    use({
         "numToStr/Comment.nvim",
         config = function()
             require("Comment").setup()
         end
-    }
+    })
 
     if packer_bootstrap then
         require("packer").sync()

@@ -195,6 +195,11 @@ _G.packer_plugins = {
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
+  ["vim-startuptime"] = {
+    loaded = true,
+    path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/vim-startuptime",
+    url = "https://github.com/dstein64/vim-startuptime"
+  },
   ["vscode.nvim"] = {
     loaded = true,
     path = "/Users/harmeepatel/.local/share/nvim/site/pack/packer/start/vscode.nvim",
