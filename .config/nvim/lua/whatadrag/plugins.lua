@@ -1,44 +1,46 @@
--- This file can be loaded by calling `lua require("plugins")` from your init.vim
-
--- Only required if you have packer configured as `opt`
--- vim.cmd("packadd packer.nvim")
-
-local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ "git", "clone", "--depth", '1', "https://github.com/wbthomason/packer.nvim", install_path })
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
-end
-
-local packer_bootstrap = ensure_packer()
-
-return require("packer").startup(function(use)
-    -- Packer can manage itself
-    use("wbthomason/packer.nvim")
-    use("dstein64/vim-startuptime")
-
-    use("ellisonleao/gruvbox.nvim" )
-    use({ "catppuccin/nvim", as = "catppuccin" })
-    use("https://gitlab.com/__tpb/monokai-pro.nvim")
-    use('Mofiqul/vscode.nvim')
-    -- use("folke/toyonight.nvim")
-
-    use({
-        requires = { { "nvim-lua/plenary.nvim" } },
-        "nvim-telescope/telescope.nvim", tag = "0.1.0",
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
     })
+end
+vim.opt.rtp:prepend(lazypath)
 
-    use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+require("lazy").setup({
+    "dstein64/vim-startuptime",
+    "mbbill/undotree",
 
-    use("mbbill/undotree")
+    "ellisonleao/gruvbox.nvim",
+    {
+        "catppuccin/nvim",
+        name = "catppuccin"
+    },
+    "https://gitlab.com/__tpb/monokai-pro.nvim",
+    'Mofiqul/vscode.nvim',
+    -- "folke/toyonight.nvim",
 
-    use({
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+
+            "nvim-lua/plenary.nvim"
+        },
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate"
+    },
+
+
+    {
         "VonHeikemen/lsp-zero.nvim",
-        requires = {
+        dependencies = {
             -- LSP Support
             { "neovim/nvim-lspconfig" },
             { "williamboman/mason.nvim" },
@@ -56,25 +58,18 @@ return require("packer").startup(function(use)
             { "L3MON4D3/LuaSnip" },
             { "rafamadriz/friendly-snippets" },
         }
-    })
+    },
 
-    use("nvim-tree/nvim-web-devicons")
-    use({
-        "lewis6991/gitsigns.nvim",
-        -- tag = "release" -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
-    })
+    "nvim-tree/nvim-web-devicons",
+    "lewis6991/gitsigns.nvim",
     -- use ("nvim-lualine/lualine.nvim")
-    use({ "feline-nvim/feline.nvim", branch = "0.5-compat" })
+    "feline-nvim/feline.nvim",
 
     -- commenting
-    use({
+    {
         "numToStr/Comment.nvim",
         config = function()
             require("Comment").setup()
         end
-    })
-
-    if packer_bootstrap then
-        require("packer").sync()
-    end
-end)
+    },
+})
