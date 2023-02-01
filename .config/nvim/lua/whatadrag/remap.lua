@@ -31,3 +31,6 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 
 -- format buffer
 vim.keymap.set('n', "<leader>=", ":lua vim.lsp.buf.formatting({ async = true })<cr>")
+
+-- close window
+vim.keymap.set('n', "<leader>w", ":bd<CR>")

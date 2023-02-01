@@ -1,6 +1,6 @@
 require("whatadrag.set")
 require("whatadrag.remap")
-require("whatadrag.plugins")
+require("whatadrag.lazy")
 
 
 vim.cmd [[
