@@ -39,6 +39,7 @@ return {
     -- "https://gitlab.com/__tpb/monokai-pro.nvim",
     -- "folke/toyonight.nvim",
     "Mofiqul/vscode.nvim",
+    priority = 4,
 
     -- config = config
 }
