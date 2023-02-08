@@ -48,7 +48,7 @@ lspconfig.emmet_ls.setup({
       },
     }
 }) ]]
-
+    -- nvim-cmp
     local cmp_ok, cmp = pcall(require, "cmp")
 
     if not cmp_ok then
@@ -57,11 +57,11 @@ lspconfig.emmet_ls.setup({
     end
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
     local cmp_mappings = lsp.defaults.cmp_mappings({
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-        ["<C-Space>"] = cmp.mapping.complete(),
-    })
+            ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+            ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+            ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+            ["<C-Space>"] = cmp.mapping.complete(),
+        })
 
     lsp.setup_nvim_cmp({
         mapping = cmp_mappings
@@ -100,25 +100,25 @@ lspconfig.emmet_ls.setup({
         vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-
+        vim.keymap.set('n', "<leader>=", ":lua vim.lsp.buf.formatting({ async = true })<cr>")
     end)
 
 
     lsp.setup()
 
-
     -- enable inline diagnostics through lsp
     vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics,
-        {
-            virtual_text = true,
-        }
-    )
+        vim.lsp.with(
+            vim.lsp.diagnostic.on_publish_diagnostics,
+            {
+                virtual_text = true,
+            }
+        )
 end
 
 return {
     "VonHeikemen/lsp-zero.nvim",
+    branch = 'v1.x',
     dependencies = {
         -- LSP Support
         { "neovim/nvim-lspconfig" },
@@ -136,6 +136,7 @@ return {
         -- Snippets
         { "L3MON4D3/LuaSnip" },
         { "rafamadriz/friendly-snippets" },
+
     },
     config = config
 }
