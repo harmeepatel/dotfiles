@@ -163,6 +163,16 @@ local c = {
         left_sep = "block",
         right_sep = "block",
     },
+    line_percentage = {
+		provider = "line_percentage",
+		hl = {
+			fg = "aqua",
+			bg = "darkblue",
+			style = "bold",
+		},
+		left_sep = "block",
+		right_sep = "block",
+	},
 }
 
 local left = {
@@ -188,6 +198,7 @@ local right = {
     c.file_type,
     c.file_encoding,
     c.position,
+    c.line_percentage
 }
 
 local components = {

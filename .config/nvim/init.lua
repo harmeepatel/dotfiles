@@ -2,7 +2,6 @@ require("whatadrag.set")
 require("whatadrag.remap")
 require("whatadrag.lazy")
 
-
 vim.cmd [[
   augroup YankHighlight
     autocmd!

@@ -1,10 +1,10 @@
 local opts = {
     -- A list of parser names, or "all"
     ensure_installed = { "help", "vim", "javascript", "typescript", "tsx", "lua", "rust", "python", "bash", "astro",
-        "css", "scss", "dockerfile", "json", "json5", "markdown", "markdown_inline", "sql", "toml" },
+        "html", "css", "scss", "dockerfile", "json", "json5", "markdown", "markdown_inline", "sql", "toml" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
-    sync_install = false,
+    sync_install = true,
 
     -- Automatically install missing parsers when entering buffer
     -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
