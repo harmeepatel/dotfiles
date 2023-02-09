@@ -11,7 +11,7 @@ local config = function()
     lsp.ensure_installed({
         'tsserver',
         'eslint',
-        'pyright',
+        'pylsp',
         'emmet_ls',
         'astro',
         'jsonls',
