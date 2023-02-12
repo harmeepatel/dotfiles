@@ -7,12 +7,12 @@ selection:
     save_to_clipboard: true
 window:
     dimensions:
-        columns: 248
-        lines: 70
+        columns: 512
+        lines: 128
     opacity: 0.52
     padding:
-        x: 2
-        y: 2
+        x: 0
+        y: 0
     dynamic_padding: false
     decorations: buttonless
 mouse:
@@ -22,16 +22,16 @@ scrolling:
 
 font:
     normal:
-        family: JetBrainsMono Nerd Font Mono
+        family: CaskaydiaCovePL Nerd Font Mono
         style: Regular
     bold:
-        family: JetBrainsMono Nerd Font Mono
+        family: CaskaydiaCovePL Nerd Font Mono
         style: Bold
     italic:
-        family: JetBrainsMono Nerd Font Mono
+        family: CaskaydiaCovePL Nerd Font Mono
         style: Italic
     bold_italic:
-        family: JetBrainsMono Nerd Font Mono
+        family: CaskaydiaCovePL Nerd Font Mono
         style: Bold Italic
     size: 12
     offset:
@@ -39,7 +39,7 @@ font:
         y: 1
 
 import:
-    - ~/Developer/mmc/alacritty/colors/base16-gruvbox-dark-hard.yml
+    - ~/Developer/mmc/alacritty/colors/base16-monokai-256.yml
 
 key_bindings:
     # rename
