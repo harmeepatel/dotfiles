@@ -9,7 +9,7 @@ window:
     dimensions:
         columns: 512
         lines: 128
-    opacity: 0.52
+    opacity: 0.72
     padding:
         x: 0
         y: 0
@@ -38,8 +38,8 @@ font:
         x: 1
         y: 1
 
-import:
-    - ~/Developer/mmc/alacritty/colors/base16-monokai-256.yml
+# import:
+#     - ./themes/base16-monokai.yml
 
 key_bindings:
     # rename
