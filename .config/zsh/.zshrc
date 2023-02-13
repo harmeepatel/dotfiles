@@ -43,8 +43,8 @@ source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.zsh
 #                            ╭──────────────────────╮
 #                            │ run tmux on start-up │
 #                            ╰──────────────────────╯
-ala=`ps -ax | grep Alacritty | head -n 1 | awk '{print $4}'`
-if [[ -n $KITTY_PID || $ala == "/Applications/Alacritty.app/Contents/MacOS/alacritty" ]] then
+ALACRITTY_PID=`ps -ax | grep Alacritty | grep -v grep | head -n 1 | awk '{print $1}'`
+if [[ -n $KITTY_PID || -n $ALACRITTY_PID ]] then
     if [[ -z "$TMUX" ]]; then
             tmux a || tmux new-session -s $PWD
     fi
