@@ -9,22 +9,22 @@ local config = function()
     lsp.preset("recommended")
 
     lsp.ensure_installed({
-        'tsserver',
-        'eslint',
-        'pylsp',
-        'emmet_ls',
-        'astro',
-        'jsonls',
-        'sumneko_lua',
-        'rust_analyzer',
+        "tsserver",
+        "eslint",
+        "pylsp",
+        "emmet_ls",
+        "astro",
+        "jsonls",
+        "lua_ls",
+        "rust_analyzer",
     })
 
-    -- Fix Undefined global 'vim'
-    lsp.configure('sumneko_lua', {
+    -- Fix Undefined global "vim"
+    lsp.configure("lua_ls", {
         settings = {
             Lua = {
                 diagnostics = {
-                    globals = { 'vim' }
+                    globals = { "vim" }
                 }
             }
         }
