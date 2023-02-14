@@ -1,6 +1,5 @@
--- TODO: fix this!
---[[ local config = function()
-    local colorscheme = 'asfdkaj'
+local init = function()
+    local colorscheme = 'vscode'
 
     local ok, _ = pcall(vim.cmd.colorscheme, colorscheme)
     if not ok then
@@ -28,7 +27,7 @@
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-end ]]
+end
 
 return {
     -- "ellisonleao/gruvbox.nvim",
@@ -41,5 +40,5 @@ return {
     "Mofiqul/vscode.nvim",
     priority = 4,
 
-    -- config = config
+    init = init
 }
