@@ -1,5 +1,5 @@
 local init = function()
-    local colorscheme = 'vscode'
+    local colorscheme = "vscode"
 
     local ok, _ = pcall(vim.cmd.colorscheme, colorscheme)
     if not ok then
@@ -31,12 +31,6 @@ end
 
 return {
     -- "ellisonleao/gruvbox.nvim",
-    -- {
-    --     "catppuccin/nvim",
-    --     name = "catppuccin"
-    -- },
-    -- "https://gitlab.com/__tpb/monokai-pro.nvim",
-    -- "folke/toyonight.nvim",
     "Mofiqul/vscode.nvim",
     priority = 4,
 
