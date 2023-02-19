@@ -25,5 +25,7 @@ local opts = {
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    opts = opts
+    config = function ()
+        require'nvim-treesitter.configs'.setup(opts)
+    end
 }
