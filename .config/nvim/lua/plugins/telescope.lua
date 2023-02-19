@@ -39,13 +39,7 @@ return {
         "nvim-lua/plenary.nvim"
     },
     config = function()
-        local ok, telescope = pcall(require, "telescope")
-
-        if not ok then
-            vim.notify("404: telescope")
-            return
-        end
-        telescope.setup(opts)
+        require"telescope".setup(opts)
     end,
     init = init,
 }
