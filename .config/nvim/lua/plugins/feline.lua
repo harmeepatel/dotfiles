@@ -17,7 +17,6 @@ local vi_mode_colors = {
     OP = "green",
     INSERT = "yellow",
     VISUAL = "purple",
-    LINES = "orange",
     BLOCK = "dark_red",
     REPLACE = "red",
     COMMAND = "aqua",
@@ -30,7 +29,7 @@ local c = {
             opts = {
                 show_mode_name = true,
                 padding = "center", -- Uncomment for extra padding.
-            },
+            }
         },
         hl = function()
             return {
@@ -78,7 +77,7 @@ local c = {
             bg = "darkblue",
         },
         -- left_sep = "block",
-        right_sep = "right_filled",
+        right_sep = "block",
     },
     separator = {
         provider = "",
@@ -124,7 +123,7 @@ local c = {
             bg = "darkblue",
             style = "bold",
         },
-        left_sep = "left_filled",
+        left_sep = "block",
         right_sep = "block",
     },
     file_type = {
@@ -164,15 +163,15 @@ local c = {
         right_sep = "block",
     },
     line_percentage = {
-		provider = "line_percentage",
-		hl = {
-			fg = "aqua",
-			bg = "darkblue",
-			style = "bold",
-		},
-		left_sep = "block",
-		right_sep = "block",
-	},
+        provider = "line_percentage",
+        hl = {
+            fg = "aqua",
+            bg = "darkblue",
+            style = "bold",
+        },
+        left_sep = "block",
+        right_sep = "block",
+    },
 }
 
 local left = {
