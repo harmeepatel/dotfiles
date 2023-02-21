@@ -29,6 +29,18 @@ local config = function()
             }
         }
     })
+    lsp.configure("pylsp", {
+        settings = {
+            pylsp = {
+                plugins = {
+                    pycodestyle = {
+                        ignore = { 'W391' },
+                        maxLineLength = 100
+                    }
+                }
+            }
+        }
+    })
 
     --[[ -- emmet setup
 local lspconfig = require('lspconfig')
@@ -57,11 +69,11 @@ lspconfig.emmet_ls.setup({
     end
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
     local cmp_mappings = lsp.defaults.cmp_mappings({
-            ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-            ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-            ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-            ["<C-Space>"] = cmp.mapping.complete(),
-        })
+        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ["<C-Space>"] = cmp.mapping.complete(),
+    })
 
     lsp.setup_nvim_cmp({
         mapping = cmp_mappings
