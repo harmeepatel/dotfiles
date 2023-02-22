@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+print_colors(){
+    for i in {0..255}; do
+        printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
+    done
+}
+
 # render blender animations from $2 frame to $3 frame, taking a break for $4 seconds every 50 frames.
 brend(){
     if [[ ! -f $1 ]]; then
