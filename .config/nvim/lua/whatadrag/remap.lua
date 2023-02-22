@@ -20,6 +20,10 @@ vim.keymap.set('v', ':', ';')
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
+-- reselect lines after indentation
+-- vim.keymap.set('x', '>', "><C-O>gv")
+-- vim.keymap.set('x', '<', "<<C-O>gv")
+
 -- center cursor when moving
 vim.keymap.set('n', "<C-d>", "<C-d>zz")
 vim.keymap.set('n', "<C-u>", "<C-u>zz")
@@ -31,3 +35,10 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 
 -- close window
 vim.keymap.set('n', "<leader>w", ":bd<CR>")
+
+-- switching windows
+for i = 1, 6 do
+    local lsh = "<leader>" .. i
+    local rsh =  i .. "<C-w>w"
+    vim.keymap.set('n', lsh, rsh, { desc = "Move to window " .. i})
+end
