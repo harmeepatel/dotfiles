@@ -24,13 +24,8 @@ local vi_mode_colors = {
 local c = {
     window_number = {
         provider = function()
-            return tostring(#vim.api.nvim_list_wins())
+            return tostring(vim.api.nvim_win_get_number(0))
         end,
-        left_sep = "block",
-        right_sep = "block",
-    },
-    gitBranch = {
-        provider = "git_branch",
         left_sep = "block",
         right_sep = "block",
     },
@@ -125,7 +120,7 @@ local c = {
 
 local active = {
     left = {
-        c.gitBranch,
+        c.fileinfo,
         c.gitDiffAdded,
         c.gitDiffRemoved,
         c.gitDiffChanged,
@@ -136,7 +131,6 @@ local active = {
         c.diagnostic_hints,
     },
     middle = {
-        c.fileinfo,
     },
     right = {
         c.lsp_client_names,
@@ -149,11 +143,11 @@ local active = {
 
 local inactive = {
     left = {
-        c.gitBranch,
+        c.window_number,
+        c.fileinfo,
         c.separator,
     },
     middle = {
-        c.fileinfo,
     },
     right = {
         c.file_type,
