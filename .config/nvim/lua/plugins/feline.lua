@@ -61,8 +61,11 @@ local c = {
                 type = "relative-short",
             },
         },
-        left_sep = " ",
-        right_sep = " ",
+        hl = {
+            fg = "orange",
+        },
+        left_sep = "block",
+        right_sep = "block",
     },
     diagnostic_errors = {
         provider = "diagnostic_errors",
