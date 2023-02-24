@@ -117,5 +117,6 @@ return {
         { "rafamadriz/friendly-snippets" },
 
     },
-    config = config
+    config = config,
+    event = "VeryLazy"
 }
