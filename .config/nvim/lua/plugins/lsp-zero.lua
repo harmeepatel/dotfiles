@@ -1,13 +1,9 @@
 local config = function()
-    local ok, lsp = pcall(require, "lsp-zero")
-
-    if not ok then
-        vim.notify("404: lsp-zero")
-        return
-    end
+    local lsp = require "lsp-zero"
+    local cmp = require "cmp"
+    local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
     lsp.preset("recommended")
-
     lsp.ensure_installed({
         "tsserver",
         "eslint",
@@ -42,43 +38,15 @@ local config = function()
         }
     })
 
-    --[[ -- emmet setup
-local lspconfig = require('lspconfig')
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-lspconfig.emmet_ls.setup({
-    -- on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
-    init_options = {
-      html = {
-        options = {
-          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-          ["bem.enabled"] = true,
-        },
-      },
-    }
-}) ]]
-    -- nvim-cmp
-    local cmp_ok, cmp = pcall(require, "cmp")
-
-    if not cmp_ok then
-        vim.notify("404: cmp")
-        return
-    end
-    local cmp_select = { behavior = cmp.SelectBehavior.Select }
-    local cmp_mappings = lsp.defaults.cmp_mappings({
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-        ["<C-Space>"] = cmp.mapping.complete(),
-    })
 
     lsp.setup_nvim_cmp({
-        mapping = cmp_mappings
+        mapping = lsp.defaults.cmp_mappings({
+            ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+            ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+            ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+            ["<C-Space>"] = cmp.mapping.complete(),
+        })
     })
-
     lsp.set_preferences({
         suggest_lsp_servers = false,
         sign_icons = {
@@ -100,7 +68,6 @@ lspconfig.emmet_ls.setup({
             vim.cmd.LspStop('eslint')
             return
         end
-
 
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)

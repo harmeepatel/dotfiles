@@ -1,18 +1,3 @@
-local init = function()
-    local ok, builtin = pcall(require, "telescope.builtin")
-
-    if not ok then
-        vim.notify("404: telescope")
-        return
-    end
-
-    vim.keymap.set('n', "<leader>ff", builtin.find_files, {})
-    vim.keymap.set('n', "<leader>fg", builtin.git_files, {})
-    vim.keymap.set('n', '<leader>fr', builtin.live_grep, {})
-    vim.keymap.set('n', "<leader>fb", builtin.buffers, {})
-    vim.keymap.set('n', "<leader>fh", builtin.help_tags, {})
-end
-
 local opts = {
     defaults = {
         layout_config = {
@@ -38,8 +23,15 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim"
     },
+    keys = {
+        { "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files()<cr>" },
+        { "<leader>fg", "<cmd>lua require'telescope.builtin'.git_files()<cr>" },
+        { '<leader>fr', "<cmd>lua require'telescope.builtin'.live_grep()<cr>" },
+        { "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers()<cr>" },
+        { "<leader>fh", "<cmd>lua require'telescope.builtin'.help_tags()<cr>" },
+    },
     config = function()
-        require"telescope".setup(opts)
+        require "telescope".setup(opts)
     end,
-    init = init,
+    -- init = init,
 }

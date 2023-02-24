@@ -22,37 +22,16 @@ local vi_mode_colors = {
 }
 
 local c = {
+    small_gap = {
+        provider = "  ",
+    },
+    large_gap = {
+        provider = "   ",
+    },
     window_number = {
         provider = function()
-            return tostring(vim.api.nvim_win_get_number(0))
+            return '| ' .. tostring(vim.api.nvim_win_get_number(0)) .. ' |'
         end,
-        left_sep = "block",
-        right_sep = "block",
-    },
-    gitDiffAdded = {
-        provider = "git_diff_added",
-        hl = {
-            fg = "green",
-        },
-        right_sep = "block",
-    },
-    gitDiffRemoved = {
-        provider = "git_diff_removed",
-        hl = {
-            fg = "red",
-        },
-        right_sep = "block",
-    },
-    gitDiffChanged = {
-        provider = "git_diff_changed",
-        hl = {
-            fg = "fg",
-        },
-        left_sep = "block",
-        right_sep = "block",
-    },
-    separator = {
-        provider = "",
     },
     fileinfo = {
         provider = {
@@ -64,12 +43,28 @@ local c = {
         hl = {
             fg = "orange",
         },
-        left_sep = "block",
-        right_sep = "block",
+    },
+    gitDiffAdded = {
+        provider = "git_diff_added",
+        hl = {
+            fg = "green",
+        },
+    },
+    gitDiffRemoved = {
+        provider = "git_diff_removed",
+        hl = {
+            fg = "red",
+        },
+    },
+    gitDiffChanged = {
+        provider = "git_diff_changed",
+        hl = {
+            fg = "fg",
+        },
     },
     diagnostic_errors = {
         provider = "diagnostic_errors",
-        hl = {
+        hhl = {
             fg = "red",
         },
     },
@@ -90,8 +85,6 @@ local c = {
     },
     lsp_client_names = {
         provider = "lsp_client_names",
-        left_sep = "block",
-        right_sep = "block",
     },
     file_type = {
         provider = {
@@ -101,33 +94,27 @@ local c = {
                 case = "titlecase",
             },
         },
-        left_sep = "block",
-        right_sep = "block",
     },
     file_encoding = {
         provider = "file_encoding",
-        left_sep = "block",
-        right_sep = "block",
     },
     position = {
         provider = "position",
-        left_sep = "block",
-        right_sep = "block",
     },
     line_percentage = {
         provider = "line_percentage",
-        left_sep = "block",
-        right_sep = "block",
     },
 }
 
 local active = {
     left = {
+        c.large_gap,
         c.fileinfo,
+        c.large_gap,
         c.gitDiffAdded,
         c.gitDiffRemoved,
         c.gitDiffChanged,
-        c.separator,
+        c.large_gap,
         c.diagnostic_errors,
         c.diagnostic_warnings,
         c.diagnostic_info,
@@ -137,23 +124,30 @@ local active = {
     },
     right = {
         c.lsp_client_names,
+        c.small_gap,
         c.file_type,
+        c.small_gap,
         c.file_encoding,
+        c.small_gap,
         c.position,
-        c.line_percentage
+        c.small_gap,
+        c.line_percentage,
+        c.large_gap,
     }
 }
 
 local inactive = {
     left = {
-        c.window_number,
+        c.large_gap,
         c.fileinfo,
-        c.separator,
+        c.large_gap,
+        c.window_number,
     },
     middle = {
     },
     right = {
         c.file_type,
+        c.large_gap,
     }
 }
 
