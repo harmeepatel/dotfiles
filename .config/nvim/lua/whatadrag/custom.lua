@@ -1,0 +1,41 @@
+-- TODO: Figure this out
+-- local attach_to_buffer = function(output_buf, pattern, command)
+--     vim.api.nvim_create_autocmd("BufWritePost", {
+--         group = vim.api.nvim_create_augroup("run-file", { clear = true }),
+--         pattern = pattern,
+--         callback = function()
+--             local append_output = function(_, data)
+--                 if data then
+--                     vim.api.nvim_buf_set_lines(output_buf, -1, -1, false, data)
+--                 end
+--             end
+--
+--             vim.api.nvim_buf_set_lines(output_buf, 0, -1, false, { "output:", "" })
+--             vim.fn.jobstart(command, {
+--                 stdout_buffered = true,
+--                 on_stdout = append_output,
+--                 on_stderr = append_output,
+--             })
+--         end
+--     })
+-- end
+--
+-- vim.api.nvim_create_user_command("Run", function()
+--     local buf = vim.fn.input "Buffer: "
+--     local pattern = vim.fn.input "Pattern: "
+--     local command = vim.split(vim.fn.input "Command", " ")
+--
+--     local append_output = function(_, data)
+--         if data then
+--             vim.api.nvim_buf_set_lines(buf, -1, -1, false, data)
+--         end
+--     end
+--
+--     vim.api.nvim_buf_set_lines(buf, 0, -1, false, { "output:", "" })
+--     vim.fn.jobstart(command, {
+--         stdout_buffered = true,
+--         on_stdout = append_output,
+--         on_stderr = append_output,
+--     })
+--     -- attach_to_buffer(tonumber(buf), pattern, command)
+-- end, {})
