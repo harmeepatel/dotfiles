@@ -1,4 +1,6 @@
 return {
+    -- "catppuccin/nvim",
+    -- name = "catppuccin",
     -- "ellisonleao/gruvbox.nvim",
     "Mofiqul/vscode.nvim",
     priority = 4,
@@ -10,7 +12,6 @@ return {
     end,
     config = function()
         vim.cmd.colorscheme("vscode")
-        local c = require("vscode.colors").get_colors()
         require("vscode").setup({
             transparent = true,
             italic_comments = true,
