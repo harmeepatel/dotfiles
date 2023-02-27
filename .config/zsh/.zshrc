@@ -28,15 +28,15 @@ source ~/.config/zsh/themes/catppuccin.zsh
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.zsh
 
 # tmux
-ALACRITTY_PID=`ps -ax | grep Alacritty | grep -v grep | head -n 1 | awk '{print $1}'`
-if [[ -n $KITTY_PID || -n $ALACRITTY_PID ]] then
-    if [[ -z "$TMUX" ]]; then
-            # tmux a || tmux new-session -s $PWD
-    fi
-fi
-if [[ -n "$TMUX" ]]; then
-    # source ~/.config/tmux/tmux-git.sh; 
-fi
+# ALACRITTY_PID=`ps -ax | grep Alacritty | grep -v grep | head -n 1 | awk '{print $1}'`
+# if [[ -n $KITTY_PID || -n $ALACRITTY_PID ]] then
+#     if [[ -z "$TMUX" ]]; then
+#             tmux a || tmux new-session -s $PWD
+#     fi
+# fi
+# if [[ -n "$TMUX" ]]; then
+#     source ~/.config/tmux/tmux-git.sh; 
+# fi
 
 # zellij
 if [[ -z "$ZELLIJ" ]]; then
