@@ -19,8 +19,9 @@ source $ZDOTDIR/alias
 # source $ZDOTDIR/prompt
 
 # fzf stuff
-source /usr/local/Cellar/fzf/0.37.0/shell/completion.zsh
-source /usr/local/Cellar/fzf/0.37.0/shell/key-bindings.zsh
+fzf_version=`\ls /usr/local/Cellar/fzf/ | awk '{print$0}'`
+source /usr/local/Cellar/fzf/$fzf_version/shell/completion.zsh
+source /usr/local/Cellar/fzf/$fzf_version/shell/key-bindings.zsh
 
 source ~/.config/zsh/themes/catppuccin.zsh
 
