@@ -11,11 +11,6 @@ vim.keymap.set('v', 'k', "gk")
 vim.keymap.set('n', 'J', "gj")
 vim.keymap.set('n', 'K', "gk")
 
-vim.keymap.set('n', ';', ':')
-vim.keymap.set('n', ':', ';')
-vim.keymap.set('v', ';', ':')
-vim.keymap.set('v', ':', ';')
-
 -- move line or block
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
