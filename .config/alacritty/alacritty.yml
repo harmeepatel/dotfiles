@@ -22,21 +22,21 @@ scrolling:
 
 font:
     normal:
-        family: CaskaydiaCove Nerd Font 
+        family: JetBrainsMono Nerd Font
         style: Regular
     bold:
-        family: CaskaydiaCove Nerd Font 
+        family: JetBrainsMono Nerd Font  
         style: Bold
     italic:
-        family: CaskaydiaCove Nerd Font 
+        family: JetBrainsMono Nerd Font  
         style: Italic
     bold_italic:
-        family: CaskaydiaCove Nerd Font 
+        family: JetBrainsMono Nerd Font   
         style: Bold Italic
     size: 12
-    offset:
+    # offset:
         # x: 2
-        y: 4
+        # y: 4
 
 import:
     - ~/.config/alacritty/themes/ayu-dark.yml
