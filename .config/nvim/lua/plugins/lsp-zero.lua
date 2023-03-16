@@ -1,50 +1,30 @@
 local config = function()
     local lsp = require "lsp-zero"
+    local lsp_config = require "lspconfig"
     local cmp = require "cmp"
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
     lsp.preset("recommended")
     lsp.ensure_installed({
-        "tsserver",
-        "eslint",
-        "pylsp",
-        "emmet_ls",
         "astro",
+        "denols",
+        "emmet_ls",
+        "eslint",
         "jsonls",
         "lua_ls",
+        "pylsp",
         "rust_analyzer",
+        "tsserver",
     })
 
-    -- Fix Undefined global "vim"
-    lsp.configure("lua_ls", {
-        settings = {
-            Lua = {
-                diagnostics = {
-                    globals = { "vim" }
-                }
-            }
-        }
-    })
-    lsp.configure("pylsp", {
-        settings = {
-            pylsp = {
-                plugins = {
-                    pycodestyle = {
-                        ignore = { 'W391' },
-                        maxLineLength = 100
-                    }
-                }
-            }
-        }
-    })
 
 
     lsp.setup_nvim_cmp({
         mapping = lsp.defaults.cmp_mappings({
-            ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-            ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-            ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-            ["<C-Space>"] = cmp.mapping.complete(),
+                ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+                ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+                ["<C-Space>"] = cmp.mapping.complete(),
         })
     })
     lsp.set_preferences({
@@ -82,6 +62,43 @@ local config = function()
         vim.keymap.set('n', "<leader>=", function() vim.lsp.buf.format({ async = true }) end, opts)
     end)
 
+
+    -- Fix Undefined global "vim"
+    lsp.configure("lua_ls", {
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { "vim" }
+                }
+            }
+        }
+    })
+    lsp.configure("pylsp", {
+        settings = {
+            pylsp = {
+                plugins = {
+                    pycodestyle = {
+                        ignore = { 'W391' },
+                        maxLineLength = 100
+                    }
+                }
+            }
+        }
+    })
+
+    lsp_config.denols.setup {
+        root_dir = lsp_config.util.root_pattern("deno.json"),
+        init_options = {
+            lint = true,
+        },
+    }
+
+    lsp_config.tsserver.setup {
+        root_dir = lsp_config.util.root_pattern("package.json"),
+        init_options = {
+            lint = true,
+        },
+    }
 
     lsp.setup()
 
