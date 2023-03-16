@@ -26,10 +26,13 @@ vim.keymap.set('n', 'n', "nzzzv")
 vim.keymap.set('n', 'N', "Nzzzv")
 
 -- paste over text and not loose yanked text
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set('x', "<leader>p", "\"_dP")
 
 -- close window
 vim.keymap.set('n', "<leader>w", ":bd<CR>")
+
+-- next buffer
+vim.keymap.set('n', "<leader>b", ":bnext")
 
 -- switching windows
 for i = 1, 6 do
