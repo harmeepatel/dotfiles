@@ -9,7 +9,8 @@ alias cat="bat --theme='gruvbox-dark'"
 alias rg="rg --hidden --ignore .git -g"
 alias fd="fd -u"
 alias echo="echo -e"
-alias grep='grep --color=auto'
+alias grep="grep --color=auto"
+alias ql="qlmanage -p"
 # reading disks
 alias df='df -h'
 
