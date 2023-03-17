@@ -10,7 +10,7 @@ alias rg="rg --hidden --ignore .git -g"
 alias fd="fd -u"
 alias echo="echo -e"
 alias grep="grep --color=auto"
-alias ql="qlmanage -p"
+alias ql="qlmanage -p $1 &> /dev/null"
 # reading disks
 alias df='df -h'
 
