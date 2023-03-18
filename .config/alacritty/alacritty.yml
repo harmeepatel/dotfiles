@@ -39,7 +39,7 @@ font:
         # y: 4
 
 import:
-    - ~/.config/alacritty/themes/ayu-dark.yml
+    - ~/.config/alacritty/themes/gruvbox-flat.yml
 
 key_bindings:
     # rename
