@@ -2,17 +2,15 @@ local colors = {
     -- bg       = "#202328",
     inactive = "646464",
     fg       = "#121212",
+    white    = "#b4b4b4",
     yellow   = "#e5c07b",
-    cyan     = "#61afef",
-    darkblue = "#081633",
+    cyan     = "#037aa8",
     green    = "#98c379",
     orange   = "#d19a66",
-    violet   = "#a9a1e1",
     magenta  = "#c678dd",
     blue     = "#51afef",
     red      = "#e06c75",
 }
-
 local config = {
     options = {
         component_separators = '',
@@ -31,6 +29,7 @@ local config = {
             },
             {
                 'filename',
+                color = { fg = colors.blue, gui = 'bold' },
             },
         },
         lualine_b = {
@@ -76,12 +75,22 @@ local config = {
                     return msg
                 end,
                 icon = ' ',
-                color = { fg = '#f1f1f1', gui = 'bold' },
+                color = { fg = colors.cyan, gui = 'bold' },
             }
 
         },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' }
+        lualine_y = {
+            {
+                'progress',
+                color = { fg = colors.white, gui = 'bold' },
+            }
+        },
+        lualine_z = {
+            {
+                'location',
+                color = { fg = colors.white, gui = 'bold' },
+            }
+        }
     },
     inactive_sections = {
         lualine_a = {
