@@ -19,7 +19,7 @@ local theme = function()
     --     dim_inactive = false,
     --     transparent_mode = true,
     -- })
-    -- transparent()
+    transparent()
 end
 
 return {
