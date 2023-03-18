@@ -5,11 +5,13 @@ local transparent = function()
 end
 
 local theme = function()
-    vim.cmd.colorscheme("vscode")
-    require("vscode").setup({
-        transparent = true,
-        italic_comments = true,
-    })
+    vim.cmd.colorscheme("gruvbox-flat")
+    vim.g.gruvbox_flat_style = "hard"
+    vim.g.gruvbox_transparent = true
+    -- require("vscode").setup({
+    --     transparent = true,
+    --     italic_comments = true,
+    -- })
     -- require("gruvbox").setup({
     --     contrast = "hard", -- can be "hard", "soft" or empty string
     --     palette_overrides = {},
@@ -17,15 +19,16 @@ local theme = function()
     --     dim_inactive = false,
     --     transparent_mode = true,
     -- })
-    transparent()
+    -- transparent()
 end
 
 return {
     -- "catppuccin/nvim",
     -- name = "catppuccin",
-    "Mofiqul/vscode.nvim",
+    -- "Mofiqul/vscode.nvim",
+    "eddyekofo94/gruvbox-flat.nvim",
     -- "ellisonleao/gruvbox.nvim",
     priority = 4,
-    -- init = theme,
+    init = theme,
     config = theme,
 }
