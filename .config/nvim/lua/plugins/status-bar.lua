@@ -1,5 +1,6 @@
 local colors = {
-    -- bg       = "#202328",
+    bg       = "#161616",
+    in_bg    = "#080808",
     inactive = "646464",
     fg       = "#121212",
     white    = "#b4b4b4",
@@ -17,11 +18,13 @@ local config = {
         section_separators = '',
         theme = {
             normal = { c = { fg = colors.fg, bg = colors.bg } },
-            inactive = { c = { fg = colors.fg, bg = colors.bg } },
+            inactive = { c = { fg = colors.fg, bg = '' } },
         },
     },
     sections = {
-        lualine_a = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {
             {
                 'filetype',
                 colored = true,
@@ -31,10 +34,6 @@ local config = {
                 'filename',
                 color = { fg = colors.blue, gui = 'bold' },
             },
-        },
-        lualine_b = {
-        },
-        lualine_c = {
             {
                 'diff',
                 symbols = { added = ' ', modified = '柳', removed = ' ' },
@@ -76,21 +75,18 @@ local config = {
                 end,
                 icon = ' ',
                 color = { fg = colors.cyan, gui = 'bold' },
-            }
-
-        },
-        lualine_y = {
-            {
-                'progress',
-                color = { fg = colors.white, gui = 'bold' },
-            }
-        },
-        lualine_z = {
+            },
             {
                 'location',
                 color = { fg = colors.white, gui = 'bold' },
-            }
-        }
+            },
+            {
+                'progress',
+                color = { fg = colors.white, gui = 'bold' },
+            },
+        },
+        lualine_y = {},
+        lualine_z = {}
     },
     inactive_sections = {
         lualine_a = {
