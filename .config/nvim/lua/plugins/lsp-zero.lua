@@ -72,8 +72,6 @@ local config = function()
 
     lsp.setup()
 
-
-
     -- enable inline diagnostics through lsp
     vim.lsp.handlers["textDocument/publishDiagnostics"] =
         vim.lsp.with(
