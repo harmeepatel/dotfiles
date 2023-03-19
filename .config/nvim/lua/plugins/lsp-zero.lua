@@ -1,12 +1,13 @@
 local config = function()
     local lsp = require "lsp-zero"
+    local nvim_lsp = require "lspconfig"
     local cmp = require "cmp"
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
     lsp.preset("recommended")
     lsp.ensure_installed({
         "astro",
-        -- "denols",
+        "denols",
         "emmet_ls",
         "eslint",
         "jsonls",
@@ -16,7 +17,6 @@ local config = function()
         "tsserver",
     })
 
-    -- Fix Undefined global "vim"
     lsp.configure("lua_ls", {
         settings = {
             Lua = {
@@ -38,6 +38,13 @@ local config = function()
             }
         }
     })
+    -- todo
+    -- lsp.configure("denols", {
+    --     root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+    -- })
+    -- vim.g.markdown_fenced_languages = {
+    --     "ts=typescript"
+    -- }
 
 
     lsp.setup_nvim_cmp({
@@ -56,6 +63,14 @@ local config = function()
             vim.cmd.LspStop('eslint')
             return
         end
+
+        -- todo
+        -- if nvim_lsp.util.root_pattern("deno.json", "import_map.json")(vim.fn.getcwd()) then
+        --     if client.name == "tsserver" then
+        --         vim.cmd.LspStop("tsserver")
+        --         return
+        --     end
+        -- end
 
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
