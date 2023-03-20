@@ -7,7 +7,7 @@ local config = function()
     lsp.preset("recommended")
     lsp.ensure_installed({
         "astro",
-        "denols",
+        -- "denols",
         "emmet_ls",
         "eslint",
         "jsonls",
