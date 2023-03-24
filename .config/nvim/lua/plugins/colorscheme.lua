@@ -5,22 +5,24 @@ local transparent = function()
     vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none" })
 end
 
+local vscode_opts = {
+    transparent = true,
+    italic_comments = true,
+}
+
+local tokyonight_opts = {
+    transparent = true,
+    styles = {
+        sidebars = "transparent",
+        floats = "transparent"
+    }
+}
+
 local theme = function()
     vim.cmd.colorscheme("gruvbox-flat")
-    vim.g.gruvbox_flat_style = "hard"
+    vim.g.gruvbox_flat_style = "dark"
     vim.g.gruvbox_transparent = true
-    -- require("vscode").setup({
-    --     transparent = true,
-    --     italic_comments = true,
-    -- })
-    -- require("gruvbox").setup({
-    --     contrast = "hard", -- can be "hard", "soft" or empty string
-    --     palette_overrides = {},
-    --     overrides = {},
-    --     dim_inactive = false,
-    --     transparent_mode = true,
-    -- })
-    transparent()
+    -- transparent()
 end
 
 return {
@@ -28,7 +30,7 @@ return {
     -- name = "catppuccin",
     -- "Mofiqul/vscode.nvim",
     "eddyekofo94/gruvbox-flat.nvim",
-    -- "ellisonleao/gruvbox.nvim",
+    -- "folke/tokyonight.nvim",
     priority = 4,
     init = theme,
     config = theme,
