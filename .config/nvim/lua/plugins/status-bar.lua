@@ -33,6 +33,7 @@ local config = {
             {
                 'filename',
                 color = { fg = colors.blue, gui = 'bold' },
+                path = 3,
             },
             {
                 'diff',
