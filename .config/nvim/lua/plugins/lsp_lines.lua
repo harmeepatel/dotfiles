@@ -1,15 +1,9 @@
--- local init = function()
---     local lsp_lines = require('lsp_lines')
---     vim.keymap.set('n', "<leader>ll", lsp_lines.toggle)
--- end
-
 return {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
         require("lsp_lines").setup()
     end,
-    -- init = init,
     keys = {
-        { "<leader>ll", "<cmd>lua require('lsp_lines').toggle<cr>" },
+        { "<leader>ll", ":lua require\"lsp_lines\".toggle<cr>", desc = "Toggle lsp_lines" },
     },
 }
