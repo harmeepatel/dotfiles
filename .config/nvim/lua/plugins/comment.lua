@@ -1,15 +1,12 @@
 local opts = {
     padding = true,
-
     sticky = true,
-
     toggler = {
         ---Line-comment toggle keymap
         line = '<leader>/',
         ---Block-comment toggle keymap
         block = 'cb',
     },
-
     ---LHS of operator-pending mappings in NORMAL + VISUAL mode
     ---@type table
     opleader = {
@@ -18,7 +15,6 @@ local opts = {
         ---Block-comment keymap
         block = 'cb',
     },
-
     ---LHS of extra mappings
     ---@type table
     extra = {
@@ -29,7 +25,6 @@ local opts = {
         ---Add comment at the end of line
         eol = 'cA',
     },
-
     ---Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
     ---@type table
     mappings = {
