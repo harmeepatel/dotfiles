@@ -32,7 +32,7 @@ local config = function()
                 plugins = {
                     pycodestyle = {
                         ignore = { 'W391' },
-                        maxLineLength = 128
+                        maxLineLength = 150
                     }
                 }
             }
