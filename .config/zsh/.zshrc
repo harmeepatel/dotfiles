@@ -16,7 +16,7 @@ PWD=`basename \`pwd\``
 # imports
 source $ZDOTDIR/func
 source $ZDOTDIR/alias
-# source $ZDOTDIR/zsh_prompt
+source $ZDOTDIR/zsh_prompt
 
 # fzf stuff
 fzf_version=`\ls /usr/local/Cellar/fzf/ | awk '{print$0}'`
@@ -69,7 +69,7 @@ eval "$(fnm env --use-on-cd)"
 eval "$(zoxide init zsh)"
 
 # starship
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 
 # profiling
