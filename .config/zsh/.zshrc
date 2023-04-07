@@ -23,7 +23,7 @@ fzf_version=`\ls /usr/local/Cellar/fzf/ | awk '{print$0}'`
 source /usr/local/Cellar/fzf/$fzf_version/shell/completion.zsh
 source /usr/local/Cellar/fzf/$fzf_version/shell/key-bindings.zsh
 
-source ~/.config/zsh/themes/catppuccin.zsh
+# source ~/.config/zsh/themes/catppuccin.zsh
 
 # vim-mode
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.zsh
