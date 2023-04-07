@@ -4,6 +4,12 @@ colors:
   primary:
     background: '0x282828'
     foreground: '0xd4be98'
+  cursor:
+      text: '#161616' # base
+      cursor: '#F4DBD6' # rosewater
+  vi_mode_cursor:
+      text: '#161616' # base
+      cursor: '#B7BDF8' # lavender
 
   # Normal colors
   normal:
