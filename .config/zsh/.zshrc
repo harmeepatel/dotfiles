@@ -30,9 +30,9 @@ if [[ -n $KITTY_PID || -n $ALACRITTY_PID ]] then
             tmux a || tmux new-session -s $PWD
     fi
 fi
-if [[ -n "$TMUX" ]]; then
-    source ~/.config/tmux/tmux-git.sh; 
-fi
+# if [[ -n "$TMUX" ]]; then
+#     source ~/.config/tmux/tmux-git.sh; 
+# fi
 
 #                                   ╭────────╮
 #                                   │ zoxide │
