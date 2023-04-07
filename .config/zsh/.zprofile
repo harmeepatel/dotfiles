@@ -22,5 +22,3 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export FONT="CaskaydiaCovePL Nerd Font Mono"
 
 export ZELLIJ_AUTO_ATTACH=true
-
-source ~/Developer/mmc/.config/zsh/lf_icons
