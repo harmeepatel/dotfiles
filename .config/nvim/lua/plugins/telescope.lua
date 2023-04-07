@@ -24,7 +24,7 @@ return {
         "nvim-lua/plenary.nvim"
     },
     keys = {
-        { "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files()<cr>" },
+        { "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files({hidden = true})<cr>" },
         { "<leader>fg", "<cmd>lua require'telescope.builtin'.git_files()<cr>" },
         { '<leader>fr', "<cmd>lua require'telescope.builtin'.live_grep()<cr>" },
         { "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers()<cr>" },
