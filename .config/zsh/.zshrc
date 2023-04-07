@@ -16,7 +16,7 @@ PWD=`basename \`pwd\``
 # imports
 source $ZDOTDIR/func
 source $ZDOTDIR/alias
-# source $ZDOTDIR/prompt
+# source $ZDOTDIR/zsh_prompt
 
 # fzf stuff
 fzf_version=`\ls /usr/local/Cellar/fzf/ | awk '{print$0}'`
