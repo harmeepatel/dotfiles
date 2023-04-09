@@ -38,9 +38,6 @@ font:
         # x: 2
         # y: 4
 
-import:
-    - ~/.config/alacritty/themes/gruvbox-flat.yml
-
 key_bindings:
     # rename
     - { key: Comma, mods: Command, chars: "\x02\x2c" }
