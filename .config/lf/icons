@@ -51,6 +51,7 @@ fi             # FILE
 *.markdown      
 *.rmd           
 *.json          
+*.jsonl         
 *.webmanifest   
 *.js            
 *.mjs           

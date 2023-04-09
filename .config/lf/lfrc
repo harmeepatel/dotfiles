@@ -3,7 +3,7 @@ set shell sh
 
 # general
 set hidden
-set sortby natural
+set sortby name
 set info size
 set icons true
 
