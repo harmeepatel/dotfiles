@@ -29,6 +29,7 @@ return {
     -- "catppuccin/nvim",
     -- name = "catppuccin",
     -- "Mofiqul/vscode.nvim",
+    -- "martinsione/darkplus.nvim"
     "eddyekofo94/gruvbox-flat.nvim",
     -- "folke/tokyonight.nvim",
     priority = 4,
