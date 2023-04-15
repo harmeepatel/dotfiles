@@ -26,8 +26,6 @@ local theme = function()
 end
 
 return {
-    -- "catppuccin/nvim",
-    -- name = "catppuccin",
     -- "Mofiqul/vscode.nvim",
     -- "martinsione/darkplus.nvim"
     "eddyekofo94/gruvbox-flat.nvim",
