@@ -32,7 +32,11 @@ vim.keymap.set('x', "<leader>p", "\"_dP")
 vim.keymap.set('n', "<leader>w", ":bd<CR>")
 
 -- next buffer
-vim.keymap.set('n', "<leader>b", ":bnext<CR>")
+vim.keymap.set('n', "<leader>bn", ":bnext<CR>")
+vim.keymap.set('n', "<leader>bp", ":bprev<CR>")
+
+vim.keymap.set('n', "<leader>cn", ":cnext<CR>")
+vim.keymap.set('n', "<leader>cp", ":cprev<CR>")
 
 -- switching windows
 for i = 1, 6 do
