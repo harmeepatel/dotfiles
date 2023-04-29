@@ -15,6 +15,7 @@ local config = function()
         "pylsp",
         "rust_analyzer",
         "tsserver",
+        "tailwindcss"
     })
 
     lsp.configure("lua_ls", {
@@ -37,6 +38,18 @@ local config = function()
                 }
             }
         }
+    })
+    lsp.configure("tailwindcss", {
+        settings = {
+            tailwindCSS = {
+                experimental = {
+                    classRegex = {
+                        { "cva\\(([^)]*)\\)",
+                            "[\"'`]([^\"'`]*).*?[\"'`]" },
+                    },
+                },
+            },
+        },
     })
     -- todo
     -- lsp.configure("denols", {
