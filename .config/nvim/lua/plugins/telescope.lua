@@ -16,6 +16,11 @@ local opts = {
         set_env = { ["COLORTERM"] = "truecolor" },
         file_ignore_patterns = { "node_modules" },
     },
+    -- pickers = {
+    --     find_files = {
+    --         theme = "ivy",
+    --     }
+    -- },
 }
 
 return {
@@ -30,8 +35,5 @@ return {
         { "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers()<cr>" },
         { "<leader>fh", "<cmd>lua require'telescope.builtin'.help_tags()<cr>" },
     },
-    config = function()
-        require "telescope".setup(opts)
-    end,
-    -- init = init,
+    opts = opts,
 }
