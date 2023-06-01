@@ -1,7 +1,9 @@
 #pell:words alacritty lfcd
 live_config_reload: true
+import:
+  - ~/Developer/mmc/.config/alacritty/themes/catppuccin/catppuccin-mocha.yml
 env:
-    TERM: tmux-256color
+    TERM: xterm-256color
 selection:
     semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
     save_to_clipboard: true
@@ -19,7 +21,6 @@ mouse:
     hide_when_typing: false
 scrolling:
     history: 5120
-
 font:
     normal:
         family: JetBrainsMono Nerd Font
