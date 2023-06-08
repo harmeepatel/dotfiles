@@ -1,11 +1,11 @@
 local config = function()
-    local lsp = require("lsp-zero")
-    local nvim_lsp = require("lspconfig")
+    local lspz = require("lsp-zero")
+    local lspc = require("lspconfig")
     local cmp = require("cmp")
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-    lsp.preset("recommended")
-    lsp.ensure_installed({
+    lspz.preset("recommended")
+    lspz.ensure_installed({
         "astro",
         "denols",
         "emmet_ls",
@@ -13,12 +13,11 @@ local config = function()
         "jsonls",
         "lua_ls",
         "pylsp",
-        "rust_analyzer",
         "tsserver",
         "tailwindcss"
     })
 
-    lsp.configure("lua_ls", {
+    lspz.configure("lua_ls", {
         settings = {
             Lua = {
                 diagnostics = {
@@ -27,7 +26,8 @@ local config = function()
             }
         }
     })
-    lsp.configure("pylsp", {
+
+    lspz.configure("pylsp", {
         settings = {
             pylsp = {
                 plugins = {
@@ -39,7 +39,8 @@ local config = function()
             }
         }
     })
-    lsp.configure("tailwindcss", {
+
+    lspz.configure("tailwindcss", {
         settings = {
             tailwindCSS = {
                 experimental = {
@@ -51,18 +52,20 @@ local config = function()
             },
         },
     })
+
     -- todo
-    lsp.configure("denols", {
-        root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+    lspz.configure("denols", {
+        root_dir = lspc.util.root_pattern("deno.json", "deno.jsonc"),
         cmd = { vim.fn.stdpath('data') .. "/mason/packages/deno/deno" }
     })
-    lsp.configure("tsserver", {
-        root_dir = nvim_lsp.util.root_pattern("package.json"),
+
+    lspz.configure("tsserver", {
+        root_dir = lspc.util.root_pattern("package.json"),
     })
 
 
-    lsp.setup_nvim_cmp({
-        mapping = lsp.defaults.cmp_mappings({
+    lspz.setup_nvim_cmp({
+        mapping = lspz.defaults.cmp_mappings({
             ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
             ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
             ['<C-y>'] = cmp.mapping.confirm({ select = true }),
@@ -70,7 +73,16 @@ local config = function()
         })
     })
 
-    lsp.on_attach(function(client, bufnr)
+    local on_attach = function(client, bufnr)
+        -- from nvim-lspconfig 
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/test/minimal_init.lua
+        local function buf_set_option(...)
+            vim.api.nvim_buf_set_option(bufnr, ...)
+        end
+
+        buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+        -- from minimal
+
         local opts = { buffer = bufnr, remap = false }
 
         if client.name == "eslint" then
@@ -78,20 +90,31 @@ local config = function()
             return
         end
 
-        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-        vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-        vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-        vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end, opts)
-        vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
+        vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
+        vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
+        vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+        vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
         vim.keymap.set('n', "<leader>=", function() vim.lsp.buf.format({ async = true }) end, opts)
-    end)
+    end
 
-    lsp.setup()
+    lspz.on_attach(on_attach)
+    lspz.setup()
+
+    -- rust-analyzer
+    lspc.rust_analyzer.setup({
+        on_attach = on_attach,
+        cmd = { "rustup", "run", "stable", "rust-analyzer" },
+        settings = {
+            ["rust-analyzer"] = {
+            }
+        }
+    })
 
     -- enable inline diagnostics through lsp
     vim.lsp.handlers["textDocument/publishDiagnostics"] =
