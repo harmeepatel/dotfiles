@@ -13,6 +13,7 @@ local config = function()
         "jsonls",
         "lua_ls",
         "pylsp",
+        "rust_analyzer",
         "tsserver",
         "tailwindcss"
     })
@@ -74,22 +75,19 @@ local config = function()
     })
 
     local on_attach = function(client, bufnr)
-        -- from nvim-lspconfig 
+        -- from nvim-lspconfig
         -- https://github.com/neovim/nvim-lspconfig/blob/master/test/minimal_init.lua
         local function buf_set_option(...)
             vim.api.nvim_buf_set_option(bufnr, ...)
         end
-
         buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
         -- from minimal
 
         local opts = { buffer = bufnr, remap = false }
-
         if client.name == "eslint" then
             vim.cmd.LspStop('eslint')
             return
         end
-
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
@@ -105,16 +103,6 @@ local config = function()
 
     lspz.on_attach(on_attach)
     lspz.setup()
-
-    -- rust-analyzer
-    lspc.rust_analyzer.setup({
-        on_attach = on_attach,
-        cmd = { "rustup", "run", "stable", "rust-analyzer" },
-        settings = {
-            ["rust-analyzer"] = {
-            }
-        }
-    })
 
     -- enable inline diagnostics through lsp
     vim.lsp.handlers["textDocument/publishDiagnostics"] =
