@@ -2,7 +2,7 @@
 
 print_colors(){
     for i in {0..255}; do
-        printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
+        printf "\x1b[38;5;${i}mThe quick brown fox jumps over the lazy dog : ${i}\x1b[0m\n"
     done
 }
 

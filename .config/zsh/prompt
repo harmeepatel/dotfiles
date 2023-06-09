@@ -1,0 +1,22 @@
+#!bin/bash
+
+function parse_git_branch() {
+    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/ (󰘬 \1)/p'
+}
+
+function git_status() {
+    gs=" [${$(~/Developer/mmc/.config/zsh/gs)}]"
+    if [ "$gs" = " []" ]
+    then
+        gs=""
+    fi
+    echo "$gs"
+}
+
+COLOR_DEF=$'%f'
+COLOR_USR=$'%F{243}'
+COLOR_DIR=$'%F{100}'
+COLOR_GIT_BRANCH=$'%F{45}'
+COLOR_GIT_STATUS=$'%F{32}'
+setopt PROMPT_SUBST
+export PROMPT='${COLOR_USR}%n ${COLOR_DIR}%~${COLOR_GIT_BRANCH}$(parse_git_branch)${COLOR_GIT_STATUS}$(git_status)${COLOR_DEF} > '

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rustc -C opt-level=z -C lto=true -C codegen-units=1 -C strip=debuginfo -C strip=symbols -C panic=abort gs.rs

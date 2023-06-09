@@ -16,7 +16,7 @@ PWD=`basename \`pwd\``
 # imports
 source $ZDOTDIR/func
 source $ZDOTDIR/alias
-source $ZDOTDIR/zsh_prompt
+source $ZDOTDIR/prompt
 
 # fzf stuff
 fzf_version=`\ls /usr/local/Cellar/fzf/ | awk '{print$0}'`
@@ -53,3 +53,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+
+# RUST
+source $HOME/.cargo/env
