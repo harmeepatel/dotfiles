@@ -33,6 +33,6 @@ vim.opt.colorcolumn = "100"
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 vim.opt.undofile = true
 vim.opt.clipboard = 'unnamedplus'

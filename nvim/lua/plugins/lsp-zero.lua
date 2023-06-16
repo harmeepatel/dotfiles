@@ -15,7 +15,8 @@ local config = function()
         "pylsp",
         "rust_analyzer",
         "tsserver",
-        "tailwindcss"
+        "tailwindcss",
+        "wgsl_analyzer"
     })
 
     lspz.configure("lua_ls", {
