@@ -1,17 +1,21 @@
 # general
-alias cd="z"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias cd="z"
+alias c='codium'
 alias ls="ls -lah"
 alias ls="exa -la --icons -s extension"
 alias tree="exa --icons --tree --git-ignore"
 alias cat="bat --theme='gruvbox-dark'"
 alias rg="rg --hidden --ignore .git -g"
 alias fd="fd -u"
+alias rm='trash'
 alias echo="echo -e"
 alias grep="grep --color=auto"
 alias ql="qlmanage -p $1 &> /dev/null"
+alias vim="nvim"
+
 # reading disks
 alias df='df -h'
 
@@ -27,11 +31,6 @@ alias szp="source $ZDOTDIR/.zprofile"
 # python
 alias python="python3.10"
 alias pip="pip3.10"
-
-# extras
-alias vim="nvim"
-alias c='codium'
-alias rm='trash'
 
 # git
 alias ga="git add"
