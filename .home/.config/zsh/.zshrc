@@ -47,7 +47,7 @@ eval "$(zoxide init zsh)"
 # zprof
 
 # pnpm
-export PNPM_HOME="/Users/harmeepatel/Library/pnpm"
+export PNPM_HOME="/Users/$YOU/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;

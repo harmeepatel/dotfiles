@@ -1,6 +1,8 @@
 ZVM_VI_INSERT_ESCAPE_BINDKEY=kj
 ZVM_VI_VISUAL_ESCAPE_BINDKEY=kj
 
+export YOU=$(whoami)
+
 # starship
 SPACESHIP_DIR_TRUNC=5
 
@@ -15,7 +17,7 @@ export ZDOTDIR=$HOME/.config/zsh
 export PATH="/usr/local/sbin:$PATH"
 
 # bun
-export BUN_INSTALL="/Users/harmeepatel/.bun"
+export BUN_INSTALL="/Users/$YOU/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # custom

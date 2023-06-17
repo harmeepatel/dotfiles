@@ -16,7 +16,7 @@ alias ql="qlmanage -p $1 &> /dev/null"
 alias df='df -h'
 
 # gt htdocs
-alias htdocs="cd /Users/harmeepatel/.bitnami/stackman/machines/xampp/volumes/root/htdocs"
+alias htdocs="cd /Users/$YOU/.bitnami/stackman/machines/xampp/volumes/root/htdocs"
 
 # zshrc
 alias zrc="nvim $ZDOTDIR/.zshrc"
