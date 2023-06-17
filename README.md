@@ -1,3 +1,3 @@
 # Config
 
-git clone this dir and run *install.zh*
+git clone this dir and run ```install.zh```
