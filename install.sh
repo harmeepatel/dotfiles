@@ -10,5 +10,10 @@ fi
 # brew
 brew install git
 
+# git clone
+if [ ! -d "~/.files" ]; then
+    git clone --depth=1 https://github.com/Harmy1410/mmc.git
+fi
+
 # stow
 stow .home
