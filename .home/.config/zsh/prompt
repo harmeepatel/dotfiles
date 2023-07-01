@@ -19,4 +19,4 @@ COLOR_DIR=$'%F{100}'
 COLOR_GIT_BRANCH=$'%F{45}'
 COLOR_GIT_STATUS=$'%F{32}'
 setopt PROMPT_SUBST
-export PROMPT='${COLOR_USR}%n ${COLOR_DIR}%~${COLOR_GIT_BRANCH}$(parse_git_branch)${COLOR_GIT_STATUS}$(git_status)${COLOR_DEF} > '
+export PROMPT='${COLOR_USR}%n ${COLOR_DIR}%~${COLOR_GIT_BRANCH}$(parse_git_branch)${COLOR_GIT_STATUS}$(git_status)${COLOR_DEF} >> '
