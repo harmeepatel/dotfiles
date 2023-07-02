@@ -20,7 +20,7 @@ fn main() -> io::Result<()> {
             })
             .collect::<Vec<_>>(),
         Err(e) => {
-            println!("Something went wrong extracting `stdout`, from output with ERROR:");
+            println!("Something went wrong extracting `stdout` from output, with ERROR:");
             dbg!(e);
             std::process::exit(1);
         }
