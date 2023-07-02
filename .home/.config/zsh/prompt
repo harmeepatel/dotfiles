@@ -5,7 +5,7 @@ function parse_git_branch() {
 }
 
 function git_status() {
-    gs=" [${$(~/.config/zsh/gsb)}]"
+    gs=" [${$(~/.config/zsh/git_status_binary)}]"
     if [ "$gs" = " []" ]
     then
         gs=""
