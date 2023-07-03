@@ -7,7 +7,6 @@ export YOU=$(whoami)
 SPACESHIP_DIR_TRUNC=5
 
 export UPDATE_ZSH_DAYS=30
-
 export EDITOR=nvim
 
 # zsh home dir

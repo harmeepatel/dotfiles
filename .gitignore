@@ -2,5 +2,6 @@
 .zsh_history
 .zsh_sessions
 ./.config/tmux/plugins
+undodir/
 
 lazy-lock.json
