@@ -57,3 +57,6 @@ esac
 
 # RUST
 source $HOME/.cargo/env
+
+# fnm
+eval "$(fnm env --use-on-cd)"
