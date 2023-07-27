@@ -12,15 +12,18 @@ brew install alacritty
 brew install btop
 brew install exa
 brew install fzf
+brew install ffmpeg
 brew install git
 brew install hyperfine
 brew install iina
 brew install lf
 brew install neovim
+brew install rg
 brew install stow
 brew install tmux
 brew install trash
 brew install zoxide
+brew install yt-dlp
 
 # git clone
 if [ ! -d "/Users/$YOU/dotfiles" ]; then
