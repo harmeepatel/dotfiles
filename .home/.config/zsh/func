@@ -66,6 +66,7 @@ cocYarnInstall() {
     echo "\nentering $green$bold$italic$cwd$normal" &&
 }
 
+# git
 gacp(){
 	if [[ "$1" == "" ]]
 	then
@@ -78,6 +79,7 @@ gacp(){
 	fi
 }
 
+# leetcode stuff
 cn(){
 	if [[ $1 == "cf" ]]
 	then
