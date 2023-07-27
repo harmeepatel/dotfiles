@@ -12,6 +12,7 @@ local colors = {
     blue     = "#51afef",
     red      = "#e06c75",
 }
+
 local config = {
     options = {
         component_separators = '',
@@ -37,7 +38,7 @@ local config = {
             },
             {
                 'diff',
-                symbols = { added = ' ', modified = '柳', removed = ' ' },
+                symbols = { added = 'A', modified = 'M', removed = 'R' },
                 diff_color = {
                     added = { fg = colors.green },
                     modified = { fg = colors.orange },
@@ -120,7 +121,7 @@ local config = {
 return {
     -- "feline-nvim/feline.nvim",
     "nvim-lualine/lualine.nvim",
-    config = config,
+    opts = config,
 }
 
 -- -- Custom status_line
