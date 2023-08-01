@@ -1,28 +1,36 @@
 local wezterm = require 'wezterm'
 local maps = require 'keymaps'
 
-return {
-    initial_rows = 128,
-    initial_cols = 512,
+local config = {}
 
-    audible_bell = "Disabled",
-    enable_tab_bar = false,
+if wezterm.config_builder then
+    config = wezterm.config_builder()
+end
 
-    disable_default_key_bindings = true,
-    keys = maps,
+config.initial_cols = 512
+config.initial_rows = 512
 
-    colors = {
-        background = "black",
-    },
-    color_scheme = 'Gruvbox dark, hard (base16)',
+config.audible_bell = "Disabled"
+config.enable_tab_bar = false
 
-    font = wezterm.font_with_fallback {
-        'JetBrainsMono Nerd Font',
-        'CaskadiaCove Nerd Font',
-    },
-    font_size = 15,
+config.disable_default_key_bindings = true
+config.keys = maps
 
-    window_background_opacity = 0.5,
-    window_decorations = "RESIZE",
-    macos_window_background_blur = 32,
+config.colors = {
+    background = "black",
 }
+config.color_scheme = 'Gruvbox dark, hard (base16)'
+
+config.font = wezterm.font_with_fallback {
+    'JetBrainsMono Nerd Font',
+    'CaskadiaCove Nerd Font',
+}
+config.font_size = 15
+
+config.window_background_opacity = 0.5
+config.window_decorations = "RESIZE"
+config.macos_window_background_blur = 32
+
+config.default_prog = { '/usr/local/Cellar/tmux/3.3a_2/bin/tmux' }
+
+return config
