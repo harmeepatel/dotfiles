@@ -26,7 +26,7 @@ brew install zoxide
 brew install yt-dlp
 
 # git clone
-if [ ! -d "/Users/$YOU/dotfiles" ]; then
+if [ ! -d "/Users/$USER/dotfiles" ]; then
     git clone --depth=1 https://github.com/Harmy1410/dotfiles.git
 fi
 

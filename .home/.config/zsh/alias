@@ -20,7 +20,7 @@ alias vim="nvim"
 alias df='df -h'
 
 # gt htdocs
-alias htdocs="cd /Users/$YOU/.bitnami/stackman/machines/xampp/volumes/root/htdocs"
+alias htdocs="cd /Users/$USER/.bitnami/stackman/machines/xampp/volumes/root/htdocs"
 
 # zshrc
 alias zrc="nvim $ZDOTDIR/.zshrc"
