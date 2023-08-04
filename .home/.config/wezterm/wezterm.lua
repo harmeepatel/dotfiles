@@ -1,5 +1,6 @@
 local wezterm = require 'wezterm'
 local maps = require 'keymaps'
+local tmux_startup = require 'tmux'.run_tmux_on_startup
 
 local config = {}
 
@@ -12,25 +13,27 @@ config.initial_rows = 512
 
 config.audible_bell = "Disabled"
 config.enable_tab_bar = false
+config.scrollback_lines = 5120
 
 config.disable_default_key_bindings = true
 config.keys = maps
 
 config.colors = {
-    background = "black",
+    background = "#080808",
 }
-config.color_scheme = 'Gruvbox dark, hard (base16)'
+config.color_scheme = 'Catppuccin Mocha'
 
 config.font = wezterm.font_with_fallback {
     'JetBrainsMono Nerd Font',
     'CaskadiaCove Nerd Font',
 }
 config.font_size = 15
+config.freetype_load_target = "Light"
 
 config.window_background_opacity = 0.5
 config.window_decorations = "RESIZE"
 config.macos_window_background_blur = 32
 
-config.default_prog = { '/usr/local/Cellar/tmux/3.3a_2/bin/tmux' }
+config = tmux_startup(config)
 
 return config
