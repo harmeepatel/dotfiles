@@ -22,12 +22,13 @@ config.colors = {
 }
 config.color_scheme = 'Catppuccin Mocha'
 
-config.font = wezterm.font_with_fallback {
-    'JetBrainsMono Nerd Font',
-    'CaskadiaCove Nerd Font',
+config.font = wezterm.font {
+    family = wezterm.font_with_fallback {
+        'JetBrainsMono Nerd Font',
+        'CaskadiaCove Nerd Font',
+    },
+    harfbuzz_features = { 'liga=0' },
 }
-config.font_size = 15
-config.freetype_load_target = "Light"
 
 config.window_padding = {
     left = 0,
