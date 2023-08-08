@@ -1,38 +1,46 @@
 local wezterm = require 'wezterm'
+local mux = wezterm.mux
 local M = {}
 
 function M.run_tmux_on_startup(config)
-    local tmux_version_handle = io.popen("\\ls /usr/local/Cellar/tmux | awk '{print$0}' | head -1")
-    local tmux_session_handle = io.popen("tmux a")
+    local tmux_hb_version_handle = io.popen("\\ls /usr/local/Cellar/tmux | awk '{print$0}' | head -1")
+    -- local echo_tmux = string.gsub(io.popen("echo $TMUX"):read("*a"), "%s+", "")
+    local echo_tmux = string.gsub(io.popen("tmux list-sessions &> /dev/null | wc -l"):read("*a"), "%s+", "")
 
-    if tmux_version_handle == '' or tmux_version_handle == nil then
-        wezterm.log_error('tmux_version_handle not found')
+    if tmux_hb_version_handle == '' or tmux_hb_version_handle == nil then
+        wezterm.log_error('tmux_hb_version_handle not found')
         return config
     end
 
-    if tmux_session_handle == '' or tmux_session_handle == nil then
-        wezterm.log_error('tmux_session_handle not found')
+    if echo_tmux == nil then
+        wezterm.log_error('echo_tmux not found')
         return config
     end
 
-    local tmux_version = string.gsub(tmux_version_handle:read('*a'), '%s+', '') -- remove whitespaces '%s+'
+    local tmux_hb_read = tmux_hb_version_handle:read("*a")
 
-    wezterm.log_error("tmux_session_handle: " .. string.gsub(tmux_session_handle:read('*a'), '%s+', ''))
+    local tmux_hb_version = string.gsub(tmux_hb_read, "%s+", "") -- remove whitespaces '%s+'
+    local tmux_bin_path = '/usr/local/Cellar/tmux/' .. tmux_hb_version .. '/bin/tmux'
 
-    if string.gsub(tmux_session_handle:read('*a'), '%s+', '') == 'no sessions' or string.gsub(tmux_session_handle:read('*a'), '%s+', '') == '' then
-        local username_handle = io.popen('echo $USER')
-        if username_handle == nil then
-            return config
-        end
-        local username = string.gsub(username_handle:read('*a'), '%s+', '')
-        config.default_prog = { '/usr/local/Cellar/tmux/' .. tmux_version .. '/bin/tmux', 'new', '-s', username }
-        username_handle:close()
-    else
-        config.default_prog = { '/usr/local/Cellar/tmux/' .. tmux_version .. '/bin/tmux', 'a' }
-    end
 
-    tmux_version_handle:close()
-    tmux_session_handle:close()
+    wezterm.log_info("TMUX: " .. echo_tmux)
+
+    -- if echo_tmux == '' then
+    --     wezterm.log_info("inside: if tmux_env == nil")
+    --     wezterm.log_info("TMUX: " .. echo_tmux)
+    --     -- config.default_prog = { tmux_bin_path, 'new', '-s', os.getenv("USER") }
+    -- else
+    --     config.default_prog = { tmux_bin_path, 'a' }
+    -- end
+
+    tmux_hb_version_handle:close()
+
+    wezterm.on('gui-startup', function(cmd)
+        local _tab, _pane, window = mux.spawn_window({
+            args = { tmux_bin_path, 'a' }
+        } or {})
+        -- window:gui_window()
+    end)
 
     return config
 end

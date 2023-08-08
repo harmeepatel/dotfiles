@@ -38,7 +38,7 @@ local config = {
             },
             {
                 'diff',
-                symbols = { added = 'A', modified = 'M', removed = 'R' },
+                symbols = { added = 'A:', modified = 'M:', removed = 'D:' },
                 diff_color = {
                     added = { fg = colors.green },
                     modified = { fg = colors.orange },

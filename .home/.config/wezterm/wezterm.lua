@@ -1,5 +1,4 @@
-local wezterm = require 'wezterm'
-local maps = require 'keymaps'
+local wezterm = require('wezterm')
 local tmux_startup = require 'tmux'.run_tmux_on_startup
 
 local config = {}
@@ -16,7 +15,7 @@ config.enable_tab_bar = false
 config.scrollback_lines = 5120
 
 config.disable_default_key_bindings = true
-config.keys = maps
+config.keys = require('keymaps')
 
 config.colors = {
     background = "#080808",
@@ -30,6 +29,12 @@ config.font = wezterm.font_with_fallback {
 config.font_size = 15
 config.freetype_load_target = "Light"
 
+config.window_padding = {
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
+}
 config.window_background_opacity = 0.5
 config.window_decorations = "RESIZE"
 config.macos_window_background_blur = 32

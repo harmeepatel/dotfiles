@@ -1,24 +1,29 @@
 local act = require 'wezterm'.action
 
-local M = {}
+return {
 
-M = {
-
-    -- quit wezterm
+    -- wezterm: quit
     {
         key = 'q',
         mods = 'CMD',
         action = act.QuitApplication
     },
 
-    -- close wezterm window
+    -- wezterm: close window
     {
         key = 'q',
         mods = 'CTRL|SHIFT',
         action = act.CloseCurrentTab { confirm = true },
     },
 
-    -- rename tmux tab
+    -- wezterm: paste
+    {
+        key = 'v',
+        mods = 'CMD',
+        action = act.PasteFrom('Clipboard')
+    },
+
+    -- tmux: rename tab
     {
         key = ',',
         mods = 'CMD',
@@ -28,7 +33,7 @@ M = {
         },
     },
 
-    -- rename tmux session
+    -- tmux: rename session
     {
         key = ",",
         mods = 'CMD|SHIFT',
@@ -38,7 +43,7 @@ M = {
         },
     },
 
-    -- open split shell to right
+    -- tmux: open split shell to right
     {
         key = 'n',
         mods = 'CMD',
@@ -48,7 +53,7 @@ M = {
         },
     },
 
-    -- open split shell to bottom
+    -- tmux: open split shell to bottom
     {
         key = 'n',
         mods = 'CMD|SHIFT',
@@ -58,7 +63,7 @@ M = {
         },
     },
 
-    -- switch tmux sessions
+    -- tmux: switch sessions
     {
         key = 'l',
         mods = 'CMD',
@@ -68,7 +73,7 @@ M = {
         },
     },
 
-    -- previous tmux tab
+    -- tmux: previous tab
     {
         key = '{',
         mods = 'CMD|SHIFT',
@@ -78,7 +83,7 @@ M = {
         },
     },
 
-    -- next tmux tab
+    -- tmux: next tab
     {
         key = '}',
         mods = 'CMD|SHIFT',
@@ -88,7 +93,7 @@ M = {
         },
     },
 
-    -- close tmux tab
+    -- tmux: close tab
     {
         key = 'w',
         mods = 'CMD',
@@ -98,7 +103,7 @@ M = {
         },
     },
 
-    -- new tmux tab
+    -- tmux: new tab
     {
         key = 't',
         mods = 'CMD',
@@ -108,5 +113,3 @@ M = {
         },
     },
 }
-
-return M
