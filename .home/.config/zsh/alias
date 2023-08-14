@@ -39,3 +39,6 @@ alias gl="git log --graph --pretty=oneline --abbrev-commit"
 
 # lazygit
 alias lg="lazygit"
+
+#yt-dlp
+alias ytdlp="yt-dlp -f \"bv*+ba/b\" -S \"ext\" -S \"height:1440\"--embed-thumbnail $1"
