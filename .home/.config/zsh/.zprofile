@@ -13,6 +13,9 @@ export ZDOTDIR=$HOME/.config/zsh
 # homebrew
 export PATH="/usr/local/sbin:$PATH"
 
+# compress_to_webp
+export PATH="$HOME/bin:$PATH"
+
 # bun
 export BUN_INSTALL="/Users/$YOU/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
