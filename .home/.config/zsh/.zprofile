@@ -23,7 +23,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # custom
 export FONT="CaskaydiaCovePL Nerd Font Mono"
 
-#rust
+# rust
 # .rustup/toolchains/nightly-x86_64-apple-darwin/bin/rust-analyzer
 export RUST_ANALYZER=".rustup/toolchains/nightly-x86_64-apple-darwin"
 export PATH="$RUST_ANALYZER/bin:$PATH"
+
+# go
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
