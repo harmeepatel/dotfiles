@@ -8,8 +8,8 @@ vim.keymap.set('n', 'j', "gj")
 vim.keymap.set('n', 'k', "gk")
 vim.keymap.set('v', 'j', "gj")
 vim.keymap.set('v', 'k', "gk")
-vim.keymap.set('n', 'J', "gj")
-vim.keymap.set('n', 'K', "gk")
+-- vim.keymap.set('n', 'J', "gj")
+-- vim.keymap.set('n', 'K', "gk")
 
 -- move line or block
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
