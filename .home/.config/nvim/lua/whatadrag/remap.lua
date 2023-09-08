@@ -31,6 +31,10 @@ vim.keymap.set('x', "<leader>p", "\"_dP")
 -- close window
 vim.keymap.set('n', "<leader>w", ":bd<CR>")
 
+-- quick fix list
+vim.keymap.set('n', "<leader>cn", ":cn")
+vim.keymap.set('n', "<leader>cp", ":cp")
+
 -- next buffer
 vim.keymap.set('n', "<leader>bn", ":bnext<CR>")
 vim.keymap.set('n', "<leader>bp", ":bprev<CR>")
