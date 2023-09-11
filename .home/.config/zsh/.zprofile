@@ -31,3 +31,7 @@ export PATH="$RUST_ANALYZER/bin:$PATH"
 # go
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+
+# postgresql
+pstgr_version=`\ls /usr/local/Cellar/postgresql@15/ | awk '{print$0}'`
+export PATH="/usr/local/Cellar/postgresql@15/$pstgr_version/bin:$PATH"
