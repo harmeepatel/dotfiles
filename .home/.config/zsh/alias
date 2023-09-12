@@ -6,7 +6,7 @@ alias cd="z"
 alias c='codium'
 alias ls="ls -lah"
 alias ls="exa -la --icons -s extension"
-alias tree="exa --icons --tree --git-ignore"
+alias tree="exa --icons --tree --git-ignore -I node_modules"
 alias cat="bat --theme='gruvbox-dark'"
 alias rg="rg --hidden --ignore .git -g"
 alias fd="fd -u"
