@@ -14,7 +14,7 @@ local opts = {
         },
         color_devicons = true,
         set_env = { ["COLORTERM"] = "truecolor" },
-        file_ignore_patterns = { "node_modules" },
+        file_ignore_patterns = { "node_modules", "go.sum" },
     },
     -- pickers = {
     --     find_files = {
