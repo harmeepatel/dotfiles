@@ -18,7 +18,7 @@ config.disable_default_key_bindings = true
 config.keys = require('keymaps')
 
 config.colors = {
-    background = "#080808",
+    background = "#000",
 }
 config.color_scheme = 'Catppuccin Mocha'
 
@@ -35,10 +35,13 @@ config.window_padding = {
     top = 0,
     bottom = 0,
 }
-config.window_background_opacity = 0.5
+config.window_background_opacity = 0.75
 config.window_decorations = "RESIZE"
 config.macos_window_background_blur = 32
 
 config = tmux_startup(config)
+
+-- debug key maps
+config.debug_key_events = true
 
 return config
