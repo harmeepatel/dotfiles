@@ -11,8 +11,8 @@ return {
 
     -- wezterm: close window
     {
-        key = 'q',
-        mods = 'CTRL|SHIFT',
+        key = 'w',
+        mods = 'CMD|SHIFT',
         action = act.CloseCurrentTab { confirm = true },
     },
 
@@ -28,7 +28,7 @@ return {
         key = ',',
         mods = 'CMD',
         action = act.Multiple {
-            act.SendKey { key = 'phys:b', mods = 'CTRL' },
+            act.SendKey { key = 'b', mods = 'CTRL' },
             act.SendKey { key = ',' },
         },
     },
@@ -36,9 +36,9 @@ return {
     -- tmux: rename session
     {
         key = ",",
-        mods = 'CMD|SHIFT',
+        mods = 'CMD|OPT',
         action = act.Multiple {
-            act.SendKey { key = 'phys:b', mods = 'CTRL' },
+            act.SendKey { key = 'b', mods = 'CTRL' },
             act.SendKey { key = '$' },
         },
     },
