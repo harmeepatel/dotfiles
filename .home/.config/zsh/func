@@ -135,10 +135,6 @@ opnssl_dec(){
         openssl enc -aes-256-cbc -d -in $1 -out $2
 }
 
-ytdl_best_mp3(){
-    yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1
-}
-
 gcd(){
     local ans
     if [[ $# == 2 ]] then
