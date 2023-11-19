@@ -33,5 +33,5 @@ export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
 # postgresql
-pstgr_version=`\ls /usr/local/Cellar/postgresql@15/ | awk '{print$0}'`
-export PATH="/usr/local/Cellar/postgresql@15/$pstgr_version/bin:$PATH"
+PSTGRS_VERSION=`\ls /usr/local/Cellar/postgresql@15/ | awk '{print$0}'`
+export PATH="/usr/local/Cellar/postgresql@15/$PSTGRS_VERSION/bin:$PATH"
