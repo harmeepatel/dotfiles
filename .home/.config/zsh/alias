@@ -29,6 +29,9 @@ alias szp="source $ZDOTDIR/.zprofile"
 alias python="python3.10"
 alias pip="pip3.10"
 
+# zig
+alias zigd="~/Developer/projects/zig/.zigdev/zig"
+
 # git
 alias ga="git add"
 alias gc="git commit -m"
