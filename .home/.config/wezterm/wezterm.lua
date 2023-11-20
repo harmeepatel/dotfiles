@@ -27,7 +27,7 @@ config.font = wezterm.font_with_fallback {
     'CaskadiaCove Nerd Font',
 }
 config.harfbuzz_features = { 'calt=0' }
-config.font_size = 15.0
+config.font_size = 16.0
 
 config.window_padding = {
     left = 0,
