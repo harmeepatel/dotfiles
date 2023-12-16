@@ -1,0 +1,7 @@
+#! /bin/bash
+
+# usage: cat download-text-file | ./down
+
+while read line; do
+    yt-dlp -f "bv*+ba/b" -S "ext" -S "height:1080"--embed-thumbnail $line
+done
