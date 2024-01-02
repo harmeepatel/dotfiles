@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+# compress pdfs with ghostscript
+compdf(){
+    if [[ -z $1 ]]; then
+        echo "enter input file"
+        return
+    elif [[ -z $2 ]]; then
+        echo "enter output file"
+        return
+    fi
+    gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress -dNOPAUSE -dBATCH -sOutputFile=$2 $1
+}
+
 print_colors(){
     for i in {0..255}; do
         printf "\x1b[38;5;${i}mThe quick brown fox jumps over the lazy dog : ${i}\x1b[0m\n"
@@ -55,15 +67,6 @@ comwebp(){
 
     echo "$1   ->   $filename.webp"
     cwebp -near_lossless 16 -mt -quiet $1 -o $filename.webp
-}
-
-cocYarnInstall() {
-    cwd=$(pwd)
-    echo "exiting $green$bold$italic$cwd\n$normal" &&
-    cd .local/share/nvim/site/pack/packer/start/coc.nvim &&
-    yarn install &&
-    cd $cwdForCoc &&
-    echo "\nentering $green$bold$italic$cwd$normal" &&
 }
 
 # git
