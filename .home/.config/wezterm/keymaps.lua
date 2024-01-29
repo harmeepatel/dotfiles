@@ -1,8 +1,8 @@
 local wezterm = require 'wezterm'
 local act = require 'wezterm'.action
-local M = {}
 
-M.general = {
+return {
+    { key = 'L', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
     -- wezterm: paste
     {
         key = 'v',
@@ -21,9 +21,6 @@ M.general = {
         mods = 'CMD|SHIFT',
         action = act.CloseCurrentTab { confirm = true },
     },
-}
-
-M.tmux = {
     -- tmux: rename sessions
     {
         key = ',',
@@ -105,10 +102,4 @@ M.tmux = {
             act.SendKey { key = 'c' },
         },
     },
-}
-
-return {
-    { key = 'L', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
-    table.unpack(M.general),
-    table.unpack(M.tmux),
 }
