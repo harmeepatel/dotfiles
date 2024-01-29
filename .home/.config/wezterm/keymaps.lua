@@ -1,48 +1,47 @@
+local wezterm = require 'wezterm'
 local act = require 'wezterm'.action
+local M = {}
 
-return {
-
-    -- wezterm: quit
-    {
-        key = 'q',
-        mods = 'CMD',
-        action = act.QuitApplication
-    },
-
-    -- wezterm: close window
-    {
-        key = 'w',
-        mods = 'CMD|SHIFT',
-        action = act.CloseCurrentTab { confirm = true },
-    },
-
+M.general = {
     -- wezterm: paste
     {
         key = 'v',
         mods = 'CMD',
         action = act.PasteFrom('Clipboard')
     },
+    -- wezterm: quit
+    {
+        key = 'q',
+        mods = 'CMD',
+        action = act.QuitApplication
+    },
+    -- wezterm: close window
+    {
+        key = 'w',
+        mods = 'CMD|SHIFT',
+        action = act.CloseCurrentTab { confirm = true },
+    },
+}
 
-    -- tmux: rename tab
+M.tmux = {
+    -- tmux: rename sessions
     {
         key = ',',
         mods = 'CMD',
         action = act.Multiple {
             act.SendKey { key = 'b', mods = 'CTRL' },
-            act.SendKey { key = ',' },
-        },
-    },
-
-    -- tmux: rename session
-    {
-        key = ",",
-        mods = 'CMD|OPT',
-        action = act.Multiple {
-            act.SendKey { key = 'b', mods = 'CTRL' },
             act.SendKey { key = '$' },
         },
     },
-
+    -- tmux: rename tab
+    {
+        key = ',',
+        mods = 'CMD|OPT',
+        action = act.Multiple {
+            act.SendKey { key = 'b', mods = 'CTRL' },
+            act.SendKey { key = ',' },
+        },
+    },
     -- tmux: open split shell to right
     {
         key = 'n',
@@ -52,7 +51,6 @@ return {
             act.SendKey { key = '%' },
         },
     },
-
     -- tmux: open split shell to bottom
     {
         key = 'n',
@@ -62,7 +60,6 @@ return {
             act.SendKey { key = '"' },
         },
     },
-
     -- tmux: switch sessions
     {
         key = 'l',
@@ -72,7 +69,6 @@ return {
             act.SendKey { key = 's' },
         },
     },
-
     -- tmux: previous tab
     {
         key = '{',
@@ -82,7 +78,6 @@ return {
             act.SendKey { key = 'p' },
         },
     },
-
     -- tmux: next tab
     {
         key = '}',
@@ -92,7 +87,6 @@ return {
             act.SendKey { key = 'n' },
         },
     },
-
     -- tmux: close tab
     {
         key = 'w',
@@ -102,7 +96,6 @@ return {
             act.SendKey { key = 'x' },
         },
     },
-
     -- tmux: new tab
     {
         key = 't',
@@ -112,4 +105,10 @@ return {
             act.SendKey { key = 'c' },
         },
     },
+}
+
+return {
+    { key = 'L', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
+    table.unpack(M.general),
+    table.unpack(M.tmux),
 }

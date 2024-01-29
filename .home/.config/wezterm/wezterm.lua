@@ -1,5 +1,5 @@
 local wezterm = require('wezterm')
-local tmux_startup = require 'tmux'.run_tmux_on_startup
+local tmux_startup = require('tmux').run_tmux_on_startup
 
 local config = {}
 
@@ -11,7 +11,6 @@ config.initial_cols = 512
 config.initial_rows = 512
 
 config.audible_bell = "Disabled"
-config.enable_tab_bar = false
 config.scrollback_lines = 5120
 
 config.disable_default_key_bindings = true
@@ -27,7 +26,7 @@ config.font = wezterm.font_with_fallback {
     'CaskadiaCove Nerd Font',
 }
 config.harfbuzz_features = { 'calt=0' }
-config.font_size = 16.0
+config.font_size = 18.0
 
 config.window_padding = {
     left = 0,
@@ -37,7 +36,8 @@ config.window_padding = {
 }
 config.window_background_opacity = 0.75
 config.window_decorations = "RESIZE"
-config.macos_window_background_blur = 32
+config.macos_window_background_blur = 2
+config.enable_tab_bar = false
 
 config = tmux_startup(config)
 

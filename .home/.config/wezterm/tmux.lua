@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm'
 local io = require 'io'
--- local mux = wezterm.mux
+
 local M = {}
 
 local basename = function(str)
@@ -36,11 +36,13 @@ end
 function M.run_tmux_on_startup(config)
     local tmux_bin_path, bin_path_err = get_tmux_bin_path()
     if bin_path_err then
+        print("PROBLEM getting tmux bin path.")
         return config
     end
 
     local tmux_running, tmux_pid_err = is_tmux_running()
     if tmux_pid_err then
+        print("PROBLEM running tmux.")
         return config
     end
 
