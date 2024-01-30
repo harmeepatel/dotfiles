@@ -1,8 +1,8 @@
 ZVM_VI_INSERT_ESCAPE_BINDKEY=kj
 ZVM_VI_VISUAL_ESCAPE_BINDKEY=kj
 
-# starship
-SPACESHIP_DIR_TRUNC=5
+# fonts
+export FONT="CaskaydiaCovePL Nerd Font Mono"
 
 export UPDATE_ZSH_DAYS=30
 export EDITOR=nvim
@@ -13,15 +13,12 @@ export ZDOTDIR=$HOME/.config/zsh
 # homebrew
 export PATH="/usr/local/sbin:$PATH"
 
-# compress_to_webp
+# custom binaries
 export PATH="$HOME/bin:$PATH"
 
 # bun
 export BUN_INSTALL="/Users/$YOU/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# custom
-export FONT="CaskaydiaCovePL Nerd Font Mono"
 
 # rust
 # .rustup/toolchains/nightly-x86_64-apple-darwin/bin/rust-analyzer
