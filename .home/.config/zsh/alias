@@ -47,3 +47,7 @@ alias yta="yt-dlp -f bestaudio --extract-audio --audio-format aac --audio-qualit
 args="--icons --time-style=relative"
 alias ls="eza -la $args"
 alias tree="eza --tree $args -I .git -I node_modules"
+
+# zig
+# build zig 
+alias zigcmake="cmake .. -DZIG_STATIC_LLVM=ON -DCMAKE_PREFIX_PATH=\"$(brew --prefix llvm);$(brew --prefix zstd)\""
