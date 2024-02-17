@@ -21,8 +21,6 @@ pub fn main() !void {
     var gs = std.AutoArrayHashMap(u8, u8).init(allocator);
     defer gs.deinit();
 
-    var iter_count: usize = 0;
-
     var i: usize = 0;
     while (i < n_bytes) : (i += 1) {
         var line = std.ArrayList(u8).init(allocator);
@@ -31,12 +29,10 @@ pub fn main() !void {
         var three_chars_flag: usize = 0;
         while (buffer[i] != '\n') : (i += 1) {
             if (three_chars_flag == 3) {
-                iter_count += 1;
                 continue;
             }
             _ = try line.append(buffer[i]);
             three_chars_flag += 1;
-            iter_count += 1;
         }
         const status_symbol = std.mem.trim(u8, line.items, " ");
         const status = try gs.getOrPut(status_symbol[0]);
@@ -46,7 +42,6 @@ pub fn main() !void {
         } else {
             status.value_ptr.* = 1;
         }
-        iter_count += 1;
     }
 
     // var output: [16]u8 = undefined;
@@ -59,7 +54,6 @@ pub fn main() !void {
             _ = try std.fmt.format(stdout_writer, " ", .{});
         }
     }
-    dbg_print("iter_count: {}", .{iter_count});
 }
 
 test "simple test" {
