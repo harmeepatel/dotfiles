@@ -60,3 +60,4 @@ source $HOME/.cargo/env
 
 # fnm
 eval "$(fnm env --use-on-cd)"
+source ~/dotfiles/.home/.config/zsh/zsh-prompt-benchmark/zsh-prompt-benchmark.plugin.zsh
