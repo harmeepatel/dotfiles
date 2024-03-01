@@ -1,16 +1,8 @@
-local wezterm = require 'wezterm'
+-- local wezterm = require 'wezterm'
 local act = require 'wezterm'.action
 
 return {
     { key = 'L', mods = 'CTRL', action = act.ShowDebugOverlay },
-    -- tmux-sessionizer
-    {
-        key = 'f',
-        mods = 'CMD',
-        action = act.Multiple {
-            act.SendString('tmux-sessionizer\x0a'),
-        },
-    },
     -- wezterm: paste
     {
         key = 'v',
@@ -108,6 +100,15 @@ return {
         action = act.Multiple {
             act.SendKey { key = 'phys:b', mods = 'CTRL' },
             act.SendKey { key = 'c' },
+        },
+    },
+
+    -- tmux-sessionizer
+    {
+        key = 'f',
+        mods = 'CMD',
+        action = act.Multiple {
+            act.SendString('tmux-sessionizer\x0a'),
         },
     },
 }
