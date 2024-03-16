@@ -1,27 +1,27 @@
 local ensure_installed = {
-    "astro",
-    "denols",
-    "emmet_ls",
-    "eslint",
-    "gopls",
-    "html",
-    "htmx",
-    "jsonls",
-    "lua_ls",
-    "pylsp",
-    "rust_analyzer",
-    "zls",
-    "tsserver",
-    "tailwindcss",
-    "wgsl_analyzer"
+    'astro',
+    'denols',
+    'emmet_ls',
+    'eslint',
+    'gopls',
+    'html',
+    'htmx',
+    'jsonls',
+    'lua_ls',
+    'pylsp',
+    'rust_analyzer',
+    'zls',
+    'tsserver',
+    'tailwindcss',
+    'wgsl_analyzer'
 }
 
 local config = function()
-    require("mason").setup({})
-    require("mason-lspconfig").setup({
+    require('mason').setup({})
+    require('mason-lspconfig').setup({
         ensure_installed = ensure_installed,
     })
-    local lspconfig = require("lspconfig")
+    local lspconfig = require('lspconfig')
 
     vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -48,7 +48,7 @@ local config = function()
             map('<leader>rn', vim.lsp.buf.rename, '[R]e[N]ame variables and function names')
             map('K', vim.lsp.buf.hover, 'hover info')
             map('<C-k>', vim.lsp.buf.signature_help, 'signature help')
-            map("<leader>=", function() vim.lsp.buf.format({ async = true }) end, 'format file')
+            map('<leader>=', function() vim.lsp.buf.format({ async = true }) end, 'format file')
             -- map('<space>wa', vim.lsp.buf.add_workspace_folder, '')
             -- map('<space>wr', vim.lsp.buf.remove_workspace_folder, '')
             -- map('<space>wl', function()
@@ -70,7 +70,7 @@ local config = function()
         settings = {
             Lua = {
                 diagnostics = {
-                    globals = { "vim" }
+                    globals = { 'vim' }
                 }
             }
         }
@@ -91,17 +91,17 @@ local config = function()
 
     -- for go templ templating
     lspconfig.html.setup({
-        filetypes = { "html", "templ" },
+        filetypes = { 'html', 'templ' },
     })
 
     lspconfig.htmx.setup({
-        filetypes = { "html", "templ" },
+        filetypes = { 'html', 'templ' },
     })
 
     lspconfig.tailwindcss.setup({
         settings = {
-            filetypes = { "templ", "astro", "javascript", "typescript", "react" },
-            init_options = { userLanguages = { templ = "html" } },
+            filetypes = { 'templ', 'astro', 'javascript', 'typescript', 'react' },
+            init_options = { userLanguages = { templ = 'html' } },
             tailwindCSS = {
                 experimental = {
                     classRegex = {
@@ -116,10 +116,12 @@ end
 
 
 return {
-    "neovim/nvim-lspconfig",
+    'neovim/nvim-lspconfig',
     dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+        { 'j-hui/fidget.nvim', opts = {} },
+        { 'folke/neodev.nvim', opts = {} },
     },
     config = config,
 }
