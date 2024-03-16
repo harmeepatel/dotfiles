@@ -25,6 +25,17 @@ local opts = {
 
 return {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+        {
+            "nvim-treesitter/nvim-treesitter-context",
+            config = function()
+                require 'treesitter-context'.setup {
+                    separator = '―',
+                }
+                vim.api.nvim_set_hl(0, "TreesitterContextSeparator", { fg = "#353535" })
+            end
+        },
+    },
     build = ":TSUpdate",
     opts = opts,
 }
