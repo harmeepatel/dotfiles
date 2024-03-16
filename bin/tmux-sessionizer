@@ -4,7 +4,7 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
     selected=$(find \
-        ~/dotfiles ~/Developer ~/Developer/projects ~/Developer/tools \
+        ~/dotfiles ~/Developer ~/Developer/projects ~/Developer/tools ~/Documents \
         -mindepth 1 -maxdepth 2 -type d \
         -not -path "*/.git" \
         -not -path "*/.git/*" \
