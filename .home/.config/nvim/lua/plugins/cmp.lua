@@ -20,10 +20,10 @@ local config = function()
             ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
         sources = cmp.config.sources({
-            { name = 'nvim_lsp' },
-            { name = 'luasnip' }, -- For luasnip users.
+            { name = 'nvim_lsp', keyword_length = 3 },
+            { name = 'luasnip',  keyword_length = 3 },  -- For luasnip users.
         }, {
-            { name = 'buffer' },
+            { name = 'buffer', keyword_length = 3 },
         })
     })
 

@@ -112,16 +112,51 @@ local config = function()
             },
         },
     })
-end
 
+
+    -- hover boundry
+    local border = {
+        { "╭", "FloatBorder" }, -- top left corner
+        { "─", "FloatBorder" }, -- top
+        { "╮", "FloatBorder" }, -- top right corner
+        { "│", "FloatBorder" }, -- right side center
+        { "╯", "FloatBorder" }, -- bottom right corner
+        { "─", "FloatBorder" }, -- bottom
+        { "╰", "FloatBorder" }, -- bottom left corner
+        { "│", "FloatBorder" }, -- left side center
+    }
+    -- local handlers = {
+    --     ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+    --     ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+    -- }
+    --
+    -- -- Do not forget to use the on_attach function
+    -- require 'lspconfig'.myserver.setup { handlers = handlers }
+    --
+    -- To instead override globally
+    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+    function vim.lsp.util.open_floating_preview(contents, syntax, opts)
+        opts = opts or {}
+        opts.border = opts.border or border
+        return orig_util_open_floating_preview(contents, syntax, opts)
+    end
+end
 
 return {
     'neovim/nvim-lspconfig',
     dependencies = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
-        { 'j-hui/fidget.nvim', opts = {} },
-        { 'folke/neodev.nvim', opts = {} },
+        {
+            'j-hui/fidget.nvim',
+            opts = {},
+        },
+
+        {
+            'folke/neodev.nvim',
+            opts = {},
+        },
     },
     config = config,
+    event = "VeryLazy",
 }
