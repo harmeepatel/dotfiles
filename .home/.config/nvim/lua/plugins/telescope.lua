@@ -14,7 +14,6 @@ local opts = {
         },
         color_devicons = true,
         set_env = { ["COLORTERM"] = "truecolor" },
-        file_ignore_patterns = { ".git", "node_modules", "go.sum" },
 
         -- mappings = {
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
@@ -25,11 +24,14 @@ local opts = {
 
 local config = function()
     require('telescope').setup({
+        defaults = {
+            file_ignore_patterns = { ".git", "node%_modules", "go.sum", "zig%-cache", "zig%-out", "libs", ".wasm"},
+        },
         extensions = {
             ['ui-select'] = {
                 require('telescope.themes').get_dropdown(),
             },
-        }
+        },
     })
     -- Enable telescope extensions, if they are installed
     pcall(require('telescope').load_extension, 'fzf')
