@@ -1,5 +1,6 @@
 local ensure_installed = {
     'astro',
+    'autotools_ls',
     'denols',
     'emmet_ls',
     'eslint',
@@ -10,6 +11,8 @@ local ensure_installed = {
     'lua_ls',
     'pylsp',
     'rust_analyzer',
+    'templ',
+    'taplo',
     'zls',
     'tsserver',
     'tailwindcss',
@@ -90,6 +93,9 @@ local config = function()
     })
 
     -- for go templ templating
+    vim.api.nvim_create_autocmd("BufEnter",
+        { pattern = "*.templ", callback = function() vim.cmd("TSBufEnable highlight") end })
+    vim.filetype.add({ extension = { templ = "templ" } })
     lspconfig.html.setup({
         filetypes = { 'html', 'templ' },
     })
@@ -158,5 +164,4 @@ return {
         },
     },
     config = config,
-    event = "VeryLazy",
 }
