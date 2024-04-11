@@ -26,3 +26,7 @@
 [user]
 	name = Harmee Patel
 	email = daddy_davinci@Harmees-MBP.hitronhub.home
+[rerere]
+	enabled = true
+[maintenance]
+	repo = /Users/daddy_davinci/Developer/tools/zig
