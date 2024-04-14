@@ -1,6 +1,6 @@
 local opts = {
     -- A list of parser names, or "all"
-    ensure_installed = { "help", "vim", "javascript", "typescript", "tsx", "lua", "rust", "go", "python", "bash", "astro",
+    ensure_installed = { "vim", "vimdoc","javascript", "typescript", "tsx", "lua", "rust", "go", "python", "bash", "astro",
         "html", "css", "scss", "dockerfile", "json", "json5", "markdown", "markdown_inline", "sql", "toml" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
