@@ -51,7 +51,7 @@ local config = function()
             map('<leader>gt', vim.lsp.buf.type_definition, '[G]oto [T]ype definition')
             map('<leader>rn', vim.lsp.buf.rename, '[R]e[N]ame variables and function names')
             map('K', vim.lsp.buf.hover, 'hover info')
-            map('<C-k>', vim.lsp.buf.signature_help, 'signature help')
+            -- map('<C-k>', vim.lsp.buf.signature_help, 'signature help') -- NOTE: conflicting with :cprev
             map('<leader>=', function() vim.lsp.buf.format({ async = true }) end, 'format file')
             -- map('<space>wa', vim.lsp.buf.add_workspace_folder, '')
             -- map('<space>wr', vim.lsp.buf.remove_workspace_folder, '')
