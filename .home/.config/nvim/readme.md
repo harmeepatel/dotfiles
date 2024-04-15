@@ -1,9 +1,10 @@
 # tips and tricks
 
-### autocmds
+### Templ
 
-This is useful for templ:
+To use the (templ)[https://templ.guide/] with neovim, these autocommands are useful.
 
+This one adds templ as a fileformat recognized by the lsp for templ
 ```lua
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     desc = 'adding templ as a file format',
@@ -13,6 +14,8 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
 })
 ```
 
+This is to run ```(zsh) templ generate``` after the buffer is written to the file. It helps to not
+running that command every time you make a change to __.templ__ file. Makes hot realoding easier.
 ```lua
 vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
     desc = 'running templ generate on save',
