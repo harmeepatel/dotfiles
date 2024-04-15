@@ -2,7 +2,7 @@
 
 ### Templ
 
-To use the (templ)[https://templ.guide/] with neovim, these autocommands are useful.
+To use the [templ](https://templ.guide/) with neovim, these autocommands are useful.
 
 This one adds templ as a fileformat recognized by the lsp for templ
 ```lua
