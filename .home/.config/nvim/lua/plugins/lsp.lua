@@ -6,6 +6,7 @@ local ensure_installed = {
     'eslint',
     'gopls',
     'html',
+    'cssls',
     'htmx',
     'jsonls',
     'lua_ls',
