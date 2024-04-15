@@ -1,6 +1,6 @@
 # tips and tricks
 
-## autocmds
+### autocmds
 
 This is useful for templ:
 
