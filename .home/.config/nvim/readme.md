@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
 })
 ```
 
-This is to run ```(zsh) templ generate``` after the buffer is written to the file. It helps to not
+This is to run `templ generate` after the buffer is written to the file. It helps to not
 running that command every time you make a change to __.templ__ file. Makes hot realoding easier.
 ```lua
 vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
