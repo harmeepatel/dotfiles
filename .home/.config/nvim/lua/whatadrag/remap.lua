@@ -35,12 +35,13 @@ vim.keymap.set('n', "<leader>w", ":bd<CR>")
 vim.keymap.set('n', "<leader>cn", ":cn")
 vim.keymap.set('n', "<leader>cp", ":cp")
 
--- next buffer
+-- navigating buffers
 vim.keymap.set('n', "<leader>bn", ":bnext<CR>")
 vim.keymap.set('n', "<leader>bp", ":bprev<CR>")
 
-vim.keymap.set('n', "<leader>cn", ":cnext<CR>")
-vim.keymap.set('n', "<leader>cp", ":cprev<CR>")
+-- navigating quick fix list
+vim.keymap.set('n', "<C-j>", ":cnext<CR>")
+vim.keymap.set('n', "<C-k>", ":cprev<CR>")
 
 -- switching windows
 for i = 1, 6 do
