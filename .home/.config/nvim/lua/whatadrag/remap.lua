@@ -46,6 +46,12 @@ vim.keymap.set('n', "<C-k>", ":cprev<CR>")
 -- switching windows
 for i = 1, 6 do
     local lsh = "<leader>" .. i
-    local rsh =  i .. "<C-w>w"
-    vim.keymap.set('n', lsh, rsh, { desc = "Move to window " .. i})
+    local rsh = i .. "<C-w>w"
+    vim.keymap.set('n', lsh, rsh, { desc = "Move to window " .. i })
 end
+
+-- lsp
+vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
