@@ -10,6 +10,7 @@ local ensure_installed = {
     'htmx',
     'jsonls',
     'lua_ls',
+    'ltex',
     'pylsp',
     'rust_analyzer',
     'templ',

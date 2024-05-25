@@ -31,6 +31,12 @@ vim.keymap.set('x', "<leader>p", "\"_dP")
 -- close window
 vim.keymap.set('n', "<leader>w", ":bd<CR>")
 
+-- indent rehighlight
+-- vim.keymap.set('v', "<", ":<<CR><CMD>gv<CR>")
+-- vim.keymap.set('x', "<", ":<<CR><CMD>gv<CR>")
+-- vim.keymap.set('v', ">", ":<<CMD>gv<CR>")
+-- vim.keymap.set('x', ">", ":<<CMD>gv<CR>")
+
 -- quick fix list
 vim.keymap.set('n', "<leader>cn", ":cn")
 vim.keymap.set('n', "<leader>cp", ":cp")
@@ -55,3 +61,6 @@ vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+
+-- golang
+vim.keymap.set('n', '<leader>ge', 'oif err != nil {}<left>')
