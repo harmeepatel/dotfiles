@@ -36,7 +36,7 @@ config.window_padding = {
 }
 config.window_background_opacity = 0.75
 config.window_decorations = "RESIZE"
-config.macos_window_background_blur = 2
+config.macos_window_background_blur = 16
 config.enable_tab_bar = false
 
 config = tmux_startup(config)
