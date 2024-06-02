@@ -15,10 +15,10 @@ local ensure_installed = {
     'rust_analyzer',
     'templ',
     'taplo',
-    'zls',
     'tsserver',
     'tailwindcss',
-    'wgsl_analyzer'
+    'wgsl_analyzer',
+    'zls'
 }
 
 local config = function()
@@ -35,6 +35,10 @@ local config = function()
             capabilities = capabilities
         })
     end
+
+    lspconfig.zls.setup({
+        cmd = { "/Users/daddy_davinci/Developer/tools/zls/zig-out/bin/zls" }
+    })
 
     lspconfig.lua_ls.setup({
         settings = {
