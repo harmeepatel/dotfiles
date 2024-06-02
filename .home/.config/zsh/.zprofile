@@ -10,6 +10,7 @@ export EDITOR=nvim
 # zsh home dir
 export ZDOTDIR=$HOME/.config/zsh
 
+# PATH
 # homebrew
 export PATH="/usr/local/sbin:$PATH"
 
@@ -32,3 +33,7 @@ export PATH="$GOPATH/bin:$PATH"
 # postgresql
 PSTGRS_VERSION=`\ls /usr/local/Cellar/postgresql@15/ | awk '{print$0}'`
 export PATH="/usr/local/Cellar/postgresql@15/$PSTGRS_VERSION/bin:$PATH"
+
+# fabric (https://github.com/danielmiessler/fabric)
+export FABRIC_PATH="$HOME/.local/bin"
+export PATH="$FABRIC_PATH/:$PATH"
