@@ -1,0 +1,24 @@
+[icon]
+prepend_rules = [
+    { name = "Desktop/", text = "" },
+
+    # Icon with a color
+
+    { name = ".git", text = "" },
+    { name = ".gitignore", text = "" },
+    { name = "*.rs", text = "", fg = "#ce412b" },
+    { name = "*.zig", text = "", fg = "#f7a41e" },
+    { name = "*.zig.zon", text = "", fg = "#f7a41e" },
+    { name = "*.lua", text = "", fg = "#51a0cf" },
+    # { mime = "audio/*", fg = "magenta" },
+
+    # You can also use `is` rule, just like `[filetype]` section
+    # Orphan symbolic links
+    { name = "*", is = "orphan", text = "" },
+]
+
+# append_rules = [
+#     # My fallback icons
+#     { name = "*", text = "" },
+#     { name = "*/", text = "" },
+# ]
