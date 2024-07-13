@@ -25,7 +25,7 @@ local opts = {
 local config = function()
     require('telescope').setup({
         defaults = {
-            file_ignore_patterns = { ".git", "node%_modules", "go.sum", "zig%-cache", "zig%-out", "libs", ".wasm", ".fiber.gz"},
+            file_ignore_patterns = { "git/", "node%_modules", "go.sum", "zig%-cache", "zig%-out", "libs", ".wasm", ".fiber.gz"},
         },
         extensions = {
             ['ui-select'] = {

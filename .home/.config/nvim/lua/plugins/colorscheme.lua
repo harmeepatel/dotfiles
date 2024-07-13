@@ -28,11 +28,12 @@ local catppuccin_opts = {
     custom_highlights = {},
     integrations = {
         cmp = true,
-        gitsigns = true,
+        -- gitsigns = true,
         nvimtree = true,
         telescope = true,
         notify = true,
         mini = false,
+        mason = true,
     },
 }
 

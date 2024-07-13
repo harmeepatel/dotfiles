@@ -1,16 +1,15 @@
 local ensure_installed = {
-    'astro',
-    'autotools_ls',
-    'denols',
-    'emmet_ls',
-    'eslint',
+    'emmet_language_server',
+    -- 'eslint',
     'gopls',
     'html',
     'cssls',
+    'clangd',
     'htmx',
     'jsonls',
     'lua_ls',
     'ltex',
+    'nginx_language_server',
     'pylsp',
     'rust_analyzer',
     'templ',
@@ -21,97 +20,19 @@ local ensure_installed = {
     'zls'
 }
 
-local config = function()
-    require('mason').setup({})
-    require('mason-lspconfig').setup({
-        ensure_installed = ensure_installed,
-    })
-    local lspconfig = require('lspconfig')
-
-    -- Set up lspconfig.
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    for _, server in ipairs(ensure_installed) do
-        lspconfig[server].setup({
-            capabilities = capabilities
-        })
-    end
-
-    lspconfig.zls.setup({
-        cmd = { "/Users/daddy_davinci/Developer/tools/zls/zig-out/bin/zls" }
-    })
-
-    lspconfig.lua_ls.setup({
-        settings = {
-            Lua = {
-                diagnostics = {
-                    globals = { 'vim' }
-                }
-            }
-        }
-    })
-
-    lspconfig.pylsp.setup({
-        settings = {
-            pylsp = {
-                plugins = {
-                    pycodestyle = {
-                        ignore = { 'W391' },
-                        maxLineLength = 150
-                    }
-                }
-            }
-        }
-    })
-
-    -- templ
-    vim.filetype.add({ extension = { templ = "templ" } })
-
-    lspconfig.html.setup({
-        filetypes = { 'html', 'templ' },
-    })
-
-    lspconfig.htmx.setup({
-        filetypes = { 'html', 'templ' },
-    })
-
-    lspconfig.tailwindcss.setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-        filetypes = { "templ", "astro", "javascript", "typescript", "react" },
-        init_options = { userLanguages = { templ = "html" } },
-        settings = {
-            tailwindCSS = {
-                experimental = {
-                    classRegex = {
-                        { "cva\\(([^)]*)\\)",
-                            "[\"'`]([^\"'`]*).*?[\"'`]" },
-                    },
-                },
-            },
-        },
-    })
-
-
+local function hover_border()
     -- hover boundry
     local border = {
-        { "╭", "FloatBorder" }, -- top left corner
-        { "─", "FloatBorder" }, -- top
-        { "╮", "FloatBorder" }, -- top right corner
-        { "│", "FloatBorder" }, -- right side center
-        { "╯", "FloatBorder" }, -- bottom right corner
-        { "─", "FloatBorder" }, -- bottom
-        { "╰", "FloatBorder" }, -- bottom left corner
-        { "│", "FloatBorder" }, -- left side center
+        { '╭', 'FloatBorder' }, -- top left corner
+        { '─', 'FloatBorder' }, -- top
+        { '╮', 'FloatBorder' }, -- top right corner
+        { '│', 'FloatBorder' }, -- right side center
+        { '╯', 'FloatBorder' }, -- bottom right corner
+        { '─', 'FloatBorder' }, -- bottom
+        { '╰', 'FloatBorder' }, -- bottom left corner
+        { '│', 'FloatBorder' }, -- left side center
     }
-    -- local handlers = {
-    --     ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-    --     ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-    -- }
-    --
-    -- -- Do not forget to use the on_attach function
-    -- require 'lspconfig'.myserver.setup { handlers = handlers }
-    --
-    -- To instead override globally
+
     local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
     function vim.lsp.util.open_floating_preview(contents, syntax, opts)
         opts = opts or {}
@@ -121,19 +42,91 @@ local config = function()
 end
 
 return {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
-        {
-            'j-hui/fidget.nvim',
-            opts = {},
-        },
-
-        {
-            'folke/neodev.nvim',
-            opts = {},
-        },
+    {
+        "williamboman/mason.nvim",
+        config = function()
+            require("mason").setup()
+        end,
     },
-    config = config,
+
+    {
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+            require("mason-lspconfig").setup({
+                ensure_installed = ensure_installed,
+            })
+        end,
+    },
+
+    {
+        "neovim/nvim-lspconfig",
+        config = function()
+            local lspconfig = require('lspconfig')
+            local ml = require("mason-lspconfig")
+
+            local capabilities = require('cmp_nvim_lsp').default_capabilities()
+            for _, server in ipairs(ml.get_installed_servers()) do
+                lspconfig[server].setup({
+                    capabilities = capabilities
+                })
+            end
+
+            lspconfig.zls.setup({
+                cmd = { "/Users/daddy_davinci/Developer/tools/zls/zig-out/bin/zls" }
+            })
+
+            lspconfig.lua_ls.setup({
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { 'vim' }
+                        }
+                    }
+                }
+            })
+
+            lspconfig.pylsp.setup({
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            pycodestyle = {
+                                ignore = { 'W391' },
+                                maxLineLength = 150
+                            }
+                        }
+                    }
+                }
+            })
+
+            -- templ
+            vim.filetype.add({ extension = { templ = "templ" } })
+
+            lspconfig.html.setup({
+                filetypes = { 'html', 'templ' },
+            })
+
+            lspconfig.htmx.setup({
+                filetypes = { 'html', 'templ' },
+            })
+
+            lspconfig.tailwindcss.setup({
+                on_attach = on_attach,
+                capabilities = capabilities,
+                filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+                init_options = { userLanguages = { templ = "html" } },
+                settings = {
+                    tailwindCSS = {
+                        experimental = {
+                            classRegex = {
+                                { "cva\\(([^)]*)\\)",
+                                    "[\"'`]([^\"'`]*).*?[\"'`]" },
+                            },
+                        },
+                    },
+                },
+            })
+            hover_border()
+        end,
+
+    },
 }
