@@ -16,7 +16,10 @@ PWD=`basename \`pwd\``
 # imports
 source $ZDOTDIR/func
 source $ZDOTDIR/alias
-source $ZDOTDIR/prompt
+
+# source $ZDOTDIR/prompt
+eval "$(starship init zsh)"
+export SPACESHIP_DIR_TRUNC_REPO=false
 
 # fzf stuff
 fzf_version=`\ls /usr/local/Cellar/fzf/ | awk '{print$0}'`

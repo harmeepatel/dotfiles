@@ -1,6 +1,9 @@
 ZVM_VI_INSERT_ESCAPE_BINDKEY=kj
 ZVM_VI_VISUAL_ESCAPE_BINDKEY=kj
 
+# prompt
+# export STARSHIP_CONFIG="~/.config/starship/starship.toml"
+
 # fonts
 export FONT="CaskaydiaCovePL Nerd Font Mono"
 
