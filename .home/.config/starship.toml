@@ -12,7 +12,7 @@ vimcmd_symbol = "[(green) ❯](green)"
 read_only = " 󰌾"
 truncation_length = 8
 truncate_to_repo = false
-truncation_symbol =	"../"
+truncation_symbol = "../"
 style = "bold lavender"
 
 [aws]
