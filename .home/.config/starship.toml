@@ -4,9 +4,9 @@ add_newline = false
 palette = "catppuccin_mocha"
 
 [character]
-success_symbol = "[󰸞(green) ❯](green)"
-error_symbol = "[󰯈(red) ❯](red)"
-vimcmd_symbol = "[(green) ❯](green)"
+success_symbol = "[󰸞(green) ](green)"
+error_symbol = "[󰯈(red) ](red)"
+vimcmd_symbol = "[(green) ](green)"
 
 [directory]
 read_only = " 󰌾"

@@ -101,10 +101,6 @@ return {
             -- templ
             vim.filetype.add({ extension = { templ = "templ" } })
 
-            lspconfig.html.setup({
-                filetypes = { 'html', 'templ' },
-            })
-
             lspconfig.htmx.setup({
                 filetypes = { 'html', 'templ' },
             })
