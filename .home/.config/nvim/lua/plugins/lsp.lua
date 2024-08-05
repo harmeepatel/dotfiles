@@ -62,14 +62,23 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
             local lspconfig = require('lspconfig')
-            local ml = require("mason-lspconfig")
+            local masonlsp = require("mason-lspconfig")
 
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
-            for _, server in ipairs(ml.get_installed_servers()) do
+            for _, server in ipairs(masonlsp.get_installed_servers()) do
                 lspconfig[server].setup({
                     capabilities = capabilities
                 })
             end
+
+            lspconfig.ltex.setup({
+                filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd", "context", "mail", "text" },
+                settings = {
+                    ltex = {
+                        enabled = { "bibtex", "gitcommit", "markdown", "org", "tex", "restructuredtext", "rsweave", "latex", "quarto", "rmd", "context", "mail", "plaintext" }
+                    }
+                },
+            })
 
             lspconfig.zls.setup({
                 cmd = { "/Users/daddy_davinci/Developer/tools/zls/zig-out/bin/zls" }
