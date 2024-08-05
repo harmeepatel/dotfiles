@@ -40,3 +40,7 @@ export PATH="/usr/local/Cellar/postgresql@15/$PSTGRS_VERSION/bin:$PATH"
 # fabric (https://github.com/danielmiessler/fabric)
 export FABRIC_PATH="$HOME/.local/bin"
 export PATH="$FABRIC_PATH/:$PATH"
+
+# !!! EXPERIMENTAL !!!
+# for raw go within templ file
+export TEMPL_EXPERIMENT=rawgo
