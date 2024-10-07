@@ -1,4 +1,5 @@
 local ensure_installed = {
+    'bashls',
     'emmet_language_server',
     -- 'eslint',
     'gopls',
