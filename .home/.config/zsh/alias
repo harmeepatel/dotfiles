@@ -46,7 +46,7 @@ alias ytp="ytv $1 -S \"height:1080\"  -o \"./%(channel)s/%(playlist_index)s-%(ti
 alias yta="yt-dlp -f bestaudio --extract-audio --audio-format aac --audio-quality 0  -o \"%(playlist_index)s - %(title)s.%(ext)s\" $1"
 
 # eza
-args="--icons --time-style=relative"
+args="--icons --time-style=relative --group-directories-first --git --total-size --sort=ext"
 alias ls="eza -la $args"
 alias tree="eza --tree $args -I .git -I node_modules"
 
