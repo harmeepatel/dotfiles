@@ -1,0 +1,116 @@
+#!/usr/bin/env bash
+
+# ---------- FIX THIS: not working!?
+# remove_og () {
+#     ans=$1
+#     w=$2
+#
+#     echo $1
+#     echo $2
+#     if [ $ans = "y" ] || [ $ans = "Y" ] || [ $ans = "yes" ] || [ $ans = "Yes" ] || [ $ans = "YES" ]; then
+#         echo "removing:     $w"
+#         if ! command trash &> /dev/null; then
+#             rm -rf "$w" # --- might have to change this
+#         else
+#             trash "$w"
+#         fi
+#     fi
+# }
+
+if ! command -v cwebp &> /dev/null; then
+    echo
+    echo "Install webp!"
+    read -p "Want me to do it for you? [y/n]: " ans
+    if [ $ans = "n" ] || [ $ans = "N" ] || [ $ans = "no" ] || [ $ans = "No" ] || [ $ans = "NO" ]; then
+        echo "Alright 🙌"
+    else
+        if ! command brew &> /dev/null; then
+            echo "I use MacOS. (for now 😉)"
+            echo "Start here: https://developers.google.com/speed/webp/download"
+            exit
+        else
+            brew install webp
+        fi
+    fi
+fi
+
+
+# ------ change this!! ------
+IMAGE_DIR=~/Pictures/Wallpapers
+
+if [ ! -z $1 ]; then
+    IMAGE_DIR=$1
+else
+    echo
+    echo "using default dir: $IMAGE_DIR"
+fi
+
+if [ ! -d $IMAGE_DIR ]; then
+    echo "$IMAGE_DIR does not exist!!!"
+    echo
+    exit
+fi
+
+ans=""
+echo
+read -p "Do you want to delete original files? [y/n]: " ans
+if [ $ans = "n" ] || [ $ans = "N" ] || [ $ans = "no" ] || [ $ans = "No" ] || [ $ans = "NO" ]; then
+    echo "---- Not removing originals ----"
+    echo
+fi
+
+echo "---- converting ' ' -> '-' ----"
+echo
+for w in $IMAGE_DIR/*; do
+    if [ -d $w ]; then
+        continue
+    fi
+    nw=$(echo $w | sed "s/\ /\-/g")
+    mv "$w" "$nw"
+done
+
+update_count=0
+for w in $IMAGE_DIR/*; do
+    if [ ! -f "$w" ] || [ -d $w ] || [ $w == ".DS_Store" ]; then
+        continue
+    fi
+
+    filename=$(basename -- "$w" | sed 's/ /\-/g')
+    extension="${filename##*.}"
+    filename="${filename%.*}" # remove extension at the end | abc.png -> abc
+
+    if [[ $extension == "webp" || $extension == "heic" ]]; then
+        continue
+    fi
+    
+    # -- if webp exist for a picture just remove the picture
+    # webp_exists=$(echo $w |sed "s/.$extension/.webp/g")
+    # if [ -f $webp_exists ]; then
+    #     if [ $ans = "y" ] || [ $ans = "y" ] || [ $ans = "yes" ] || [ $ans = "yes" ] || [ $ans = "yes" ]; then
+    #         echo "removing:     $w"
+    #         if ! command trash &> /dev/null; then
+    #             rm -rf "$w" # --- might have to change this
+    #         else
+    #             trash "$w"
+    #         fi
+    #     fi
+    #     continue
+    # fi
+
+    ((update_count++))
+    echo "converting:   $w"
+    cwebp -size 512000 -q 64 -m 6 -mt -sns 80 -quiet "$w" -o $IMAGE_DIR/$filename.webp
+    if [ $ans = "y" ] || [ $ans = "y" ] || [ $ans = "yes" ] || [ $ans = "yes" ] || [ $ans = "yes" ]; then
+        echo "removing:     $w"
+        if ! command trash &> /dev/null; then
+            rm -rf "$w" # --- might have to change this
+        else
+            trash "$w"
+        fi
+    fi
+done
+
+if [ $update_count -eq 0 ]; then
+    echo "Nothing to do..."
+fi
+echo
