@@ -71,7 +71,7 @@ function StopMinJs()
     vim.api.nvim_del_augroup_by_id(MinifyJsGroup)
 end
 
--- lsp
+-- attach-lsp
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
     callback = function(event)
