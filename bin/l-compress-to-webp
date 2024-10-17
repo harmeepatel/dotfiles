@@ -37,6 +37,7 @@ fi
 
 # ------ change this!! ------
 IMAGE_DIR=~/Pictures/Wallpapers
+FILE_SIZE=512000
 
 if [ ! -z $1 ]; then
     IMAGE_DIR=$1
@@ -51,11 +52,10 @@ if [ ! -d $IMAGE_DIR ]; then
 fi
 
 if [ ! -z $2 ]; then
-    continue
+    FILE_SIZE=$2
 else
     echo
-    echo "!!! please provide an upper limit on file size in bytes. eg: 512000"
-    exit 1
+    echo "defaulting to file size of $FILE_SIZE"
 fi
 
 ans=""
@@ -107,14 +107,17 @@ for w in $IMAGE_DIR/*; do
     ((update_count++))
     echo "converting:   $w"
     cwebp -size $2 -q 64 -mt -sns 80 -quiet "$w" -o $IMAGE_DIR/$filename.webp
-    if [ $ans = "y" ] || [ $ans = "y" ] || [ $ans = "yes" ] || [ $ans = "yes" ] || [ $ans = "yes" ]; then
-        echo "removing:     $w"
-        if ! command trash &> /dev/null; then
-            rm -rf "$w" # --- might have to change this
-        else
-            trash "$w"
+    if [[ $? -eq 0  && $ans =~ ^(Y|y|YES|Yes|yes)$ ]]; then
+            echo "removing:     $w"
+            if ! command trash &> /dev/null; then
+                rm -rf "$w" # --- might have to change this
+            else
+                trash "$w"
+            fi
         fi
-    fi
+    # else
+    #     echo "conversion failed not removing $w"
+    # fi
 done
 
 if [ $update_count -eq 0 ]; then
