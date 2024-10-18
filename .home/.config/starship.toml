@@ -2,6 +2,7 @@
 
 add_newline = false
 palette = "catppuccin_mocha"
+command_timeout = 2000
 
 [character]
 success_symbol = "[󰸞(green) ](green)"
