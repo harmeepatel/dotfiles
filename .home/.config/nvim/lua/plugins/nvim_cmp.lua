@@ -36,9 +36,9 @@ return {
                 }),
             },
             sources = cmp.config.sources({
-                { name = "nvim_lsp" },
-                { name = "nvim_lua" },
-                { name = "luasnip" }, -- For luasnip users.
+                -- { name = "nvim_lsp" },
+                -- { name = "nvim_lua" },
+                -- { name = "luasnip" }, -- For luasnip users.
                 -- { name = "orgmode" },
             }, {
                 { name = "buffer" },
