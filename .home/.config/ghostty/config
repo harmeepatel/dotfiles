@@ -3,15 +3,12 @@ background = 000000
 
 font-size = 16
 font-thicken = true
-font-feature = calt
-font-feature = liga
-font-feature = dlig
 
 cursor-style = block
-cursor-style-blink = true
+cursor-style-blink = false
 
-background-opacity = 0.5
-background-blur-radius = 32
+background-opacity = 0.7
+background-blur-radius = 28
 
 unfocused-split-opacity = 0.32
 unfocused-split-fill = 000000
