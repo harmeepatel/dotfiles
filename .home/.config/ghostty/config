@@ -1,24 +1,33 @@
-theme = ayu
+theme = catppuccin-mocha
 background = 000000
 
-font-size = 16
-font-thicken = true
+font-size = 18
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
 
-cursor-style = block
-cursor-style-blink = false
+background-opacity = 0.6
+background-blur-radius = 32
 
-background-opacity = 0.7
-background-blur-radius = 28
-
-unfocused-split-opacity = 0.32
+unfocused-split-opacity = 0.5
 unfocused-split-fill = 000000
 
 scrollback-limit = 100_000_000
 
-window-decoration = true
-window-width = 1920
-window-height = 1080
+window-width = 192
+window-height = 54
 window-save-state = always
+window-colorspace = display-p3
+
+cursor-invert-fg-bg = true
 
 macos-option-as-alt = true
+macos-titlebar-style = tabs
+
 auto-update = download
+auto-update-channel = tip
+
+keybind = super+ctrl+h=goto_split:left
+keybind = super+ctrl+j=goto_split:bottom
+keybind = super+ctrl+k=goto_split:top
+keybind = super+ctrl+l=goto_split:right
