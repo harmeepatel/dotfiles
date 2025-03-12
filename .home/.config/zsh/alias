@@ -5,7 +5,7 @@ alias ....="cd ../../.."
 
 alias cd="z"                                # zoxide
 # alias c='codium'                            # codium
-alias cat="bat --theme='gruvbox-dark'"      # bat
+alias cat="bat"      # bat
 alias rg="rg --hidden --ignore .git -g"     # ripgrep
 alias fd="fd -u"
 alias rm='trash'
@@ -41,7 +41,7 @@ alias lg="lazygit"
 
 #yt-dlp
 alias ytdlp="yt-dlp"
-alias ytv="yt-dlp -f \"bv*+ba/b\" -S \"ext\" -S \"height:1440\" --embed-thumbnail $1"
+alias ytv="yt-dlp -S \"ext\" -S \"height:1080\" --embed-thumbnail $1"
 alias ytp="ytv $1 -S \"height:1080\"  -o \"./%(channel)s/%(playlist_index)s-%(title)s\""
 alias yta="yt-dlp -f bestaudio --extract-audio --audio-format aac --audio-quality 0  -o \"%(playlist_index)s - %(title)s.%(ext)s\" $1"
 

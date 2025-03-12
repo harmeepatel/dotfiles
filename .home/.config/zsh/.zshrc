@@ -13,7 +13,6 @@
 PWD=`basename \`pwd\``
 
 # imports
-source $ZDOTDIR/func
 source $ZDOTDIR/alias
 
 # source $ZDOTDIR/prompt
