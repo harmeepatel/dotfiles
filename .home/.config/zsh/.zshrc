@@ -15,10 +15,11 @@ PWD=`basename \`pwd\``
 # imports
 source $ZDOTDIR/alias
 
-# source $ZDOTDIR/prompt
+# prompt
+source $ZDOTDIR/prompt
+# eval "$(starship init zsh)"
 
-# evals
-eval "$(starship init zsh)"
+# zoxide
 eval "$(zoxide init zsh)"
 
 # fzf stuff

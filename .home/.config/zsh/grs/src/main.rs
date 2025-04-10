@@ -20,7 +20,6 @@ fn main() -> io::Result<()> {
         let status = &line[0..2].trim();
         *status_map.entry(status).or_insert(0) += 1;
     }
-    println!("{:?}", status_map);
     status_map
         .iter()
         .enumerate()
