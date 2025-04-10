@@ -69,18 +69,18 @@ pub fn main() !void {
 
     var i: u16 = 0;
     var it = gs.iterator();
-    const color_delete = "#ff6637";
-    const color_modified = "#ffaa24";
-    const color_untracked = "#7788ff";
+    // const color_delete = "#ff6637";
+    // const color_modified = "#ffaa24";
+    // const color_untracked = "#7788ff";
     while (it.next()) |entry| : (i += 1) {
-        const col = switch (hash(0, entry.key_ptr.*)) {
-            hash(0, "D") => wrapAnsi16m(allocator, rgbFromHex(color_delete)),
-            hash(0, "M") => wrapAnsi16m(allocator, rgbFromHex(color_modified)),
-            hash(0, "??") => wrapAnsi16m(allocator, rgbFromHex(color_untracked)),
-            else => "#fefefe",
-        };
-        defer allocator.free(col);
-        try stdout.print("{s}\u{001B}[1m{d}{s}\u{001B}[22m", .{ col, entry.value_ptr.*, entry.key_ptr.* });
+        // const col = switch (hash(0, entry.key_ptr.*)) {
+        //     hash(0, "D") => wrapAnsi16m(allocator, rgbFromHex(color_delete)),
+        //     hash(0, "M") => wrapAnsi16m(allocator, rgbFromHex(color_modified)),
+        //     hash(0, "??") => wrapAnsi16m(allocator, rgbFromHex(color_untracked)),
+        //     else => "#fefefe",
+        // };
+        // defer allocator.free(col);
+        try stdout.print("{s}{d}{s}", .{ "", entry.value_ptr.*, entry.key_ptr.* });
         if (i < gs.unmanaged.size - 1) {
             try stdout.print(" ", .{});
         }
