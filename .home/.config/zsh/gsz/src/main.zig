@@ -15,7 +15,7 @@ pub fn main() !void {
     const git_status_cmd = [_][]const u8{ "git", "status", "-s" };
 
     // allocator
-    var buf: [1 << 14]u8 = undefined;
+    var buf: [1 << 16]u8 = undefined;
     var fba = std.heap.FixedBufferAllocator.init(&buf);
     const allocator = fba.allocator();
     defer allocator.free(&buf);
@@ -52,7 +52,7 @@ pub fn main() !void {
         if (line.len == 0) {
             continue;
         }
-        const status_split = std.mem.trim(u8, line[0..3], " ");
+        const status_split = std.mem.trim(u8, line[0..2], " ");
         const status = try gs.getOrPut(status_split);
 
         if (status.found_existing) {
@@ -63,18 +63,19 @@ pub fn main() !void {
     }
 
     // constructing output
-    var i: u16 = 0;
-    var it = gs.iterator();
-    const color_delete = 1;
-    const color_modified = 2;
-    const color_untracked = 4;
     stdout.print(" %f[", .{}) catch {}; // reset color before
     defer stdout.print("%f]", .{}) catch {}; // reset color after
+
+    var i: u16 = 0;
+    var it = gs.iterator();
+    const red = 1;
+    const yellow = 2;
+    const blue = 4;
     while (it.next()) |entry| : (i += 1) {
         const col = switch (hash(0, entry.key_ptr.*)) {
-            hash(0, "D") => addStyle(allocator, color_delete),
-            hash(0, "M") => addStyle(allocator, color_modified),
-            hash(0, "??") => addStyle(allocator, color_untracked),
+            hash(0, "D") => addStyle(allocator, red),
+            hash(0, "M") => addStyle(allocator, yellow),
+            hash(0, "??") => addStyle(allocator, blue),
             else => addStyle(allocator, 0),
         };
         defer allocator.free(col);
