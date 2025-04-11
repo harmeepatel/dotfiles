@@ -68,6 +68,8 @@ pub fn main() !void {
     const color_delete = 1;
     const color_modified = 2;
     const color_untracked = 4;
+    stdout.print(" %f[", .{}) catch {}; // reset color before
+    defer stdout.print("%f]", .{}) catch {}; // reset color after
     while (it.next()) |entry| : (i += 1) {
         const col = switch (hash(0, entry.key_ptr.*)) {
             hash(0, "D") => addStyle(allocator, color_delete),
