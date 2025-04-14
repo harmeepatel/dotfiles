@@ -55,10 +55,12 @@ pub fn main() !void {
             "%F{1}" // red
         else if (std.mem.containsAtLeast(u8, key, 1, "M"))
             "%F{2}" // yellow
+        else if (std.mem.containsAtLeast(u8, key, 1, "T"))
+            "%F{28}" // shade_green
         else if (std.mem.containsAtLeast(u8, key, 1, "?"))
             "%F{4}" // blue
-        else
-            "%F{0}";
+        else 
+            "%F{234}";
         try stdout_writer.print("{s}{d}{s}", .{ col, val, key });
         if (space_idx < status_map.size() - 1) {
             try stdout_writer.print(" ", .{});

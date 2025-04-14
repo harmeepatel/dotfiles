@@ -4,14 +4,6 @@ function parse_git_branch() {
     git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/ (󰘬 \1)/p'
 }
 
-# function git_status() {
-#     gs=" ${COLOR_DEF}[${$(~/.config/zsh/gs)}${COLOR_DEF}]"
-#     if [ "$gs" = " []" ]; then
-#         gs=""
-#     fi
-#     echo "$gs"
-# }
-
 COLOR_DEF=$'%f'
 COLOR_USR=$'%F{243}'
 COLOR_DIR=$'%F{221}'
