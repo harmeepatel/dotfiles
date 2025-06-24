@@ -1,7 +1,5 @@
 local ensure_installed = {
     'bashls',
-    'emmet_language_server',
-    -- 'eslint',
     'gopls',
     'html',
     'cssls',
@@ -15,32 +13,13 @@ local ensure_installed = {
     'rust_analyzer',
     'templ',
     'taplo',
-    'tsserver',
+    'ts_ls',
     'tailwindcss',
     'wgsl_analyzer',
-    'zls'
+    'yamlls',
+    'zls',
+    'ols',
 }
-
-local function hover_border()
-    -- hover boundry
-    local border = {
-        { '╭', 'FloatBorder' }, -- top left corner
-        { '─', 'FloatBorder' }, -- top
-        { '╮', 'FloatBorder' }, -- top right corner
-        { '│', 'FloatBorder' }, -- right side center
-        { '╯', 'FloatBorder' }, -- bottom right corner
-        { '─', 'FloatBorder' }, -- bottom
-        { '╰', 'FloatBorder' }, -- bottom left corner
-        { '│', 'FloatBorder' }, -- left side center
-    }
-
-    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-    function vim.lsp.util.open_floating_preview(contents, syntax, opts)
-        opts = opts or {}
-        opts.border = opts.border or border
-        return orig_util_open_floating_preview(contents, syntax, opts)
-    end
-end
 
 return {
     {
@@ -48,6 +27,7 @@ return {
         config = function()
             require("mason").setup()
         end,
+        lazy = false,
     },
 
     {
@@ -57,6 +37,7 @@ return {
                 ensure_installed = ensure_installed,
             })
         end,
+        lazy = false,
     },
 
     {
@@ -65,7 +46,7 @@ return {
             local lspconfig = require('lspconfig')
             local masonlsp = require("mason-lspconfig")
 
-            local capabilities = require('cmp_nvim_lsp').default_capabilities()
+            local capabilities = require('blink.cmp').get_lsp_capabilities()
             for _, server in ipairs(masonlsp.get_installed_servers()) do
                 lspconfig[server].setup({
                     capabilities = capabilities
@@ -81,9 +62,12 @@ return {
                 },
             })
 
-            lspconfig.zls.setup({
-                cmd = { "/Users/daddy_davinci/Developer/tools/zls/zig-out/bin/zls" }
-            })
+            lspconfig.clangd.setup {
+                cmd = {
+                    "clangd",
+                    "--fallback-style=webkit"
+                }
+            }
 
             lspconfig.lua_ls.setup({
                 settings = {
@@ -103,6 +87,16 @@ return {
                                 ignore = { 'W391' },
                                 maxLineLength = 150
                             }
+                        }
+                    }
+                }
+            })
+
+            lspconfig.cssls.setup({
+                settings = {
+                    css = {
+                        lint = {
+                            unknownAtRules = 'ignore',
                         }
                     }
                 }
@@ -131,8 +125,7 @@ return {
                     },
                 },
             })
-            hover_border()
         end,
-
+        lazy = false,
     },
 }

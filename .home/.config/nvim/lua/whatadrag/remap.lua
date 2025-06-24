@@ -38,8 +38,8 @@ vim.keymap.set('n', "<leader>w", ":bd<CR>")
 -- vim.keymap.set('x', ">", ":<<CMD>gv<CR>")
 
 -- quick fix list
-vim.keymap.set('n', "<leader>cn", ":cn")
-vim.keymap.set('n', "<leader>cp", ":cp")
+vim.keymap.set('n', "<leader>cn", ":cn<CR>")
+vim.keymap.set('n', "<leader>cp", ":cp<CR>")
 
 -- navigating buffers
 vim.keymap.set('n', "<leader>bn", ":bnext<CR>")

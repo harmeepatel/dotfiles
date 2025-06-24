@@ -43,5 +43,6 @@ local opts = {
 
 return {
     "numToStr/Comment.nvim",
-    opts = opts
+    opts = opts,
+    lazy = true,
 }
