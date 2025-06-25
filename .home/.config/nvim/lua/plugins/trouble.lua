@@ -34,5 +34,4 @@ return {
             desc = "Quickfix List (Trouble)",
         },
     },
-    lazy = true,
 }

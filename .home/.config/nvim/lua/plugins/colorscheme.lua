@@ -40,6 +40,7 @@ local catppuccin_opts = {
 local name = "catppuccin"
 return {
     "catppuccin/nvim",
+    lazy = true,
     name = name,
     priority = 4,
     opts = catppuccin_opts,

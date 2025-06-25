@@ -40,6 +40,5 @@ local opts = {
 return {
     "lewis6991/gitsigns.nvim",
     opts = opts,
-    event = "VeryLazy",
-    lazy = true,
+    event = { 'BufReadPre', 'BufNewFile' },
 }

@@ -122,6 +122,9 @@ return {
     -- "feline-nvim/feline.nvim",
     "nvim-lualine/lualine.nvim",
     opts = config,
+    event = "WinEnter",
+    lazy = false,
+    priority = 999,
 }
 
 -- -- Custom status_line

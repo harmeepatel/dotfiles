@@ -3,27 +3,27 @@ local opts = {
     sticky = true,
     toggler = {
         ---Line-comment toggle keymap
-        line = '<leader>/',
+        line = "<leader>/",
         ---Block-comment toggle keymap
-        block = 'cb',
+        block = "cb",
     },
     ---LHS of operator-pending mappings in NORMAL + VISUAL mode
     ---@type table
     opleader = {
         ---Line-cumment keymap
-        line = '<leader>/',
+        line = "<leader>/",
         ---Block-comment keymap
-        block = 'cb',
+        block = "cb",
     },
     ---LHS of extra mappings
     ---@type table
     extra = {
         ---Add comment on the line above
-        above = 'cO',
+        above = "cO",
         ---Add comment on the line below
-        below = 'co',
+        below = "co",
         ---Add comment at the end of line
-        eol = 'cA',
+        eol = "cA",
     },
     ---Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
     ---@type table
@@ -43,6 +43,6 @@ local opts = {
 
 return {
     "numToStr/Comment.nvim",
+    event = { 'BufReadPre', 'BufNewFile' },
     opts = opts,
-    lazy = true,
 }

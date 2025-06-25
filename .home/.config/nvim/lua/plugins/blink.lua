@@ -2,6 +2,7 @@ local border_style = "rounded"
 
 return {
     "saghen/blink.cmp",
+    event = "InsertEnter",
     dependencies = {
         "moyiz/blink-emoji.nvim",
         "L3MON4D3/LuaSnip"
@@ -99,5 +100,4 @@ return {
         }
     },
     opts_extend = { "sources.default" },
-    lazy = true,
 }

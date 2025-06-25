@@ -4,5 +4,4 @@ return {
     keys = { -- load the plugin only when using it's keybinding:
         { "<F3>", "<cmd>lua require('undotree').toggle()<cr>" },
     },
-    lazy = true,
 }

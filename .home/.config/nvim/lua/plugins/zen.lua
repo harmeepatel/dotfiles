@@ -16,5 +16,5 @@ return {
             unhide = true,
         })
     end,
-    lazy = true,
+    cmd = "ZenMode"
 }

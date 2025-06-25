@@ -10,5 +10,4 @@ return {
         -- { "<leader>e", "<cmd>lua require'telescope.builtin'.find_files({hidden = true})<cr>" },
         { "<leader>e", "<cmd>Ex<CR>" },
     },
-    lazy = true,
 }

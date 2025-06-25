@@ -23,25 +23,24 @@ local ensure_installed = {
 
 return {
     {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end,
-        lazy = false,
-    },
-
-    {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = ensure_installed,
-            })
-        end,
-        lazy = false,
-    },
-
-    {
         "neovim/nvim-lspconfig",
+        event = { 'BufReadPre', 'BufNewFile' },
+        dependencies = {
+            {
+                "williamboman/mason.nvim",
+                event = { 'BufReadPre', 'BufNewFile' },
+                opts = {},
+            },
+
+            {
+                "williamboman/mason-lspconfig.nvim",
+                event = { 'BufReadPre', 'BufNewFile' },
+                opts = {
+                    ensure_installed = ensure_installed,
+                },
+            },
+
+        },
         config = function()
             local lspconfig = require('lspconfig')
             local masonlsp = require("mason-lspconfig")
@@ -126,6 +125,5 @@ return {
                 },
             })
         end,
-        lazy = false,
     },
 }
