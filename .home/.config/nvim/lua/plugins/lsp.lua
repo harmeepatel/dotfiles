@@ -21,6 +21,12 @@ local ensure_installed = {
     'ols',
 }
 
+vim.diagnostic.config({
+    float = {
+        border = "rounded",
+    },
+})
+
 return {
     {
         "neovim/nvim-lspconfig",
@@ -41,7 +47,7 @@ return {
             },
 
         },
-        config = function()
+        config = function(_, opts)
             local lspconfig = require('lspconfig')
             local masonlsp = require("mason-lspconfig")
 
