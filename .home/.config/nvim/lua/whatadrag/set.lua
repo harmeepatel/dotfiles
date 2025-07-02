@@ -37,3 +37,7 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "100"
 
 vim.opt.pumheight = 16
+
+-- remove comment on new line
+vim.opt.fo:remove('o')
+

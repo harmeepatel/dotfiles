@@ -57,8 +57,6 @@ return {
                 },
             },
             color_devicons = true,
-            set_env = { ["COLORTERM"] = "truecolor" },
-            layout_strategy = "horizontal",
 
             prompt_prefix = " ",
         }
