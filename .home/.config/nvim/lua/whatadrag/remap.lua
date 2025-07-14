@@ -24,8 +24,11 @@ vim.keymap.set('n', 'N', "Nzzzv")
 -- paste over text and not loose yanked text
 vim.keymap.set('x', "<leader>p", "\"_dP")
 
--- close window
+-- close
+-- window
 vim.keymap.set('n', "<leader>w", ":bd<CR>")
+-- quick fix list
+vim.keymap.set('n', "<leader>q", ":cclose")
 
 -- indent rehighlight
 -- vim.keymap.set('v', "<", ":<<CR><CMD>gv<CR>")
@@ -54,9 +57,7 @@ end
 
 -- lsp
 vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 -- golang
-vim.keymap.set('n', '<leader>ge', 'oif err != nil {}<left>')
+vim.keymap.set('n', '<leader>ge', 'oif err != nil {\n\n}<left><up>\t')

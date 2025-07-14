@@ -50,7 +50,7 @@ return {
 
     opts = function(_, opts)
         opts.defaults = {
-            file_ignore_patterns = { "git/", "node%_modules", "go.sum", "zig%-cache", "zig%-out", "libs", ".wasm", ".fiber.gz" },
+            file_ignore_patterns = { "git/", "node%_modules", "go.sum", "zig%-cache", "zig%-out", "target", ".wasm", ".fiber.gz" },
             layout_config = {
                 horizontal = {
                     preview_width = 0.64

@@ -58,13 +58,27 @@ return {
                 -- vim.bo[event.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
                 return {
-                    { "gD",         vim.lsp.buf.declaration,     desc = "[G]oto [D]eclaration" },
-                    { "gd",         vim.lsp.buf.definition,      desc = "[G]oto [D]efinition" },
-                    { "gi",         vim.lsp.buf.implementation,  desc = "[G]oto [I]mplementation" },
-                    { "gr",         vim.lsp.buf.references,      desc = "[G]oto [R]efrences" },
-                    { "<leader>gt", vim.lsp.buf.type_definition, desc = "[G]oto [T]ype definition" },
-                    { "<leader>rn", vim.lsp.buf.rename,          desc = "[R]e[N]ame variables and function names" },
-                    { "<leader>ca", vim.lsp.buf.code_action,     desc = "LSP: [C]ode [A]ctions" },
+                    { "gD",         vim.lsp.buf.declaration,     desc = "Goto Declaration" },
+                    { "gd",         vim.lsp.buf.definition,      desc = "Goto Definition" },
+                    { "gi",         vim.lsp.buf.implementation,  desc = "Goto Implementation" },
+                    { "gr",         vim.lsp.buf.references,      desc = "Goto Refrences" },
+                    { "<leader>gt", vim.lsp.buf.type_definition, desc = "Goto Type definition" },
+                    { "<leader>rn", vim.lsp.buf.rename,          desc = "ReName variables and function names" },
+                    { "<leader>ca", vim.lsp.buf.code_action,     desc = "LSP: Code Actions" },
+                    {
+                        "]d",
+                        function()
+                            vim.diagnostic.jump({ count = 1, float = true })
+                        end,
+                        desc = "Goto Next Diagnostic"
+                    },
+                    {
+                        "[d",
+                        function()
+                            vim.diagnostic.jump({ count = -1, float = true })
+                        end,
+                        desc = "Goto Prev Diagnostic"
+                    },
                     {
                         "K",
                         function()
