@@ -1,8 +1,7 @@
-require('vim.diagnostic')
+require("vim.diagnostic")
 
-require("whatadrag.set")
-require("whatadrag.remap")
-require("whatadrag.au")
-require("config.lazy")
+require("whatadrag.core")
+require("whatadrag.lazy")
+require("whatadrag.lsp")
 
 -- vim.lsp.log.set_level("DEBUG")

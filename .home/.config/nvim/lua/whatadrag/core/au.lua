@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
     end,
 })
 
--- templ
+-- templ {
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     desc = 'adding templ as a file format',
     group = WhatadragGroup,
@@ -29,11 +29,19 @@ vim.api.nvim_create_autocmd("BufEnter", {
     pattern = '*.templ',
     callback = function()
         vim.cmd("TSBufEnable highlight")
-    end
+    end,
 })
+-- }
 
--- minify js
-local utils = require("whatadrag.utils")
+-- BufEnter {
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*",
+    command = "setlocal formatoptions-=cro",
+})
+-- }
+
+-- minify js {
+local utils = require("whatadrag.core.utils")
 local MinifyJsGroup = 0;
 
 function StartMinJs()
@@ -67,3 +75,5 @@ function StopMinJs()
     end
     vim.api.nvim_del_augroup_by_id(MinifyJsGroup)
 end
+
+-- }

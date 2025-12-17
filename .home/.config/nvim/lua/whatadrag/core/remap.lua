@@ -58,6 +58,7 @@ end
 -- lsp
 vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+vim.keymap.set('n', "<leader>lr", ":LspRestart<CR>")
 
 -- golang
 vim.keymap.set('n', '<leader>ge', 'oif err != nil {\n\n}<left><up>\t')
