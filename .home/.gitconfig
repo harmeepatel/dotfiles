@@ -25,8 +25,13 @@
 	defaultBranch = main
 [user]
 	name = Harmee Patel
-	email = daddy_davinci@Harmees-MBP.hitronhub.home
+	email = harmeepatel@gmail.com
 [rerere]
 	enabled = true
 [maintenance]
 	repo = /Users/daddy_davinci/Developer/tools/zig
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

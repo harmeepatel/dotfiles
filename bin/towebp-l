@@ -36,7 +36,7 @@ fi
 
 
 # ------ change this!! ------
-IMAGE_DIR=~/Pictures/Wallpapers
+IMAGE_DIR=~/Pictures/Wallpapers/desktop
 FILE_SIZE=512000
 
 if [ ! -z $1 ]; then

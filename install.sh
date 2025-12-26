@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# FOR MAC ONLY
+# --- FOR MAC ONLY ---
 
 # install brew
 if [ ! -d "/usr/local/Homebrew/" ]; then
@@ -8,22 +8,19 @@ if [ ! -d "/usr/local/Homebrew/" ]; then
 fi
 
 # install brew packages
-brew install alacritty
+brew install --cask ghostty
 brew install btop
 brew install exa
-brew install fzf
 brew install ffmpeg
+brew install fzf
 brew install git
 brew install hyperfine
-brew install iina
-brew install lf
 brew install neovim
 brew install rg
 brew install stow
-brew install tmux
 brew install trash
-brew install zoxide
 brew install yt-dlp
+brew install zoxide
 
 # git clone
 if [ ! -d "/Users/$USER/dotfiles" ]; then
