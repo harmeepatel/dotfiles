@@ -1,0 +1,3 @@
+[submodule ".home/.config/ghostty/shaders"]
+	path = .home/.config/ghostty/shaders
+	url = git@github.com:0xhckr/ghostty-shaders.git
