@@ -4,7 +4,6 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 alias cd="z"                                # zoxide
-# alias c='codium'                            # codium
 alias cat="bat"      # bat
 alias rg="rg --hidden --ignore .git -g"     # ripgrep
 alias fd="fd -u"
@@ -14,6 +13,7 @@ alias grep="grep --color=auto"
 alias ql="qlmanage -p $1 &> /dev/null"
 alias vim="nvim"
 alias yz="yazi"
+alias pd="podman"
 
 # reading disks
 alias df='df -h'
@@ -46,9 +46,9 @@ alias ytp="ytv $1 -S \"height:1080\"  -o \"./%(channel)s/%(playlist_index)s-%(ti
 alias yta="yt-dlp -f bestaudio --extract-audio --audio-format aac --audio-quality 0  -o \"%(playlist_index)s - %(title)s.%(ext)s\" $1"
 
 # eza
-args="--icons --time-style=relative --group-directories-first --sort=ext --no-user"
+args="--icons --time-style=relative --sort=type --no-user"
 alias ls="eza -la $args"
-alias tree="eza -laT $args -I .git -I node_modules -I .zig-cache -I target"
+alias tree="eza -laT -I .git -I node_modules -I .zig-cache -I target -I .zsh_sessions -I pgsql $args --git-ignore"
 
 # zig
 # build zig 

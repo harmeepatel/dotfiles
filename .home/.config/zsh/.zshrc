@@ -17,7 +17,9 @@ source $ZDOTDIR/alias
 
 # prompt
 source $ZDOTDIR/prompt
-# eval "$(starship init zsh)"
+
+# utils
+source $ZDOTDIR/utils
 
 # zoxide
 eval "$(zoxide init zsh)"

@@ -6,7 +6,24 @@ pub const Entry = struct {
     value: usize,
 };
 
-const MapSize = 128;
+const e = enum {
+    M,
+    T,
+    A,
+    D,
+    R,
+    C,
+    DD,
+    AU,
+    UD,
+    UA,
+    DU,
+    AA,
+    UU,
+    @"??",
+    @"!!",
+};
+const MapSize = 16;
 
 pub const Map = struct {
     const Self = @This();

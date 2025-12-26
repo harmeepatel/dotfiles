@@ -1,11 +1,14 @@
 const std = @import("std");
+const stdout = std.fs.File.stdout();
+
 const root = @import("root.zig");
-const stdout_writer = std.io.getStdOut().writer();
 const Map = root.Map;
+
+var status_map: Map = .init;
 
 pub fn main() !void {
     // command
-    const git_status_cmd = [_][]const u8{ "git", "status", "-s" };
+    const gs_cmd = [_][]const u8{ "git", "status", "--porcelain" };
 
     // allocator
     var alloc_buf: [1 << 16]u8 = undefined;
@@ -14,26 +17,14 @@ pub fn main() !void {
     defer allocator.free(&alloc_buf);
 
     // process
-    var process = std.process.Child.init(&git_status_cmd, allocator);
-    process.stdout_behavior = .Pipe;
-    process.stderr_behavior = .Pipe;
-    try process.spawn();
+    const gs_process = try std.process.Child.run(.{ .allocator = allocator, .argv = &gs_cmd });
 
-    // stdout
-    const stdout = try process.stdout.?.readToEndAlloc(allocator, std.math.maxInt(usize));
-    defer allocator.free(stdout);
-    const term = try process.wait(); // all output is collected at this point
-
-    if (term.Exited != 0 or stdout.len == 0) {
-        try stdout_writer.print("", .{});
+    if (gs_process.term.Exited != 0 or gs_process.stdout.len == 0) {
         std.process.exit(0);
     }
 
-    // status map
-    var status_map: Map = .init;
-    // defer status_map.deinit();
-
-    var line_split = std.mem.splitScalar(u8, stdout, '\n');
+    // collect status
+    var line_split = std.mem.splitScalar(u8, gs_process.stdout, '\n');
     while (line_split.next()) |line| {
         if (line.len == 0) {
             continue;
@@ -43,12 +34,11 @@ pub fn main() !void {
     }
 
     // constructing output
-    stdout_writer.print(" %f[", .{}) catch {}; // reset color before
-    defer stdout_writer.print("%f]", .{}) catch {}; // reset color after
+    _ = try stdout.write(" %f[");
+    defer _ = stdout.write("%f]") catch {};
 
-    var space_idx: u16 = 0;
     var status_iter = status_map.iterator();
-    while (status_iter.next()) |entry| : (space_idx += 1) {
+    while (status_iter.next()) |entry| {
         const key = entry.key;
         const val = entry.value;
         const col = if (std.mem.containsAtLeast(u8, key, 1, "D"))
@@ -59,11 +49,14 @@ pub fn main() !void {
             "%F{28}" // shade_green
         else if (std.mem.containsAtLeast(u8, key, 1, "?"))
             "%F{4}" // blue
-        else 
+        else
             "%F{234}";
-        try stdout_writer.print("{s}{d}{s}", .{ col, val, key });
-        if (space_idx < status_map.size() - 1) {
-            try stdout_writer.print(" ", .{});
+
+        if (status_iter.index != 1) {
+            _ = try stdout.write(" ");
         }
+        const status = try std.fmt.allocPrint(allocator, "{s}{d}{s}", .{ col, val, key });
+        defer allocator.free(status);
+        _ = try stdout.write(status);
     }
 }

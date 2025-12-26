@@ -6,44 +6,93 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local opts = { buffer = ev.buf, silent = true }
 
         opts.desc = "Goto Declaration"
-        keymap.set("n",  "gD",          vim.lsp.buf.declaration, opts)
+        keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
         opts.desc = "Goto Definition"
-        keymap.set("n",  "gd",          vim.lsp.buf.definition, opts)
+        keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 
         opts.desc = "Goto Implementation"
-        keymap.set("n",  "gi",          vim.lsp.buf.implementation, opts)
+        keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 
         opts.desc = "Goto Refrences"
-        keymap.set("n",  "gr",          vim.lsp.buf.references, opts)
+        keymap.set("n", "gr", vim.lsp.buf.references, opts)
 
         opts.desc = "Goto Type definition"
-        keymap.set("n",  "<leader>gt",  vim.lsp.buf.type_definition, opts)
+        keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, opts)
 
         opts.desc = "ReName variables and function names"
-        keymap.set("n",  "<leader>rn",  vim.lsp.buf.rename, opts)
+        keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
         opts.desc = "LSP: Code Actions"
-        keymap.set("n",  "<leader>ca",  vim.lsp.buf.code_action, opts)
+        keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 
         opts.desc = "Goto Next Diagnostic"
-        keymap.set("n",  "]d",  function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
+        keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
 
         opts.desc = "Goto Prev Diagnostic"
-        keymap.set("n",  "[d",  function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
+        keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
 
         opts.desc = "hover info"
-        keymap.set("n",  "K",  function() vim.lsp.buf.hover({ border = "rounded" }) end, opts)
+        keymap.set("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, opts)
 
         opts.desc = "format file"
-        keymap.set("n",  "<leader>=",  function() vim.lsp.buf.format({ async = true }) end, opts)
+        keymap.set("n", "<leader>=", function() vim.lsp.buf.format({ async = true }) end, opts)
     end,
 })
 
-local severity = vim.diagnostic.severity
+-- lsp config {
+vim.lsp.config["ltex"] = {
+    filetypes = { "bib", "gitcommit", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd", "context", "mail", "text" },
+    settings = {
+        ltex = {
+            enabled = { "bibtex", "gitcommit", "org", "tex", "restructuredtext", "rsweave", "latex", "quarto", "rmd", "context", "mail", "plaintext" }
+        }
+    },
+}
+
+vim.lsp.config["clangd"] = {
+    cmd = {
+        "clangd",
+        "--fallback-style=webkit"
+    }
+}
+
+vim.lsp.config["pylsp"] = {
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = {
+                    ignore = { "W391" },
+                    maxLineLength = 120
+                }
+            }
+        }
+    }
+}
+
+-- css
+vim.lsp.config["cssls"] = {
+    settings = {
+        css = {
+            lint = {
+                unknownAtRules = "ignore",
+            }
+        }
+    }
+}
+
+-- templ
+vim.filetype.add({ extension = { templ = "templ" } })
+
+-- tailwind
+vim.lsp.config["tailwindcss"] = {
+    filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+    init_options = { userLanguages = { templ = "html" } },
+}
+-- }
+
 vim.diagnostic.config({
     float = {
         border = "rounded",
     },
 })
-

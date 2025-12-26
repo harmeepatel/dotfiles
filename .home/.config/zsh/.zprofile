@@ -1,6 +1,8 @@
 ZVM_VI_INSERT_ESCAPE_BINDKEY=kj
 ZVM_VI_VISUAL_ESCAPE_BINDKEY=kj
 
+export MANPAGER="nvim +Man!"
+
 # prompt
 # export STARSHIP_CONFIG="~/.config/starship.toml"
 
@@ -9,6 +11,8 @@ export FONT="CaskaydiaCovePL Nerd Font Mono"
 
 export UPDATE_ZSH_DAYS=30
 export EDITOR=nvim
+export VISUAL="$EDITOR"
+
 
 # zsh home dir
 export ZDOTDIR=$HOME/.config/zsh

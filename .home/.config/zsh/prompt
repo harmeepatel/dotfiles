@@ -4,9 +4,21 @@ function parse_git_branch() {
     git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/ (󰘬 \1)/p'
 }
 
+function prev_ok() {
+    if [ "$?" == "0" ]; then
+        echo -e '\e[0;100m>> '
+    else
+        echo -e '\e[0;124m>> '
+    fi
+}
+
+NEWLINE=$'\n'
+
+YELLOW=$'%F{221}'
+
 COLOR_DEF=$'%f'
 COLOR_USR=$'%F{243}'
-COLOR_DIR=$'%F{221}'
-COLOR_GIT_BRANCH=$'%F{45}'
+COLOR_DIR=$'%F{240}'
+COLOR_GIT_BRANCH=$'%F{75}'
 setopt PROMPT_SUBST
-export PROMPT='${COLOR_USR}%n ${COLOR_DIR}%~${COLOR_GIT_BRANCH}$(parse_git_branch)$(~/.config/zsh/gs)${COLOR_DEF} >> '
+export PROMPT='%(0D.%(18d.🎂.).)${COLOR_DIR}%~${COLOR_GIT_BRANCH}$(parse_git_branch)$(~/.config/zsh/gs)${COLOR_DEF} >> '
