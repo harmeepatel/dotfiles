@@ -11,9 +11,6 @@ return {
             build = "make",
         },
         {
-            "nvim-telescope/telescope-ui-select.nvim",
-        },
-        {
             "nvim-tree/nvim-web-devicons",
             enabled = vim.g.have_nerd_font
         },
@@ -58,12 +55,9 @@ return {
             },
             color_devicons = true,
 
-            prompt_prefix = " ",
+            prompt_prefix = "  ",
         }
         opts.extensions = {
-            ["ui-select"] = {
-                require("telescope.themes").get_dropdown(),
-            },
             file_browser = {
                 hijack_netrw = true,
             },
@@ -80,6 +74,13 @@ return {
         local telescope = require("telescope")
         telescope.setup(opts)
         require('telescope').load_extension('fzf')
-        require('telescope').load_extension('ui-select')
+
+        vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = 'none' })
+        vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = 'none' })
+        vim.api.nvim_set_hl(0, 'TelescopeTitle', { bg = 'none' })
+        vim.api.nvim_set_hl(0, 'TelescopePromptTitle', { bg = 'none' })
+        vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { bg = 'none' })
+        vim.api.nvim_set_hl(0, 'TelescopePreviewTitle', { bg = 'none' })
+        vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { bg = 'none' })
     end,
 }

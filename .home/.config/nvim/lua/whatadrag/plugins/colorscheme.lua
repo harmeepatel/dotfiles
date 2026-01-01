@@ -13,6 +13,7 @@ return {
     priority = 4,
     init = function()
         vim.cmd.colorscheme(name)
+        transparent()
     end,
     opts = {
         transparent_background = true,
