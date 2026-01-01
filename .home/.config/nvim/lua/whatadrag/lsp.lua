@@ -6,37 +6,40 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local opts = { buffer = ev.buf, silent = true }
 
         opts.desc = "Goto Declaration"
-        keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        keymap.set('n', "gD", vim.lsp.buf.declaration, opts)
 
         opts.desc = "Goto Definition"
-        keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        keymap.set('n', "gd", vim.lsp.buf.definition, opts)
 
         opts.desc = "Goto Implementation"
-        keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+        keymap.set('n', "gi", vim.lsp.buf.implementation, opts)
 
         opts.desc = "Goto Refrences"
-        keymap.set("n", "gr", vim.lsp.buf.references, opts)
+        keymap.set('n', "gr", vim.lsp.buf.references, opts)
 
         opts.desc = "Goto Type definition"
-        keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, opts)
+        keymap.set('n', "<leader>gt", vim.lsp.buf.type_definition, opts)
 
         opts.desc = "ReName variables and function names"
-        keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        keymap.set('n', "<leader>rn", vim.lsp.buf.rename, opts)
 
         opts.desc = "LSP: Code Actions"
-        keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+        keymap.set('n', "<leader>ca", vim.lsp.buf.code_action, opts)
 
         opts.desc = "Goto Next Diagnostic"
-        keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
+        keymap.set('n', "]d", function() vim.diagnostic.jump({ count = 1 }) end, opts)
 
         opts.desc = "Goto Prev Diagnostic"
-        keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
+        keymap.set('n', "[d", function() vim.diagnostic.jump({ count = -1 }) end, opts)
 
-        opts.desc = "hover info"
-        keymap.set("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, opts)
+        opts.desc = "Hover info"
+        keymap.set('n', 'K', function() vim.lsp.buf.hover({ border = "rounded" }) end, opts)
 
-        opts.desc = "format file"
-        keymap.set("n", "<leader>=", function() vim.lsp.buf.format({ async = true }) end, opts)
+        opts.desc = "Format file"
+        keymap.set('n', "<leader>=", function() vim.lsp.buf.format({ async = true }) end, opts)
+
+        opts.desc = "Restart LSP"
+        keymap.set('n', "<leader>lr", ":LspRestart<CR>", opts)
     end,
 })
 
@@ -90,9 +93,3 @@ vim.lsp.config["tailwindcss"] = {
     init_options = { userLanguages = { templ = "html" } },
 }
 -- }
-
-vim.diagnostic.config({
-    float = {
-        border = "rounded",
-    },
-})

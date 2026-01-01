@@ -55,10 +55,5 @@ for i = 1, 6 do
     vim.keymap.set('n', lsh, rsh, { desc = "Move to window " .. i })
 end
 
--- lsp
-vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
-vim.keymap.set('n', "<leader>lr", ":LspRestart<CR>")
-
 -- golang
 vim.keymap.set('n', '<leader>ge', 'oif err != nil {\n\n}<left><up>\t')
