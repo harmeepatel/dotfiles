@@ -18,6 +18,10 @@ export VISUAL="$EDITOR"
 export ZDOTDIR=$HOME/.config/zsh
 
 # PATH
+
+# emacs
+export PATH="$HOME/.config/emacs/bin:$PATH"
+
 # homebrew
 export PATH="/usr/local/sbin:$PATH"
 

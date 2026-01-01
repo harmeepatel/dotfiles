@@ -1,20 +1,18 @@
 # custom-shader = ./shaders/glow-rgbsplit-twitchy.glsl
 # custom-shader-animation = true
 
-# theme = catppuccin-mocha
-background = 000000
+background = 141312
 
-font-size = 18
+# font-family = "Cascadia Mono"
+font-family = "Iosevka Nerd Font"
+font-size = 20
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
-adjust-cell-height = 2%
+adjust-cell-width = 4%
 
-background-opacity = 0.6
-background-blur-radius = 32
-
-unfocused-split-opacity = 0.3
-unfocused-split-fill = 141414
+unfocused-split-opacity = 0.1
+unfocused-split-fill = 080808
 
 scrollback-limit = 100_000_000
 
