@@ -50,7 +50,7 @@ pub fn main() !void {
         else if (std.mem.containsAtLeast(u8, key, 1, "?"))
             "%F{4}" // blue
         else
-            "%F{234}";
+            "%F{238}";
 
         if (status_iter.index != 1) {
             _ = try stdout.write(" ");
