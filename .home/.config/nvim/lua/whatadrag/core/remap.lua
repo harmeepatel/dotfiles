@@ -54,6 +54,3 @@ for i = 1, 6 do
     local rsh = i .. "<C-w>w"
     vim.keymap.set('n', lsh, rsh, { desc = "Move to window " .. i })
 end
-
--- golang
-vim.keymap.set('n', '<leader>ge', 'oif err != nil {\n\n}<left><up>\t')
