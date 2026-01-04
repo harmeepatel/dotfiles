@@ -28,3 +28,8 @@ macos-titlebar-style = "tabs"
 
 auto-update = download
 auto-update-channel = tip
+
+keybind = super+k=resize_split:up,30
+keybind = super+l=resize_split:right,30
+keybind = super+j=resize_split:down,30
+keybind = super+h=resize_split:left,30
