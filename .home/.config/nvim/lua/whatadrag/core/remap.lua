@@ -28,7 +28,7 @@ vim.keymap.set('x', "<leader>p", "\"_dP")
 -- window
 vim.keymap.set('n', "<leader>w", ":bd<CR>")
 -- quick fix list
-vim.keymap.set('n', "<leader>q", ":cclose")
+vim.keymap.set('n', "<leader>q", ":cclose<CR>")
 
 -- indent rehighlight
 -- vim.keymap.set('v', "<", ":<<CR><CMD>gv<CR>")
