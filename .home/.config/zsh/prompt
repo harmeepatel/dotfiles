@@ -1,7 +1,11 @@
 #!bin/bash
 
 function parse_git_branch() {
-    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/ (󰘬 \1)/p'
+    a=$(git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/\1/p')
+    if [[ "$a" == "(no branch)" ]]; then
+        a=""
+    fi
+    $a
 }
 
 function prev_ok() {
