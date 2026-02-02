@@ -1,7 +1,7 @@
 # custom-shader = ./shaders/glow-rgbsplit-twitchy.glsl
 # custom-shader-animation = true
 
-background = 141312
+background = "#141312"
 
 # font-family = "Cascadia Mono"
 font-family = "Iosevka Nerd Font"
@@ -19,7 +19,7 @@ scrollback-limit = 100_000_000
 maximize = true
 window-colorspace = display-p3
 
-cursor-invert-fg-bg = true
+# cursor-invert-fg-bg = true
 
 mouse-hide-while-typing = true
 
