@@ -8,9 +8,9 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 
         vim.schedule(function()
             require("nvim-ts-autotag").setup({
-                enable_close = true,
-                enable_rename = true,
-                enable_close_on_slash = true
+                -- enable_close = true,
+                -- enable_rename = true,
+                -- enable_close_on_slash = true
             })
         end)
     end

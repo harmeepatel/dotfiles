@@ -1,3 +1,11 @@
+-- hide statusline for telescope
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "TelescopePrompt",
+    callback = function()
+        vim.opt_local.statusline = ""
+    end,
+})
+
 vim.pack.add({
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim", build = "make" },

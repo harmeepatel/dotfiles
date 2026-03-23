@@ -37,22 +37,32 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
             })
         end)
 
+        local on_jump = function(diagnostic, bufnr)
+            if diagnostic then
+                vim.diagnostic.open_float(bufnr, {
+                    focus = false,
+                    border = "rounded",
+                    source = "if_many",
+                })
+            end
+        end
+
+
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(ev)
                 local opts = { buffer = ev.buf, silent = true }
                 local mappings = {
-                    { "gD",         vim.lsp.buf.declaration,                                  "Goto Declaration" },
-                    { "gd",         vim.lsp.buf.definition,                                   "Goto Definition" },
-                    { "gi",         vim.lsp.buf.implementation,                               "Goto Implementation" },
-                    { "gr",         vim.lsp.buf.references,                                   "Goto References" },
-                    { "<leader>gt", vim.lsp.buf.type_definition,                              "Goto Type Definition" },
-                    { "<leader>rn", vim.lsp.buf.rename,                                       "Rename variables and function names" },
-                    { "<leader>ca", vim.lsp.buf.code_action,                                  "LSP: Code Actions" },
-                    { "]d",         function() vim.diagnostic.goto_next() end,                "Goto Next Diagnostic" },
-                    { "[d",         function() vim.diagnostic.goto_prev() end,                "Goto Prev Diagnostic" },
-                    { "K",          function() vim.lsp.buf.hover({ border = "rounded" }) end, "Hover info" },
-                    { "<leader>=",  function() vim.lsp.buf.format({ async = true }) end,      "Format file" },
-                    { "<leader>lr", ":LspRestart<CR>",                                        "Restart LSP" },
+                    { "gD",         vim.lsp.buf.declaration,                                               "Goto Declaration" },
+                    { "gd",         vim.lsp.buf.definition,                                                "Goto Definition" },
+                    { "gi",         vim.lsp.buf.implementation,                                            "Goto Implementation" },
+                    { "gr",         vim.lsp.buf.references,                                                "Goto References" },
+                    { "<leader>gt", vim.lsp.buf.type_definition,                                           "Goto Type Definition" },
+                    { "<leader>rn", vim.lsp.buf.rename,                                                    "Rename variables and function names" },
+                    { "<leader>ca", vim.lsp.buf.code_action,                                               "LSP: Code Actions" },
+                    { "]d",         function() vim.diagnostic.jump({ count = 1, on_jump = on_jump }) end,  "Goto Next Diagnostic" },
+                    { "[d",         function() vim.diagnostic.jump({ count = -1, on_jump = on_jump }) end, "Goto Prev Diagnostic" },
+                    { "K",          function() vim.lsp.buf.hover({ border = "rounded" }) end,              "Hover info" },
+                    { "<leader>=",  function() vim.lsp.buf.format({ async = true }) end,                   "Format file" },
                 }
 
                 for _, map in ipairs(mappings) do
