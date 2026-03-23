@@ -1,4 +1,5 @@
 vim.g.mapleader = ' '
+vim.o.background = "dark"
 vim.g.netrw_banner = 0
 
 vim.o.syntax = "on"
@@ -25,7 +26,7 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.smartindent = true
 
 vim.o.wrap = false
-vim.o.textwidth = 99
+vim.o.textwidth = 100
 
 vim.o.incsearch = true
 

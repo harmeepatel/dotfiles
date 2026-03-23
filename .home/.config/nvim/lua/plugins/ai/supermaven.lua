@@ -1,0 +1,5 @@
+vim.keymap.set("n", "<leader>sm", function()
+    vim.pack.add({ { src = "https://github.com/supermaven-inc/supermaven-nvim" } })
+    require("supermaven-nvim").setup({})
+    vim.cmd("SupermavenToggle")
+end, { desc = "Toggle SuperMaven" })

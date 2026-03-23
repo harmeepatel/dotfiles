@@ -26,10 +26,22 @@ vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
+    desc = 'highlight templ files',
     pattern = '*.templ',
     callback = function()
         vim.cmd("TSBufEnable highlight")
     end,
+})
+-- }
+
+-- dioxus {
+vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+    desc = 'running dx fmt after save to format dioxus rsx',
+    group = WhatadragGroup,
+    pattern = { '*.rs' },
+    callback = function()
+        vim.cmd(":silent !dx fmt")
+    end
 })
 -- }
 
@@ -41,7 +53,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 -- }
 
 -- minify js {
-local utils = require("whatadrag.core.utils")
+local utils = require("core.utils")
 local MinifyJsGroup = 0;
 
 function StartMinJs()
