@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
+vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
     group = vim.g.group,
     once = true,
     callback = function()
@@ -36,8 +36,6 @@ vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
         })
 
         vim.api.nvim_create_autocmd("LspAttach", {
-            group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-
             callback = function(ev)
                 local opts = { buffer = ev.buf, silent = true }
                 local mappings = {

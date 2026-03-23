@@ -36,9 +36,13 @@ local opts = {
     },
 }
 
-
-return {
-    "lewis6991/gitsigns.nvim",
-    opts = opts,
-    event = { 'BufReadPre', 'BufNewFile' },
-}
+vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+    group = vim.g.group,
+    once = true,
+    callback = function()
+        vim.pack.add({
+            { src = "https://github.com/lewis6991/gitsigns.nvim" }
+        })
+        require("gitsigns").setup(opts)
+    end
+})

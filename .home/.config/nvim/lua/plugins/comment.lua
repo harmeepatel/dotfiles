@@ -1,4 +1,8 @@
-local opts = {
+vim.pack.add({
+    { src = "https://github.com/numToStr/Comment.nvim" },
+})
+
+require("comment").setup({
     padding = true,
     sticky = true,
     toggler = {
@@ -19,10 +23,4 @@ local opts = {
         extra = true,
         extended = false,
     },
-}
-
-return {
-    src="https://github.com/numToStr/Comment.nvim",
-    event = { 'BufReadPre', 'BufNewFile' },
-    opts = opts,
-}
+})

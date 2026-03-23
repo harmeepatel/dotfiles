@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
+vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
     group = vim.g.group,
     once = true,
     callback = function()

@@ -41,6 +41,7 @@ require("telescope").setup({
     }
 })
 
+local builtin = require('telescope.builtin')
 local cmdT = "<CMD>Telescope "
 
 vim.keymap.set('n', "<leader>sh", cmdT .. "help_tags<CR>", { desc = "[S]earch [H]elp" })
@@ -52,6 +53,26 @@ vim.keymap.set('n', "<leader>sd", cmdT .. "diagnostics<CR>", { desc = "[S]earch 
 vim.keymap.set('n', "<leader>sr", cmdT .. "resume<CR>", { desc = "[S]earch [R]esume" })
 vim.keymap.set('n', "<leader>s.", cmdT .. "oldfiles<CR>", { desc = "[S]earch Recent Files (\".\" for repeat)" })
 vim.keymap.set('n', "<leader><leader>", cmdT .. "buffers<CR>", { desc = "[ ] Find existing buffers" })
+
+vim.keymap.set('n', '<leader>sF', function()
+    builtin.lsp_dynamic_workspace_symbols({
+        symbols = { "Function", "Method" },
+        prompt_title = "Search Functions"
+    })
+end, { desc = "[S]earch [F]unctions" })
+vim.keymap.set('n', '<leader>sc', function()
+    builtin.lsp_dynamic_workspace_symbols({
+        symbols = { "Class" },
+        prompt_title = "Search Classes"
+    })
+end, { desc = "[S]earch [C]lasses" })
+vim.keymap.set('n', '<leader>sv', function()
+    builtin.lsp_dynamic_workspace_symbols({
+        symbols = { "Variable", "Constant" },
+        prompt_title = "Search Variables"
+    })
+end, { desc = "[S]earch [V]ariables" })
+
 vim.keymap.set('n', "<leader>so", function()
     require("telescope.builtin").live_grep { grep_open_files = true, prompt_title = "Live Grep in Open Files", }
 end, { desc = "[S]earch [/] in Open Files" })
