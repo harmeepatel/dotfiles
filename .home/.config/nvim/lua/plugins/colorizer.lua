@@ -1,7 +1,10 @@
-vim.opt.termguicolors = true
-return {
-    "brenoprata10/nvim-highlight-colors",
-    opts = {},
-    event = { "BufReadPre", "BufNewFile" },
-    lazy = true,
-}
+vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
+    group = vim.g.group,
+    once = true,
+    callback = function()
+        vim.opt.termguicolors = true
+        vim.pack.add({
+            { src = "https://github.com/brenoprata10/nvim-highlight-colors" },
+        })
+    end
+})
