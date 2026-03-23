@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     group = vim.g.group,
     once = true,
     callback = function()
@@ -10,30 +10,32 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
             { src = "https://github.com/neovim/nvim-lspconfig.git" },
         })
 
-        require("mason").setup()
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "bashls",
-                "clangd",
-                "cssls",
-                "gopls",
-                "html",
-                "jsonls",
-                "ltex",
-                "lua_ls",
-                "marksman",
-                "nginx_language_server",
-                "ols",
-                "pylsp",
-                "rust_analyzer",
-                "tailwindcss",
-                "taplo",
-                "templ",
-                "ts_ls",
-                "yamlls",
-                "zls",
-            },
-        })
+        vim.schedule(function()
+            require("mason").setup()
+            require("mason-lspconfig").setup({
+                ensure_installed = {
+                    "bashls",
+                    "clangd",
+                    "cssls",
+                    "gopls",
+                    "html",
+                    "jsonls",
+                    "ltex",
+                    "lua_ls",
+                    "marksman",
+                    "nginx_language_server",
+                    "ols",
+                    "pylsp",
+                    "rust_analyzer",
+                    "tailwindcss",
+                    "taplo",
+                    "templ",
+                    "ts_ls",
+                    "yamlls",
+                    "zls",
+                },
+            })
+        end)
 
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(ev)
@@ -127,7 +129,13 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
             init_options = { userLanguages = { templ = "html" } },
         }
         -- }
+    end
+})
 
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+    group = vim.g.group,
+    once = true,
+    callback = function()
         -- blink {
         vim.pack.add({
             { src = "https://github.com/moyiz/blink-emoji.nvim" },

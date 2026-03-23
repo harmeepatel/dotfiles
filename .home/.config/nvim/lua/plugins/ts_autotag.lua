@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
     group = vim.g.group,
     once = true,
     callback = function()
@@ -6,10 +6,12 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
             { src = "https://github.com/windwp/nvim-ts-autotag" }
         })
 
-        require("nvim-ts-autotag").setup({
-            enable_close = true,
-            enable_rename = true,
-            enable_close_on_slash = true
-        })
+        vim.schedule(function()
+            require("nvim-ts-autotag").setup({
+                enable_close = true,
+                enable_rename = true,
+                enable_close_on_slash = true
+            })
+        end)
     end
 })

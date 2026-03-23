@@ -32,7 +32,7 @@ local keys = {
 }
 
 
-vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
     group = vim.g.group,
     once = true,
     callback = function(ev)
@@ -45,5 +45,9 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
             opts.desc = map["desc"]
             vim.keymap.set("n", map[1], map[2], opts)
         end
+
+        vim.schedule(function()
+            require("trouble").setup({})
+        end)
     end
 })

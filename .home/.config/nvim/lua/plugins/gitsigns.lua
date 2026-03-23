@@ -36,13 +36,15 @@ local opts = {
     },
 }
 
-vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
     group = vim.g.group,
     once = true,
     callback = function()
         vim.pack.add({
             { src = "https://github.com/lewis6991/gitsigns.nvim" }
         })
-        require("gitsigns").setup(opts)
+        vim.schedule(function()
+            require("gitsigns").setup(opts)
+        end)
     end
 })

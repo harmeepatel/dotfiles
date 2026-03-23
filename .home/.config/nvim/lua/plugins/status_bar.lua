@@ -118,7 +118,7 @@ local opts = {
     },
 }
 
-vim.api.nvim_create_autocmd({ "WinEnter" }, {
+vim.api.nvim_create_autocmd({ "BufReadPre" }, {
     group = vim.g.group,
     once = true,
     callback = function()
