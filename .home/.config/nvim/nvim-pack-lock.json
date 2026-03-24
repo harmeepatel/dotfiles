@@ -21,6 +21,10 @@
       "rev": "a7788416689dbefea659d9e9415c87926b0ba5d8",
       "src": "https://github.com/catppuccin/nvim.git"
     },
+    "comment-banner.nvim": {
+      "rev": "b18a8af119ff6eee5741663b5db0c65a99dbffea",
+      "src": "https://github.com/nthnd/comment-banner.nvim"
+    },
     "completion": {
       "rev": "451168851e8e2466bc97ee3e026c3dcb9141ce07",
       "src": "https://github.com/saghen/blink.cmp",

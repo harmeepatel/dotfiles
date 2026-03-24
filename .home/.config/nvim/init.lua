@@ -2,7 +2,6 @@ vim.g.group = vim.api.nvim_create_augroup('UserLazyLoad', { clear = true })
 
 require("vim.diagnostic")
 
-
 require("core.set")
 require("core.remap")
 require("core.au")
@@ -20,6 +19,7 @@ require("plugins.treesitter")
 require("plugins.trouble")
 require("plugins.ts_autotag")
 require("plugins.undotree")
+require("plugins.banner_comment")
 require("plugins.ai.supermaven")
 
 -- vim.lsp.log.set_level("DEBUG")

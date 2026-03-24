@@ -125,12 +125,11 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 
         vim.lsp.config["rust_analyzer"] = {
             settings = {
-                ['rust-analyzer'] = {
+                ["rust-analyzer"] = {
                     diagnostics = {
-                        disabled = {
-                        },
+                        disabled = { "inactive-code" },
                     },
-                }
+                },
             },
         }
 

@@ -7,10 +7,11 @@ Statusline   = {}
 local colors = require("catppuccin.palettes.mocha")
 
 colors.white = "#ffffff"
+colors.green = "#44aa44"
 colors.error = "#ff7777"
 colors.warn  = "#fae366"
 colors.info  = "#5e94ff"
-colors.hint  = "#44aa44"
+colors.hint  = colors.mauve
 
 
 --- Attach a color to an display_item for the statusline
@@ -72,7 +73,7 @@ function Statusline.git()
 
     local items = {
         Statusline.format_sym_count("", git_info.head, "StatusLineGitHead", colors.blue),
-        Statusline.format_sym_count("", git_info.added, "StatusLineGitAdded", colors.hint),
+        Statusline.format_sym_count("", git_info.added, "StatusLineGitAdded", colors.green),
         Statusline.format_sym_count("", git_info.changed, "StatusLineGitChanged", colors.warn),
         Statusline.format_sym_count("", git_info.removed, "StatusLineGitRemoved", colors.error)
     }
