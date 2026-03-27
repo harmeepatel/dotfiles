@@ -24,14 +24,6 @@ vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
         vim.cmd(":silent !templ generate")
     end
 })
-
-vim.api.nvim_create_autocmd("BufEnter", {
-    desc = 'highlight templ files',
-    pattern = '*.templ',
-    callback = function()
-        vim.cmd("TSBufEnable highlight")
-    end,
-})
 -- }
 
 -- dioxus {
@@ -42,13 +34,6 @@ vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
     callback = function()
         vim.cmd(":silent !dx fmt")
     end
-})
--- }
-
--- BufEnter {
-vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = "*",
-    command = "setlocal formatoptions-=cro",
 })
 -- }
 

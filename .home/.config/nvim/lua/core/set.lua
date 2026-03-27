@@ -2,8 +2,6 @@ vim.g.mapleader = ' '
 vim.o.background = "dark"
 vim.g.netrw_banner = 0
 
-vim.o.syntax = "on"
-
 vim.o.nu = true
 vim.o.relativenumber = true
 
