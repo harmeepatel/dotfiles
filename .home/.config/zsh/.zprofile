@@ -19,6 +19,9 @@ export ZDOTDIR=$HOME/.config/zsh
 
 # PATH
 
+# nvim 
+export PATH="$HOME/Developer/tools/nvim-macos-x86_64/bin:$PATH"
+
 # emacs
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
