@@ -1,3 +1,5 @@
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "W", function()
     hs.alert.show("Hello World!")
 end)
+
+require('Spoons.focus_window_in_split')
