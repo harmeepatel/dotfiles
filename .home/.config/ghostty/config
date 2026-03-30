@@ -16,7 +16,8 @@ unfocused-split-fill = 080808
 
 scrollback-limit = 100_000_000
 
-maximize = true
+# maximize = true
+fullscreen = true
 window-colorspace = display-p3
 
 # cursor-invert-fg-bg = true
