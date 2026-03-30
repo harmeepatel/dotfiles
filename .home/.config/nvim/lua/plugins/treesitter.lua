@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd({ "BufReadPre" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     group = vim.g.group,
     once = true,
     callback = function()
@@ -29,7 +29,6 @@ vim.api.nvim_create_autocmd({ "BufReadPre" }, {
                 indent = { enable = true },
                 highlight = {
                     enable = true,
-                    additional_vim_regex_highlighting = false,
                 },
             }
             vim.treesitter.start()

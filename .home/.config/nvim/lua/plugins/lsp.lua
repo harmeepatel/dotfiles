@@ -77,6 +77,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
         vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {
+                    workspace = { checkThirdParty = false, library = vim.api.nvim_get_runtime_file("", true) },
                     diagnostics = {
                         globals = { "vim" } }
                 }
@@ -133,8 +134,8 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
         }
 
         vim.lsp.config["tailwindcss"] = {
-            filetypes = { "templ", "astro", "javascript", "typescript", "react" },
-            init_options = { userLanguages = { templ = "html" } },
+            filetypes = { "templ", "astro", "javascript", "typescript", "react", "rust" },
+            init_options = { userLanguages = { templ = "html", rust = "html", } },
         }
         -- }
     end

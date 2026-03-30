@@ -21,5 +21,6 @@ require("plugins.ts_autotag")
 require("plugins.undotree")
 require("plugins.banner_comment")
 require("plugins.ai.supermaven")
+require("plugins.indent_blankline")
 
 -- vim.lsp.log.set_level("DEBUG")
