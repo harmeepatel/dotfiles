@@ -1,7 +1,8 @@
 vim.opt.laststatus = 2
 local group        = vim.api.nvim_create_augroup("Statusline", { clear = true })
 
-Statusline         = {}
+local Statusline   = {}
+_G.Statusline      = Statusline
 
 -- mauve="#cba6f7", red="#f38ba8", maroon="#eba0ac", peach="#fab387", yellow="#f9e2af", green="#a6e3a1", sky="#89dceb", blue="#89b4fa",
 local colors       = require("catppuccin.palettes.mocha")
@@ -20,7 +21,7 @@ Section.__index = Section
 
 --- Constructor
 ---@param opts table { display_item, hl_name, bg, fg, bold, italic, dim }
-function Section:new(opts)
+function Section.new(self, opts)
     local obj = {
         display_item = opts.display_item or "",
         hl_name      = opts.hl_name or "StatusLineCustom",
@@ -36,7 +37,7 @@ end
 
 --- Attach a color to an display_item for the statusline
 ---@return string formatted statusline section
-function Section:attach_color()
+function Section.attach_color(self)
     if self.display_item == "" then
         return ""
     end
@@ -50,20 +51,6 @@ function Section:attach_color()
     })
 
     return "%#" .. self.hl_name .. "#" .. self.display_item .. "%*"
-end
-
---- Attach color to icon+count
---- @param icon string icon
---- @param count number count
---- @param hl_name string hl_name
---- @param color string color
---- @return string attach color to icon+count
-function Section:format_icon(icon, count, hl_name, color)
-    local fmt_icon = Section:new({ display_item = icon .. " " .. count, hl_name = hl_name, fg = color })
-    if count and count ~= 0 then
-        return fmt_icon:attach_color()
-    end
-    return ""
 end
 
 --}
@@ -92,7 +79,7 @@ end
 --- Attach color to icon+count
 --- @param dim boolean dim the git status
 --- @return string git_status formatted git status
-function Statusline.git(dim)
+function Statusline.git_status(dim)
     local git_info = vim.b.gitsigns_status_dict
     if not git_info or git_info.head == "" then return "" end
 
@@ -175,7 +162,7 @@ end
 
 --- Concat all the sections and return
 ---@return Section sections statusline formatted statusline
-function Statusline.generate_statusline(sections)
+function Statusline.gen_statusline(sections)
     local statusline = ""
     for _, section in ipairs(sections) do
         statusline = statusline .. section:attach_color()
@@ -192,10 +179,14 @@ Statusline.separator = Section:new({
 }):attach_color()
 
 function Statusline.active()
-    return Statusline.generate_statusline({
-        Section:new({ display_item = Statusline.mode()[1]:upper(), hl_name = "StatusLineMode", fg = Statusline.mode()[2] }),
-        Section:new({ display_item = "%f", hl_name = "StatusLineFile", fg = colors.sky, bold = true }),
-        Section:new({ display_item = Statusline.git(false), hl_name = "StatusLineGit", fg = colors.sky }),
+    return Statusline.gen_statusline({
+        Section:new({
+            display_item = Statusline.mode()[1]:upper(),
+            hl_name = "StatusLineMode",
+            fg = Statusline.mode()[2]
+        }),
+        Section:new({ display_item = "%f%{&modified ? ' [+]' : ''}", hl_name = "StatusLineFile", fg = colors.sky, bold = true }),
+        Section:new({ display_item = Statusline.git_status(false), hl_name = "StatusLineGit", fg = colors.sky }),
         Section:new({ display_item = Statusline.diagnostic(), hl_name = "StatusLineGit", fg = colors.sky }),
         Section:new({ display_item = "%=" }),
         Section:new({ display_item = "%l:%c", hl_name = "StatusLinePos", fg = colors.sky }),
@@ -204,9 +195,10 @@ function Statusline.active()
 end
 
 function Statusline.inactive()
-    return Statusline.generate_statusline({
+    return Statusline.gen_statusline({
         Section:new({ display_item = "%f", hl_name = "StatusLineFile", fg = colors.white, bold = true, dim = true }),
-        Section:new({ display_item = Statusline.git(true), hl_name = "StatusLineGit" }),
+        Section:new({ display_item = "%=" }),
+        Section:new({ display_item = Statusline.git_status(true), hl_name = "StatusLineGit" }),
     })
 end
 
