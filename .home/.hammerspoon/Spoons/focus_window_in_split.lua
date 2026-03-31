@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 local function getVisibleWindows()
     local winFilter = hs.window.filter.new():setCurrentSpace(true)
     return winFilter:getWindows()
