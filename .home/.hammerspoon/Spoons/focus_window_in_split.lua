@@ -26,5 +26,5 @@ local function focusRightWindow()
 end
 
 -- Keybindings
-hs.hotkey.bind({ "ctrl" }, "h", focusLeftWindow)
-hs.hotkey.bind({ "ctrl" }, "l", focusRightWindow)
+hs.hotkey.bind({ "ctrl", "cmd" }, "h", focusLeftWindow)
+hs.hotkey.bind({ "ctrl", "cmd" }, "l", focusRightWindow)
