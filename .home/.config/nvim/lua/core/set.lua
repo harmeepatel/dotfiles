@@ -5,7 +5,7 @@ vim.g.netrw_banner = 0
 vim.o.nu = true
 vim.o.relativenumber = true
 
-vim.opt.formatoptions = vim.api.nvim_get_option_value("formatoptions", {}):gsub("o", "")
+vim.opt.formatoptions:remove({ "o" })
 
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
