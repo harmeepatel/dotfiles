@@ -1,5 +1,13 @@
 local WhatadragGroup = vim.api.nvim_create_augroup('whatadrag', { clear = true })
 
+-- no new comment on "o"
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+        vim.opt_local.formatoptions:remove({ "o" })
+    end,
+})
+
 vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
     desc = 'Highlight when yanking (copying) text',
     group = WhatadragGroup,
