@@ -2,8 +2,8 @@ vim.g.mapleader = ' '
 vim.o.background = "dark"
 vim.g.netrw_banner = 0
 
-vim.o.nu = true
-vim.o.relativenumber = true
+vim.o.nu = false
+vim.o.relativenumber = false
 
 vim.opt.formatoptions:remove({ "o" })
 

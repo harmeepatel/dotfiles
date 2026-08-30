@@ -52,6 +52,11 @@ function StartMinJs()
             local curr_file = vim.api.nvim_buf_get_name(0)
             local extension = utils.Get_file_extension(curr_file)
             local file_name = utils.Get_file_name_without_extension(curr_file)
+
+            if curr_file:match("%.min%.js$") or curr_file:match("%.min%.ts$") then
+                return
+            end
+
             if string.gmatch(curr_file, ".min.js$") then
                 StopMinJs()
                 print("not minifying this")
@@ -69,8 +74,10 @@ end
 function StopMinJs()
     if MinifyJsGroup == 0 then
         print("Start Minifying with :lua StartMinJs()")
+        return
     end
     vim.api.nvim_del_augroup_by_id(MinifyJsGroup)
+    MinifyJsGroup = 0
 end
 
 -- }

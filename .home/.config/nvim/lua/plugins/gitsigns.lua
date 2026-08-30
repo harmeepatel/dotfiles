@@ -1,4 +1,8 @@
-local opts = {
+vim.pack.add({
+    { src = "https://github.com/lewis6991/gitsigns.nvim" }
+})
+
+require("gitsigns").setup({
     signs = {
         add = { text = '│' },
         change = { text = '│' },
@@ -34,17 +38,4 @@ local opts = {
         row = 0,
         col = 1
     },
-}
-
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-    group = vim.g.group,
-    once = true,
-    callback = function()
-        vim.pack.add({
-            { src = "https://github.com/lewis6991/gitsigns.nvim" }
-        })
-        vim.schedule(function()
-            require("gitsigns").setup(opts)
-        end)
-    end
 })
