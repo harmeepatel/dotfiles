@@ -4,15 +4,22 @@ local group        = vim.api.nvim_create_augroup("Statusline", { clear = true })
 local Statusline   = {}
 _G.Statusline      = Statusline
 
--- mauve="#cba6f7", red="#f38ba8", maroon="#eba0ac", peach="#fab387", yellow="#f9e2af", green="#a6e3a1", sky="#89dceb", blue="#89b4fa",
-local colors       = require("catppuccin.palettes.mocha")
-
-colors.white       = "#ffffff"
-colors.green       = "#44aa44"
-colors.error       = "#ff7777"
-colors.warn        = "#fae366"
-colors.info        = "#5e94ff"
-colors.hint        = colors.mauve
+-- status_line.lua
+local colors       = {
+    yellow = "#f9e2af",
+    mauve  = "#cba6f7",
+    sky    = "#89dceb",
+    peach  = "#fab387",
+    maroon = "#eba0ac",
+    red    = "#f38ba8",
+    blue   = "#89b4fa",
+    white  = "#ffffff",
+    green  = "#44aa44",
+    error  = "#ff7777",
+    warn   = "#fae366",
+    info   = "#5e94ff",
+    hint   = "#cba6f7",
+}
 
 
 -- {

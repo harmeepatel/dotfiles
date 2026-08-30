@@ -1,6 +1,3 @@
--- lua/plugins/treesitter.lua
-
--- 1. Ensure nvim-treesitter is on runtimepath synchronously at startup
 vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
@@ -15,20 +12,21 @@ local ensureInstalled = {
 
 require("nvim-treesitter").setup({})
 
-local alreadyInstalled = require("nvim-treesitter.config").get_installed()
-local parsersToInstall = vim.iter(ensureInstalled)
-    :filter(function(parser) return not vim.tbl_contains(alreadyInstalled, parser) end)
-    :totable()
+-- Schedule parser checks to background after startup complete
+vim.schedule(function()
+    local alreadyInstalled = require("nvim-treesitter.config").get_installed()
+    local parsersToInstall = vim.iter(ensureInstalled)
+        :filter(function(parser) return not vim.tbl_contains(alreadyInstalled, parser) end)
+        :totable()
 
-if #parsersToInstall > 0 then
-    require("nvim-treesitter").install(parsersToInstall):wait(300000)
-end
+    if #parsersToInstall > 0 then
+        require("nvim-treesitter").install(parsersToInstall)
+    end
+end)
 
 local function attach_treesitter(buf)
     if not vim.api.nvim_buf_is_valid(buf) then return end
-
     local ft = vim.bo[buf].filetype
-    -- Ignore empty filetypes or Telescope windows
     if ft == "" or ft:match("^Telescope") then return end
 
     pcall(vim.treesitter.start, buf)
@@ -37,7 +35,6 @@ local function attach_treesitter(buf)
     end)
 end
 
--- 2. Trigger on FileType AND BufWinEnter (catches Telescope window transitions)
 vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
     group = vim.g.group,
     callback = function(args)

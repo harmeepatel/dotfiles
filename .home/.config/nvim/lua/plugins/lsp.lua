@@ -1,20 +1,4 @@
-vim.pack.add({
-    { src = "https://github.com/mason-org/mason.nvim.git" },
-    { src = "https://github.com/mason-org/mason-lspconfig.nvim.git" },
-    { src = "https://github.com/neovim/nvim-lspconfig.git" },
-})
-
-local servers = {
-    "bashls", "clangd", "cssls", "gopls", "html", "jsonls",
-    "ltex", "lua_ls", "marksman", "nginx_language_server", "ols",
-    "pylsp", "rust_analyzer", "tailwindcss", "taplo", "templ",
-    "ts_ls", "yamlls", "zls",
-}
-
-require("mason").setup()
-require("mason-lspconfig").setup({
-    ensure_installed = servers,
-})
+vim.filetype.add({ extension = { templ = "templ" } })
 
 local on_jump = function(diagnostic, bufnr)
     if diagnostic then
@@ -50,152 +34,98 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
-vim.filetype.add({ extension = { templ = "templ" } })
+-- Defer Mason, LSP setup, and Blink completion until 64ms after launch
+vim.defer_fn(function()
+    vim.pack.add({
+        { src = "https://github.com/mason-org/mason.nvim.git" },
+        { src = "https://github.com/mason-org/mason-lspconfig.nvim.git" },
+        { src = "https://github.com/neovim/nvim-lspconfig.git" },
+        { src = "https://github.com/moyiz/blink-emoji.nvim" },
+        { src = "https://github.com/L3MON4D3/LuaSnip" },
+        { src = "https://github.com/saghen/blink.cmp",                  name = "completion", version = "v1.10.1", build = "cargo build --release" },
+    })
 
-vim.lsp.config("lua_ls", {
-    settings = {
-        Lua = {
-            workspace = { checkThirdParty = false, library = vim.api.nvim_get_runtime_file("", true) },
-            diagnostics = { globals = { "vim" } }
-        }
+    local servers = {
+        "bashls", "clangd", "cssls", "gopls", "html", "jsonls",
+        "ltex", "lua_ls", "marksman", "nginx_language_server", "ols",
+        "pylsp", "rust_analyzer", "tailwindcss", "taplo", "templ",
+        "ts_ls", "yamlls", "zls",
     }
-})
 
-vim.lsp.config("ltex", {
-    filetypes = { "bib", "gitcommit", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd", "context", "mail", "text" },
-    settings = {
-        ltex = {
-            enabled = { "bibtex", "gitcommit", "org", "tex", "restructuredtext", "rsweave", "latex", "quarto", "rmd", "context", "mail", "plaintext" }
-        }
-    },
-})
+    require("mason").setup()
+    require("mason-lspconfig").setup({ ensure_installed = servers })
 
-vim.lsp.config("clangd", {
-    cmd = { "clangd", "--fallback-style=webkit" }
-})
-
-vim.lsp.config("pylsp", {
-    settings = {
-        pylsp = {
-            plugins = {
-                pycodestyle = { ignore = { "W391" }, maxLineLength = 120 }
+    vim.lsp.config("lua_ls", {
+        settings = {
+            Lua = {
+                workspace = { checkThirdParty = false, library = vim.api.nvim_get_runtime_file("", true) },
+                diagnostics = { globals = { "vim" } }
             }
         }
-    }
-})
+    })
 
-vim.lsp.config("cssls", {
-    settings = { css = { lint = { unknownAtRules = "ignore" } } }
-})
-
-vim.lsp.config("rust_analyzer", {
-    settings = { ["rust-analyzer"] = { diagnostics = { disabled = { "inactive-code" } } } }
-})
-
-vim.lsp.config("tailwindcss", {
-    filetypes = { "templ", "astro", "javascript", "typescript", "react", "rust" },
-    init_options = { userLanguages = { templ = "html", rust = "html" } },
-})
-
--- enable all servers
-for _, server in ipairs(servers) do
-    vim.lsp.enable(server)
-end
-
--- blink completion
-vim.pack.add({
-    { src = "https://github.com/moyiz/blink-emoji.nvim" },
-    { src = "https://github.com/L3MON4D3/LuaSnip" },
-    { src = "https://github.com/saghen/blink.cmp",      name = "completion", version = "v1.10.1", build = "cargo build --release" },
-})
-
-local border_style = "rounded"
-require("blink.cmp").setup({
-    keymap = { preset = "default" },
-    appearance = {
-        nerd_font_variant = "mono"
-    },
-    completion = {
-        menu = { border = border_style },
-        documentation = {
-            window = { border = border_style },
-            auto_show = true,
+    vim.lsp.config("ltex", {
+        filetypes = { "bib", "gitcommit", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd", "context", "mail", "text" },
+        settings = {
+            ltex = {
+                enabled = { "bibtex", "gitcommit", "org", "tex", "restructuredtext", "rsweave", "latex", "quarto", "rmd", "context", "mail", "plaintext" }
+            }
         },
-    },
-    signature = { window = { border = "single" } },
-    sources = {
-        default = { "lsp", "path", "snippets", "buffer", "emoji" },
-        providers = {
-            lsp = {
-                name = "lsp",
-                enabled = true,
-                module = "blink.cmp.sources.lsp",
-                fallbacks = { "snippets", "buffer" },
-                score_offset = 90,
-            },
-            snippets = {
-                name = "snippets",
-                enabled = true,
-                max_items = 15,
-                min_keyword_length = 3,
-                module = "blink.cmp.sources.snippets",
-                score_offset = 85,
-            },
-            -- dadbod = {
-            --     name = "Dadbod",
-            --     module = "vim_dadbod_completion.blink",
-            --     min_keyword_length = 2,
-            --     score_offset = 85, -- the higher the number, the higher the priority
-            -- },
-            path = {
-                name = "Path",
-                module = "blink.cmp.sources.path",
-                fallbacks = { "snippets", "buffer" },
-                opts = {
-                    trailing_slash = false,
-                    label_trailing_slash = true,
-                    get_cwd = function(context)
-                        return vim.fn.expand(("#%d:p:h"):format(context.bufnr))
-                    end,
-                    show_hidden_files_by_default = true,
+    })
+
+    vim.lsp.config("clangd", { cmd = { "clangd", "--fallback-style=webkit" } })
+    vim.lsp.config("pylsp",
+        { settings = { pylsp = { plugins = { pycodestyle = { ignore = { "W391" }, maxLineLength = 120 } } } } })
+    vim.lsp.config("cssls", { settings = { css = { lint = { unknownAtRules = "ignore" } } } })
+    vim.lsp.config("rust_analyzer",
+        { settings = { ["rust-analyzer"] = { diagnostics = { disabled = { "inactive-code" } } } } })
+    vim.lsp.config("tailwindcss", {
+        filetypes = { "templ", "astro", "javascript", "typescript", "react", "rust" },
+        init_options = { userLanguages = { templ = "html", rust = "html" } },
+    })
+
+    for _, server in ipairs(servers) do
+        vim.lsp.enable(server)
+    end
+
+    local border_style = "rounded"
+    require("blink.cmp").setup({
+        keymap = { preset = "default" },
+        appearance = { nerd_font_variant = "mono" },
+        completion = {
+            menu = { border = border_style },
+            documentation = { window = { border = border_style }, auto_show = true },
+        },
+        signature = { window = { border = "single" } },
+        sources = {
+            default = { "lsp", "path", "snippets", "buffer", "emoji" },
+            providers = {
+                lsp = { name = "lsp", enabled = true, module = "blink.cmp.sources.lsp", fallbacks = { "snippets", "buffer" }, score_offset = 90 },
+                snippets = { name = "snippets", enabled = true, max_items = 15, min_keyword_length = 3, module = "blink.cmp.sources.snippets", score_offset = 85 },
+                path = {
+                    name = "Path",
+                    module = "blink.cmp.sources.path",
+                    fallbacks = { "snippets", "buffer" },
+                    opts = { trailing_slash = false, label_trailing_slash = true, show_hidden_files_by_default = true },
+                    score_offset = 35,
                 },
-                score_offset = 35,
-            },
-            buffer = {
-                name = "Buffer",
-                enabled = true,
-                max_items = 3,
-                module = "blink.cmp.sources.buffer",
-                min_keyword_length = 2,
-                score_offset = 25,
-            },
-            emoji = {
-                module = "blink-emoji",
-                name = "Emoji",
-                opts = {
-                    insert = true, -- Insert emoji (default) or complete its name
-                    ---@type string|table|fun():table
-                    trigger = function()
-                        return { ":" }
-                    end,
+                buffer = { name = "Buffer", enabled = true, max_items = 3, module = "blink.cmp.sources.buffer", min_keyword_length = 2, score_offset = 25 },
+                emoji = {
+                    module = "blink-emoji",
+                    name = "Emoji",
+                    opts = {
+                        insert = true,
+                        trigger = function()
+                            return {
+                                ":" }
+                        end
+                    },
+                    score_offset = 15
                 },
-                -- should_show_items = function()
-                --     return vim.tbl_contains(
-                --     -- Enable emoji completion only for git commits and markdown.
-                --     -- By default, enabled for all file-types.
-                --         { "gitcommit", "markdown" },
-                --         vim.o.filetype
-                --     )
-                -- end,
-                score_offset = 15, -- Tune by preference
             },
         },
-    },
-    cmdline = {
-        enabled = true,
-    },
-    fuzzy = { implementation = "prefer_rust_with_warning" },
-    snippets = {
-        preset = "luasnip", -- Choose LuaSnip as the snippet engine
-    }
-})
+        cmdline = { enabled = true },
+        fuzzy = { implementation = "prefer_rust_with_warning" },
+        snippets = { preset = "luasnip" }
+    })
+end, 64)

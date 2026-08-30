@@ -2,4 +2,11 @@ vim.opt.termguicolors = true
 vim.pack.add({
     { src = "https://github.com/brenoprata10/nvim-highlight-colors" },
 })
-require("nvim-highlight-colors").setup({})
+
+vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+    group = vim.g.group,
+    once = true,
+    callback = function()
+        require("nvim-highlight-colors").setup({})
+    end,
+})

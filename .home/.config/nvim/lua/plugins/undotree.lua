@@ -1,5 +1,7 @@
 vim.pack.add({
-    { src="https://github.com/jiaoshijie/undotree" }
+    { src = "https://github.com/jiaoshijie/undotree" }
 })
 
-vim.keymap.set("n", "<F3>", "<cmd>lua require('undotree').toggle()<cr>" )
+vim.keymap.set("n", "<F3>", function()
+    require('undotree').toggle()
+end, { desc = "Toggle Undotree" })

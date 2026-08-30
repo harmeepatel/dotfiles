@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 vim.g.group = vim.api.nvim_create_augroup('UserLazyLoad', { clear = true })
 
 require("vim.diagnostic")
