@@ -9,6 +9,12 @@ vim.api.nvim_create_autocmd("FileType", {
     group = vim.g.group,
     once = true,
     callback = function()
-        require('flutter-tools').setup {}
+        require('flutter-tools').setup({
+            lsp = {
+                settings = {
+                    lineLength = 128,
+                }
+            }
+        })
     end,
 })

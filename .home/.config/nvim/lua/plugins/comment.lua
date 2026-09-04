@@ -13,11 +13,11 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
             padding = true,
             sticky = true,
             toggler = {
-                line = "<leader>/",
+                line = "<D-/>",
                 block = "cb",
             },
             opleader = {
-                line = "<leader>/",
+                line = "<D-/>",
                 block = "cb",
             },
             extra = {

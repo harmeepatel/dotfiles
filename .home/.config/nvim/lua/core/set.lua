@@ -26,7 +26,7 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.smartindent = true
 
 vim.o.wrap = false
-vim.o.textwidth = 100
+vim.o.textwidth = 128
 
 vim.o.incsearch = true
 
